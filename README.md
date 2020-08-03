@@ -27,6 +27,10 @@
 21. realizar anotações interna das dúvidas, habilidades, e usuários sendo avaliados.
 22. simular algumas breves dúvidas em alguns assuntos para dar assuntos ao grupo ( apenas com algumas duvidas configuradas, sobre PHP, e comentários sobre inteligencia artificial. )
 
+criada usando a API ShellBot:
+
+[ShellSbot](https://github.com/shellscriptx/ShellBot)
+
 segue alguns exemplos, fluxogramas e pseudocódigo da mikosuma ( nem todos atualizados, fazemos evoluções diárias ):
 ## fluxograma de funcionamento resumido de algumas funções
 ![](mikosuma.png)
