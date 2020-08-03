@@ -29,7 +29,7 @@
 
 criada usando a API ShellBot:
 
-[ShellSbot](https://github.com/shellscriptx/ShellBot)
+[ShellBot](https://github.com/shellscriptx/ShellBot)
 
 segue alguns exemplos, fluxogramas e pseudocódigo da mikosuma ( nem todos atualizados, fazemos evoluções diárias ):
 ## fluxograma de funcionamento resumido de algumas funções
