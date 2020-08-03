@@ -1,3 +1,4 @@
+<img src="https://img.shields.io/liberapay/gives/fabriciocybershell.svg?logo=liberapay">
 # mikosuma
 
 **mikosuma** é um projeto de bot para telegram, capaz de gerenciar um grupo completo **apenas** pela linguagem natural, agindo como uma humana comum, capaz de realizar as seguntes coisas:
@@ -31,6 +32,8 @@ segue alguns exemplos, fluxogramas e pseudocódigo da mikosuma ( nem todos atual
 ## pseudocódigo
 permite a criação de roteiros de interação de forma fácil, sem a necessidade de saber muito para poder construir interações.
 ![](pseudomiko.png)
+
+<a href="https://liberapay.com/fabriciocybershell/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
 
 # depedências
 ´´´
