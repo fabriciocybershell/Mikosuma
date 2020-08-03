@@ -42,5 +42,5 @@ permite a criação de roteiros de interação de forma fácil, sem a necessidad
 
 # depedências
 ´´´
-jq, imagemagick, ffmpeg, python3, speech_recognition (python), curl, 
+jq, imagemagick, ffmpeg, python3, speech_recognition (python), curl. 
 ´´´
