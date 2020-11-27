@@ -57,7 +57,7 @@ permite a criação de roteiros de interação de forma fácil, sem a necessidad
 
 <a href="https://liberapay.com/fabriciocybershell/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
 
-# depedências
+# dependências
 ´´´
 jq, imagemagick, ffmpeg, python3, speech_recognition (python), curl, translate-shell.
 ´´´
