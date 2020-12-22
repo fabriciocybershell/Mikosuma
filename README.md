@@ -39,21 +39,14 @@
 ## nota:
 alguns bugs ainda persistem, que envolve bancos de dados e marcações de ações.
 
+execute o arquivo dir.sh para que ele crie os diretórios e arquivos suados pelo bot.
+
 um novo sistema esta em desenvolvimento, e haverá melhorias na forma de capiturar contextos com linguagem natural, e estou criando um container com todos os recursos necessários para rodar a duda (mikosuma), com as dependências de forma mais otimizada e menos trabalhosa o possível. o código será refatorado por completo e sofrerá mais otimizações radicais, possivelmente algumas coisas serão recriadas novamente (funções passadas que foram deletadas por inutilidade), e um novo "motor" de interação será criado para tornar ela mais humana e mais espontânea em chats, sem a necessidade constante de ativações e reações/mensagens/ações ou interações diretas. simulação de dúvidas e possivelmente um certo nível de aprendizado autônomo de palavras e interações novas, assim como o sistema de postagem de conteúdo autônomo, aualmente ele mantém apenas uma plataforma como padrão, mas ele permite a adição de várias outras, o estilo livre ainda não foi adotado pela taxa de erro em buscas e falsos positivos, e a confiabilidade de algumas plataformas.
 ## obs:
-use a duda por sua conta e rísco, fique sempre de olho no algoritmo em execussão. para o sistema de postagens ainda necessita de melhorias em relação a navegação e gerenciamento de pastas. pois o mesmo fica em um servidor remoto dedicado a downloads, linhas comentadas sobre a comunicação ssh com outro servidor estão no arquivo: torrentservice2.sh, onde ele é responsável pela busca do conteúdo online e categorização, filtragem e armazenamento de links de arquivos com amrcações, que se comunica com um servidor remoto para ativar outro algoritmo (analisareupar.sh), que é responsável pelo download, análise do arquivo (se é compactado, se tem várias pastas, os tipos de arquivos e as tags de tópico), e realiza limpeza após a postagem dos conteúdos no canal. lembrando que ele ainda necesista que seja arrumado na hierarquia de pastas, mas serve para estudos. a hierarquia de pastas que você deve criar dentro da pasta do bot é:
-´´´baixado > zzanalisar > perigo´´´
+use a duda por sua conta e rísco, fique sempre de olho no algoritmo em execussão. para o sistema de postagens ainda necessita de melhorias em relação a navegação e gerenciamento de pastas. pois o mesmo fica em um servidor remoto dedicado a downloads, linhas comentadas sobre a comunicação ssh com outro servidor estão no arquivo: torrentservice2.sh, onde ele é responsável pela busca do conteúdo online e categorização, filtragem e armazenamento de links de arquivos com amrcações, que se comunica com um servidor remoto para ativar outro algoritmo (analisareupar.sh), que é responsável pelo download, análise do arquivo (se é compactado, se tem várias pastas, os tipos de arquivos e as tags de tópico), e realiza limpeza após a postagem dos conteúdos no canal. lembrando que ele ainda necesista que seja arrumado na hierarquia de pastas, mas serve para estudos.
+
 onde ela deveria realizar as operações em um servidor remoto, e fiz uma adaptação para unificar em um mesmo ecosistema os rês bots. a duda, o de busca, categorização e comunicação, e o de download, análise, postagem e limpeza.
 para ajudar com as melhorias e evoluções (se considerar este projeto útil), me ajude com uma doação, é um projeto que estou desenvolvendo sozinho, com algumas coisas confusas e outras bem feitas e organizadas. pois bem, aproveite :D
-
-## a parte abaixo esta desatualizada
-
-segue alguns exemplos, fluxogramas e pseudocódigo da mikosuma ( nem todos atualizados, fazemos evoluções diárias ):
-## fluxograma de funcionamento resumido de algumas funções
-![](mikosuma.png)
-## pseudocódigo
-permite a criação de roteiros de interação de forma fácil, sem a necessidade de saber muito para poder construir interações.
-![](pseudomiko.png)
 
 <a href="https://liberapay.com/fabriciocybershell/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
 
@@ -61,4 +54,5 @@ permite a criação de roteiros de interação de forma fácil, sem a necessidad
 ´´´
 jq, imagemagick, ffmpeg, python3, speech_recognition (python), curl, translate-shell.
 ´´´
+
 

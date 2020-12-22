@@ -12,23 +12,23 @@ cat postagens.lil > lista_de_processos.lil
 
 }
 
-# processar arquivo secundario, LINHA A LINHA
 for linha in $(cat lista_de_processos.lil);do
 
-#conexão remota por ssh no servidor dedicado de donwloads torrents
-#sshpass -p <senha> ssh <nome@ip> "cd .config/transmission/torrents ; rm -rf *"
-#sshpass -p <senha> ssh <nome@ip> "cd .config/transmission/resume ; rm -rf *"
-#sshpass -p <senha> ssh <nome@ip> "cd .config/transmission/blocklist ; rm -rf *"
-#sshpass -p <senha> ssh <nome@ip> "cd .. ; cd .. ; cd .config ; cd transmission ; rm -rf *"
-#sshpass -p <senha> ssh <nome@ip> "cd Downloads ; rm -rf *"
+#sshpass -p 447050 ssh pi@192.168.1.106 "cd .config/transmission/torrents ; rm -rf *"
+#sshpass -p 447050 ssh pi@192.168.1.106 "cd .config/transmission/resume ; rm -rf *"
+#sshpass -p 447050 ssh pi@192.168.1.106 "cd .config/transmission/blocklist ; rm -rf *"
+#sshpass -p 447050 ssh pi@192.168.1.106 "cd .. ; cd .. ; cd .config ; cd transmission ; rm -rf *"
+#sshpass -p 447050 ssh pi@192.168.1.106 "cd Downloads ; rm -rf *"
 
 #verificar a quantidade de vezes que tal tag foi chamada
 
 tag=$(cat hashtags.lil | sort | uniq -c | fgrep "#$linha" | tr -d " " | cut -d "#" -f1)
 
 #gravar pedidos no banco de dados:
-
+#[[ $tag ]] && {
 echo "#$linha" >> hashtags.lil
+#}
+echo "$linha" > atual.txt
 
 echo "######### LENDO: $linha > #$tag"
 
@@ -39,8 +39,11 @@ echo "######### LENDO: $linha > #$tag"
 	#filtrar os links salvos da página da variável anterior, acessar, e salvar os dados do link
 	echo $pagina | tr " " "\n" | egrep -o '("/torrent).*"' | tr -d '"' > topico/$linha.links
 	link=$(curl "https://1337x.to$(cat topico/$linha.links | head -n1)" | egrep -o '(magnet).*announce' | head -n1)
+	#link=$(echo $pagina | tr " " "\n" | egrep -o '(magnet).*announce' | head -n1)
 	echo "LINK: $link"
 }
+
+#echo $link | lynx -stdin -dump | fgrep "magnet" | head -n1 | cut -d '.' -f2- | tr -d " "
 
 [[ $tag ]] && {
 	echo "CONTEÚDO EXISTENTE"
@@ -74,85 +77,38 @@ echo "######### LENDO: $linha > #$tag"
 
 [[ "$link" ]] && {
 	baixado=1
-	#sshpass -p <senha> ssh <nome@ip> "echo '$linha' > topico.txt"
+	#sshpass -p 447050 ssh pi@192.168.1.106 "echo '$linha' > topico.txt"
 	echo "$linha" > topico.txt
 	#ps -C transmission > /dev/null
 	#[[ "$?" = "0" ]] || link=""
-	#sshpass -p <senha> ssh <nome@ip> "tmpfile=\$(mktemp);chmod +x \$tmpfile ;echo -e 'killall transmission-cli;pkill transmission-cli' > \$tmpfile;transmission-cli -f \$tmpfile --encryption-required '$link'"
+	#sshpass -p 447050 ssh pi@192.168.1.106 "tmpfile=\$(mktemp);chmod +x \$tmpfile ;echo -e 'killall transmission-cli;pkill transmission-cli' > \$tmpfile;transmission-cli -f \$tmpfile --encryption-required '$link'"
 
 	tmpfile=$(mktemp)
 	chmod +x $tmpfile
 	echo -e 'pkill transmission\npkill transmission-cli' > $tmpfile
-	transmission-cli -f $tmpfile -w baixado/zzanalisar/perigo --encryption-required "$link"
-} #&
+	transmission-cli -f $tmpfile -w baixado/ --encryption-required "$link"
+}
 
-#[[ "$link" ]] && {
-	#baixado=$(sshpass -p <senha> ssh <nome@ip> 'ps -C transmission-cli > /dev/null ; echo $?')
-#ps -C transmission > /dev/null
-#[[ "$?" = "0" ]] || { 
-#sleep 5m
-#}
-#}
+[[ $link ]] && ./analisareupar.sh #sshpass -p 447050 ssh pi@192.168.1.106 './analisareupar.sh'
 
-#[[ "$link" ]] && {
-#baixado=$(sshpass -p <senha> ssh <nome@ip> 'ps -C transmission-cli > /dev/null ; echo $?')
-#ps -C transmission > /dev/null
-#[[ "$?" = "0" ]] || {
-#echo "AINDA RESPONDENDO: 5m" 
-#sleep 5m
-#}
-#}
-
-#[[ "$link" ]] && {
-#baixado=$(sshpass -p <senha> ssh <nome@ip> 'ps -C transmission-cli > /dev/null ; echo $?')
-#ps -C transmission > /dev/null
-#[[ "$?" = "0" ]] || {
-#echo "AINDA RESPONDENDO: 10m" 
-#sleep 5m
-#}
-#}
-
-#[[ "$link" ]] && {
-#baixado=$(sshpass -p <senha> ssh <nome@ip> 'ps -C transmission-cli > /dev/null ; echo $?')
-#ps -C transmission > /dev/null
-#[[ "$?" = "0" ]] || {
-#echo "AINDA RESPONDENDO: 15m" 
-#sleep 5m
-#}
-#}
-
-#[[ $link ]] && {
-#baixado=$(sshpass -p <senha> ssh <nome@ip> 'ps -C transmission-cli > /dev/null ; echo $?')
-#ps -C transmission > /dev/null
-#[[ "$?" = "0" ]] || {
-#echo "AINDA RESPONDENDO: 20m" 
-#sleep 5m
-#}
-#}
-
-#[[ $link ]] && {
-#baixado=$(sshpass -p <senha> ssh <nome@ip> 'ps -C transmission-cli > /dev/null ; echo $?')
-#ps -C transmission > /dev/null
-#[[ "$?" = "0" ]] || {
-#echo "AINDA RESPONDENDO: 25m" 
-#sleep 5m
-#}
-#}
-
-[[ $link ]] && ./analisareupar.sh #sshpass -p <senha> ssh <nome@ip> './analisareupar.sh'
-
-#[[ $link ]] && #sshpass -p <senha> ssh <nome@ip> "cd .config/transmission/torrents ; rm -rf *"
-#[[ $link ]] && #sshpass -p <senha> ssh <nome@ip> "cd Downloads ; rm -rf *"
-#[[ $link ]] && #sshpass -p <senha> ssh <nome@ip> "cd .config/transmission/torrents ; rm -rf *"
-#[[ $link ]] && #sshpass -p <senha> ssh <nome@ip> "cd .config/transmission/resume ; rm -rf *"
-#[[ $link ]] && #sshpass -p <senha> ssh <nome@ip> "cd .config/transmission/blocklist ; rm -rf *"
-#[[ $link ]] && #sshpass -p <senha> ssh <nome@ip> "cd .. ; cd .. ; cd .config ; cd transmission ; rm -rf *"
-#[[ $link ]] && #sshpass -p <senha> ssh <nome@ip> "cd Downloads ; rm -rf *"
+#[[ $link ]] && #sshpass -p 447050 ssh pi@192.168.1.106 "cd .config/transmission/torrents ; rm -rf *"
+#[[ $link ]] && #sshpass -p 447050 ssh pi@192.168.1.106 "cd Downloads ; rm -rf *"
+#[[ $link ]] && #sshpass -p 447050 ssh pi@192.168.1.106 "cd .config/transmission/torrents ; rm -rf *"
+#[[ $link ]] && #sshpass -p 447050 ssh pi@192.168.1.106 "cd .config/transmission/resume ; rm -rf *"
+#[[ $link ]] && #sshpass -p 447050 ssh pi@192.168.1.106 "cd .config/transmission/blocklist ; rm -rf *"
+#[[ $link ]] && #sshpass -p 447050 ssh pi@192.168.1.106 "cd .. ; cd .. ; cd .config ; cd transmission ; rm -rf *"
+#[[ $link ]] && #sshpass -p 447050 ssh pi@192.168.1.106 "cd Downloads ; rm -rf *"
 
 echo 'PROCESSO FINALIZADO ...'
 
 done < lista_de_processos.lil
 
+cd baixado
+sudo rm -rf *
+cd ..
+
 echo "LISTA TERMINADA"
 
-echo "" > lista_de_processos.lil
+
+
+> lista_de_processos.lil

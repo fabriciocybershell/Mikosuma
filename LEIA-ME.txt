@@ -1,0 +1,4 @@
+execute o algoritmo "dir.sh" para criar os diretórios que o bot irá precisar usar antes de iniciar o bot;
+dê o comando chmod +x no arquivo miko.sh "a bot", e insira a chave token do telegram no algoritmo em "TOKEN-AQUI";
+o bot precisa iniciar com sudo atualmente, pois foi a forma como encontrei para ele poder utilizar meu plugin de mysql, se você souber criar perfis para uso do mysql sem necessitar de sudo para rodar os algoritmos, recomendo que o faça "ainda estou iniciando nos estudos sobre mysql".
+não se esqueça de instalar as dependências descritas no README.md

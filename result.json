@@ -1,0 +1,5235 @@
+{
+ "name": "Acervo Estude Programação",
+ "type": "public_channel",
+ "id": 9767245784,
+ "messages": [
+  {
+   "id": 1,
+   "type": "service",
+   "date": "2017-12-19T23:58:12",
+   "actor": "Acervo Estude Programação",
+   "actor_id": 9767245784,
+   "action": "create_channel",
+   "title": "Acervo Estude Python",
+   "text": ""
+  },
+  {
+   "id": 2,
+   "type": "message",
+   "date": "2017-12-20T00:03:31",
+   "edited": "2017-12-20T00:20:16",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.apostila Python.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Python_Escreva_seus_primeiros_programas"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "type": "message",
+   "date": "2017-12-20T00:03:35",
+   "edited": "2017-12-20T00:20:47",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.ApostilaPython.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Mini_apostila_de_Python_Oficina_de_Vestibulandos"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "type": "message",
+   "date": "2017-12-20T00:04:09",
+   "edited": "2017-12-20T00:19:02",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.AprendaComputao Com Python 3.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Aprenda_Computação_com_Python_3"
+    },
+    ".0"
+   ]
+  },
+  {
+   "id": 5,
+   "type": "message",
+   "date": "2017-12-20T00:04:32",
+   "edited": "2017-12-20T00:28:53",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.AprendaProgramarPython.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Aprenda_a_programar_Python"
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "type": "message",
+   "date": "2017-12-20T00:04:47",
+   "edited": "2017-12-20T00:21:23",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Curso de Python.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Curso_de_Python"
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "type": "message",
+   "date": "2017-12-20T00:05:01",
+   "edited": "2017-12-20T00:23:48",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Introdução a Python - Modulo A.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Introdução_a_Python_Modulo_A"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 8,
+   "type": "message",
+   "date": "2017-12-20T00:05:16",
+   "edited": "2017-12-20T00:24:06",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Introdução a Python - Modulo B.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Introdução_a_Python_Modulo_B"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 9,
+   "type": "message",
+   "date": "2017-12-20T00:05:30",
+   "edited": "2017-12-20T00:24:21",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Introdução a Python - Modulo C.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Introdução_a_Python_Modulo_C"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 10,
+   "type": "message",
+   "date": "2017-12-20T00:05:34",
+   "edited": "2017-12-20T00:30:24",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Lista 3 - P1.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Lista_de_Exercícios"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 11,
+   "type": "message",
+   "date": "2017-12-20T00:05:44",
+   "edited": "2017-12-20T00:31:54",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Programando em Python - Arquivos.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Programando_Em_Python_Arquivos"
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "type": "message",
+   "date": "2017-12-20T00:05:51",
+   "edited": "2017-12-20T00:32:18",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Programando em Python - Classes.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Programando_Em_Python_Classes"
+    }
+   ]
+  },
+  {
+   "id": 13,
+   "type": "message",
+   "date": "2017-12-20T00:05:59",
+   "edited": "2017-12-20T00:32:50",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Programando em Python - Conjuntos.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Programando_Em_Python_Conjuntos"
+    }
+   ]
+  },
+  {
+   "id": 14,
+   "type": "message",
+   "date": "2017-12-20T00:06:05",
+   "edited": "2017-12-20T00:33:16",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Programando em Python - Dicionarios.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Programando_Em_Python_Dicionarios"
+    }
+   ]
+  },
+  {
+   "id": 15,
+   "type": "message",
+   "date": "2017-12-20T00:06:12",
+   "edited": "2017-12-20T00:33:44",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Programando em Python - Excecoes.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Programando_Em_Python_Ezcecoes"
+    }
+   ]
+  },
+  {
+   "id": 16,
+   "type": "message",
+   "date": "2017-12-20T00:06:37",
+   "edited": "2017-12-20T00:34:35",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Programando em Python - Funcoes.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Programando_Em_Python_Funcoes"
+    }
+   ]
+  },
+  {
+   "id": 17,
+   "type": "message",
+   "date": "2017-12-20T00:06:39",
+   "edited": "2017-12-20T00:35:29",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Programando em Python - Introducao.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Programando_Em_Python_Introducao"
+    }
+   ]
+  },
+  {
+   "id": 18,
+   "type": "message",
+   "date": "2017-12-20T00:06:50",
+   "edited": "2017-12-20T00:35:59",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Programando em Python - Listas.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Programando_Em_Python_Listas"
+    }
+   ]
+  },
+  {
+   "id": 19,
+   "type": "message",
+   "date": "2017-12-20T00:07:02",
+   "edited": "2017-12-20T00:37:07",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Programando em Python - Modulos.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Programando_Em_Python_Modulos"
+    }
+   ]
+  },
+  {
+   "id": 20,
+   "type": "message",
+   "date": "2017-12-20T00:07:08",
+   "edited": "2017-12-20T00:38:48",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Programando em Python - Recursao.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Programando_Em_Python_Recursao"
+    }
+   ]
+  },
+  {
+   "id": 21,
+   "type": "message",
+   "date": "2017-12-20T00:07:12",
+   "edited": "2017-12-20T00:39:43",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Programando em Python - Sistemas de Numeracao.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Programando_Em_Python_Sistemas_de_Numeração"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 22,
+   "type": "message",
+   "date": "2017-12-20T00:07:16",
+   "edited": "2017-12-20T00:41:07",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Programando em Python - Tipos Basicos.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Programando_Em_Python_Tipos_Basicos"
+    }
+   ]
+  },
+  {
+   "id": 23,
+   "type": "message",
+   "date": "2017-12-20T00:07:23",
+   "edited": "2017-12-20T00:41:27",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Programando em Python - Tuplas e Strings.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Programando_Em_Python_Tuplas"
+    }
+   ]
+  },
+  {
+   "id": 24,
+   "type": "message",
+   "date": "2017-12-20T00:07:33",
+   "edited": "2017-12-20T00:45:45",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.Python_Basico_final.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Python_Basico"
+    }
+   ]
+  },
+  {
+   "id": 25,
+   "type": "message",
+   "date": "2017-12-20T00:07:38",
+   "edited": "2017-12-20T00:47:00",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1.tut_python_2k100127.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Introdução_a_Python"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 26,
+   "type": "message",
+   "date": "2017-12-20T00:07:49",
+   "edited": "2017-12-20T00:47:40",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/A Byte of Python-1.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#A_byte_of_Python"
+    }
+   ]
+  },
+  {
+   "id": 28,
+   "type": "message",
+   "date": "2017-12-20T00:08:31",
+   "edited": "2017-12-20T00:49:07",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Apostila_MATLAB.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Apostila_Matlab"
+    }
+   ]
+  },
+  {
+   "id": 29,
+   "type": "message",
+   "date": "2017-12-20T00:08:55",
+   "edited": "2017-12-20T00:51:14",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/apresentacao.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Introdução_a_linguagem_Python"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 30,
+   "type": "message",
+   "date": "2017-12-20T00:08:58",
+   "edited": "2017-12-20T00:53:43",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/aula07.threads.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Threads"
+    }
+   ]
+  },
+  {
+   "id": 31,
+   "type": "message",
+   "date": "2017-12-20T00:09:07",
+   "edited": "2017-12-20T00:54:35",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/bc1518-so-threads_v1.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Threads"
+    }
+   ]
+  },
+  {
+   "id": 32,
+   "type": "message",
+   "date": "2017-12-20T00:11:09",
+   "edited": "2017-12-20T00:55:57",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Beginning Game Development with Python and Pygame.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Beginning_Game_Development_with_Python_and_Pygame"
+    }
+   ]
+  },
+  {
+   "id": 33,
+   "type": "service",
+   "date": "2017-12-20T00:18:18",
+   "actor": "Acervo Estude Programação",
+   "actor_id": 9767245784,
+   "action": "edit_group_photo",
+   "photo": "(File not included. Change data exporting settings to download.)",
+   "width": 640,
+   "height": 640,
+   "text": ""
+  },
+  {
+   "id": 36,
+   "type": "message",
+   "date": "2017-12-20T00:25:49",
+   "edited": "2017-12-20T00:57:10",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Exercicios Python.doc",
+   "mime_type": "application/msword",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Exercícios_Python"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 37,
+   "type": "message",
+   "date": "2017-12-20T00:26:01",
+   "edited": "2017-12-20T00:59:18",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Funcionalidades_da_Linguagem_Python.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Funcionalidades_da_Linguagem_Python_para_Programacao_Distribuıda"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 38,
+   "type": "message",
+   "date": "2017-12-20T00:33:20",
+   "edited": "2017-12-20T01:00:00",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Fundamentals Of Python Programming.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Fundamentals_of_Python"
+    }
+   ]
+  },
+  {
+   "id": 39,
+   "type": "message",
+   "date": "2017-12-20T00:33:47",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "text": [
+    {
+     "type": "link",
+     "text": "https://t.me/acervopr1v8/224"
+    },
+    "\n\n\n",
+    {
+     "type": "hashtag",
+     "text": "#acervopr1v8"
+    },
+    "\n\nAí também tem muitos arquivos, vídeos....👆"
+   ]
+  },
+  {
+   "id": 40,
+   "type": "message",
+   "date": "2017-12-20T00:37:11",
+   "edited": "2017-12-20T00:57:52",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/fluent-python.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Fluent_Python"
+    }
+   ]
+  },
+  {
+   "id": 41,
+   "type": "message",
+   "date": "2017-12-20T00:38:33",
+   "edited": "2017-12-20T01:01:23",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Introdução à Programação com PYTHON.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Introdução_à_Programação_com_Python"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 42,
+   "type": "message",
+   "date": "2017-12-20T00:41:23",
+   "edited": "2017-12-20T01:00:32",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/inteligência artificial.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Inteligência_Artificial"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 43,
+   "type": "message",
+   "date": "2017-12-20T00:42:54",
+   "edited": "2017-12-20T01:03:11",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Livro python_para_desenvolvedores_1ed.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Python_para_desenvolvedores"
+    }
+   ]
+  },
+  {
+   "id": 44,
+   "type": "message",
+   "date": "2017-12-20T00:43:18",
+   "edited": "2017-12-20T01:04:05",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Nilo Menezes - Python Assíncrono.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Python_Assíncrono"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 45,
+   "type": "message",
+   "date": "2017-12-20T00:45:29",
+   "edited": "2017-12-20T01:04:39",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/PenseEmPython2e.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Pense_em_Python"
+    }
+   ]
+  },
+  {
+   "id": 46,
+   "type": "message",
+   "date": "2017-12-20T00:48:14",
+   "edited": "2017-12-20T01:02:13",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/kivy-pt_br-excript.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Kivy_Documentação"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 47,
+   "type": "message",
+   "date": "2017-12-20T00:49:05",
+   "edited": "2017-12-20T01:05:08",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/ppqsp-t4a6.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Python_para_quem_sabe_Python"
+    }
+   ]
+  },
+  {
+   "id": 48,
+   "type": "message",
+   "date": "2017-12-20T00:50:11",
+   "edited": "2017-12-20T01:06:34",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Programando em Python - Interfaces Graficas com Tk.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Programando_em_Python_Tkinter"
+    }
+   ]
+  },
+  {
+   "id": 49,
+   "type": "message",
+   "date": "2017-12-20T00:54:49",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#canalalternativo"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#python"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#curso"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Facebook"
+    },
+    "\n\n",
+    {
+     "type": "link",
+     "text": "https://www.facebook.com/deepwebbrasiloficial/videos/949700345205154/"
+    }
+   ]
+  },
+  {
+   "id": 50,
+   "type": "message",
+   "date": "2017-12-20T00:57:08",
+   "edited": "2017-12-20T01:03:35",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Mark Lutz - Learning Python, 5th Edition - 2013.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Learning_Python"
+    }
+   ]
+  },
+  {
+   "id": 51,
+   "type": "message",
+   "date": "2017-12-20T01:00:34",
+   "edited": "2017-12-20T01:08:14",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Python - Explorando a Informacao.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Python_para_Informatica"
+    }
+   ]
+  },
+  {
+   "id": 52,
+   "type": "message",
+   "date": "2017-12-20T01:01:18",
+   "edited": "2017-12-20T01:07:36",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Programming_in_Python_3__A_Complete.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Programming_in_Python_3"
+    }
+   ]
+  },
+  {
+   "id": 53,
+   "type": "message",
+   "date": "2017-12-20T01:02:45",
+   "edited": "2017-12-20T01:09:31",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Python para Informática.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Python_para_Informática"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 54,
+   "type": "message",
+   "date": "2017-12-20T01:03:16",
+   "edited": "2017-12-20T01:08:55",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Python e Introdução ao Pygame.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Introdução_ao_Pygame"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 55,
+   "type": "message",
+   "date": "2017-12-20T01:03:37",
+   "edited": "2017-12-20T01:05:32",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Programacao-Aprendendo-Python.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Aprendendo_Python"
+    }
+   ]
+  },
+  {
+   "id": 56,
+   "type": "message",
+   "date": "2017-12-20T01:04:14",
+   "edited": "2017-12-20T01:10:05",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Python para todos.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Python_para_Todos"
+    }
+   ]
+  },
+  {
+   "id": 57,
+   "type": "message",
+   "date": "2017-12-20T01:08:43",
+   "edited": "2017-12-20T01:12:27",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/python_para_desenvolvedores_2ed.pdf(1).pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Python_Decoradores"
+    }
+   ]
+  },
+  {
+   "id": 58,
+   "type": "message",
+   "date": "2017-12-20T01:08:46",
+   "edited": "2017-12-20T01:11:30",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/python_para_desenvolvedores_2ed.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Python_para_Desenvolvedores"
+    }
+   ]
+  },
+  {
+   "id": 59,
+   "type": "message",
+   "date": "2017-12-20T01:08:50",
+   "edited": "2017-12-20T01:10:40",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Python_Programming_on_Win32__Help.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Python_Programming_on_Win32"
+    }
+   ]
+  },
+  {
+   "id": 60,
+   "type": "message",
+   "date": "2017-12-20T01:09:04",
+   "edited": "2017-12-20T01:13:08",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Python.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Curso_Python"
+    }
+   ]
+  },
+  {
+   "id": 61,
+   "type": "message",
+   "date": "2017-12-20T01:09:06",
+   "edited": "2017-12-20T01:14:33",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/PyThreads-Tutorial-on-Threads-Programming-with-Python.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Threads_com_Python"
+    }
+   ]
+  },
+  {
+   "id": 62,
+   "type": "message",
+   "date": "2017-12-20T01:09:19",
+   "edited": "2017-12-20T01:15:35",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Socket-Basico.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Socket_Basico"
+    }
+   ]
+  },
+  {
+   "id": 63,
+   "type": "message",
+   "date": "2017-12-20T01:09:39",
+   "edited": "2017-12-20T01:15:14",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Reeborg.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Exercícios"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 64,
+   "type": "message",
+   "date": "2017-12-20T01:09:47",
+   "edited": "2017-12-20T01:16:35",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/teaching-lp-20162-seminario-python.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Python"
+    }
+   ]
+  },
+  {
+   "id": 65,
+   "type": "message",
+   "date": "2017-12-20T01:10:22",
+   "edited": "2017-12-20T01:14:04",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/python3_tutorial.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Python3_Basic_Tutorial"
+    }
+   ]
+  },
+  {
+   "id": 66,
+   "type": "message",
+   "date": "2017-12-20T01:10:43",
+   "edited": "2017-12-20T01:20:29",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/tutorialpython.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Tutorial_Python"
+    }
+   ]
+  },
+  {
+   "id": 67,
+   "type": "message",
+   "date": "2017-12-20T01:10:48",
+   "edited": "2017-12-20T01:18:33",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Think Python traduzido.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Aprenda_Computação_com_Python_Documentation"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 69,
+   "type": "message",
+   "date": "2017-12-20T01:16:05",
+   "edited": "2017-12-20T01:17:39",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Teste de Invasao.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Teste_de_Invasão"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 70,
+   "type": "message",
+   "date": "2017-12-20T01:17:35",
+   "edited": "2017-12-20T01:20:02",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Use a Cabeça - Programando usando a linguagem Phyton.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Usa_a_Cabeça_Programação"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 71,
+   "type": "message",
+   "date": "2017-12-20T01:21:15",
+   "edited": "2017-12-20T09:47:03",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/SQL Server I.7z",
+   "mime_type": "application/x-7z-compressed",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#SQLServer1"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Alura"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Video"
+    }
+   ]
+  },
+  {
+   "id": 72,
+   "type": "message",
+   "date": "2017-12-20T10:19:00",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "text": [
+    {
+     "type": "link",
+     "text": "https://mega.nz/#!G0xhBSpA!ACdW0wBnDO6pozd0ktbW1wAZkOkAQQXaqa_7x5K49Iw"
+    },
+    "\n\n\n",
+    {
+     "type": "hashtag",
+     "text": "#Python"
+    },
+    " \n",
+    {
+     "type": "hashtag",
+     "text": "#Alura"
+    }
+   ]
+  },
+  {
+   "id": 73,
+   "type": "message",
+   "date": "2017-12-20T10:32:51",
+   "edited": "2017-12-20T10:33:15",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Tutorial Sl4a.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Tutorial_SL4A"
+    }
+   ]
+  },
+  {
+   "id": 74,
+   "type": "message",
+   "date": "2017-12-20T10:32:56",
+   "edited": "2017-12-20T10:33:29",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Black Hat Python English.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Black_Hat_com_Python"
+    }
+   ]
+  },
+  {
+   "id": 75,
+   "type": "message",
+   "date": "2017-12-20T10:32:57",
+   "edited": "2017-12-20T10:33:40",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/300 Ideias para Programar.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#300_ideias_para_programar"
+    }
+   ]
+  },
+  {
+   "id": 76,
+   "type": "message",
+   "date": "2017-12-20T10:47:22",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Use a Cabeça - Javascript -.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 77,
+   "type": "message",
+   "date": "2017-12-20T10:53:48",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 78,
+   "type": "message",
+   "date": "2017-12-20T10:55:36",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Use a Cabeça - SQL.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 79,
+   "type": "message",
+   "date": "2017-12-20T10:57:15",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Use a cabeça - jsp & servlets.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 80,
+   "type": "message",
+   "date": "2017-12-20T11:00:36",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Use a Cabeça - Rails.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 81,
+   "type": "service",
+   "date": "2017-12-20T11:03:12",
+   "actor": "Acervo Estude Programação",
+   "actor_id": 9767245784,
+   "action": "edit_group_title",
+   "title": "Acervo Estude Programação",
+   "text": ""
+  },
+  {
+   "id": 82,
+   "type": "message",
+   "date": "2017-12-20T11:05:06",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Use a Cabeca - Java.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 83,
+   "type": "service",
+   "date": "2017-12-20T11:08:23",
+   "actor": "Acervo Estude Programação",
+   "actor_id": 9767245784,
+   "action": "edit_group_photo",
+   "photo": "(File not included. Change data exporting settings to download.)",
+   "width": 640,
+   "height": 640,
+   "text": ""
+  },
+  {
+   "id": 84,
+   "type": "message",
+   "date": "2017-12-20T11:10:49",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 85,
+   "type": "message",
+   "date": "2017-12-20T11:14:08",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Use a Cabeça - C#.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 86,
+   "type": "message",
+   "date": "2017-12-20T11:17:17",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Use a Cabeça - Padrões de Projetos.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 87,
+   "type": "message",
+   "date": "2017-12-20T11:17:21",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/JPA_Eficaz_As_melhores_praticas.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 88,
+   "type": "message",
+   "date": "2017-12-20T11:17:27",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Vire o jogo com Spring Framework.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 89,
+   "type": "message",
+   "date": "2017-12-20T11:17:29",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Testes Automatizados de software - Um guia prático.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 90,
+   "type": "message",
+   "date": "2017-12-20T11:17:33",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Caixa_de_Ferramentas_DevOps_Um_guia.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 91,
+   "type": "message",
+   "date": "2017-12-20T11:17:36",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/O_Mantra_da_Produtividade_Aprimore.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 92,
+   "type": "message",
+   "date": "2017-12-20T11:17:39",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/eXtreme_Programming_Práticas_para.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 93,
+   "type": "message",
+   "date": "2017-12-20T11:17:40",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/RSpec - Crie especificacoes executaveis em Ruby.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 94,
+   "type": "message",
+   "date": "2017-12-20T11:17:48",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Aplicações Java para a Web Com JDF e JPA .pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 95,
+   "type": "message",
+   "date": "2017-12-20T11:17:51",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Java_EE_Aproveite_toda_a_plataforma.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 96,
+   "type": "message",
+   "date": "2017-12-20T11:17:55",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Scala - Como escalar sua produtividade.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 97,
+   "type": "message",
+   "date": "2017-12-20T11:18:04",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Desenvolvimento_web_com_PHP_e_MySQL.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 98,
+   "type": "message",
+   "date": "2017-12-20T11:18:14",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/MongoDB Construa novas aplicações com novas tecnologias.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 99,
+   "type": "message",
+   "date": "2017-12-20T11:18:16",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/MundoJ Segurança com Java.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 100,
+   "type": "message",
+   "date": "2017-12-20T11:18:19",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/DevOps_Na_prática_Entrega_de_software.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 101,
+   "type": "message",
+   "date": "2017-12-20T11:18:29",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Começando com Linux - Comandos, serviços e administração.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 102,
+   "type": "message",
+   "date": "2017-12-20T11:18:32",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Test_Driven_Development_Teste_e.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 103,
+   "type": "message",
+   "date": "2017-12-20T11:18:40",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/NoSQL - Como armazenar os dados de uma aplicação moderna.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 104,
+   "type": "message",
+   "date": "2017-12-20T11:18:42",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Scrum 360 Um guia completo e prático de agilidade.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 105,
+   "type": "message",
+   "date": "2017-12-20T11:18:46",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/SQL - Uma abordagem para bancos de dados Oracle.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 106,
+   "type": "message",
+   "date": "2017-12-20T11:18:49",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Introdução_à_programação_em_C_Os.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 107,
+   "type": "message",
+   "date": "2017-12-20T11:19:13",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Edicao e organizacao de fotos com Adobe Lightroom.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 108,
+   "type": "message",
+   "date": "2017-12-20T11:19:20",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/SQL Server II.7z",
+   "mime_type": "application/x-7z-compressed",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#SQLServer2"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Alura"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Video"
+    }
+   ]
+  },
+  {
+   "id": 109,
+   "type": "message",
+   "date": "2017-12-20T11:19:32",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Criando_aplicações_para_o_seu_Windows.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 110,
+   "type": "message",
+   "date": "2017-12-20T11:19:40",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Web_Design_Responsivo_Páginas_adaptáveis.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 112,
+   "type": "message",
+   "date": "2017-12-20T11:19:54",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Direto ao ponto - Criando aplicacoes de forma enxuta.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 113,
+   "type": "message",
+   "date": "2017-12-20T11:19:57",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Python - Escreva seus primeiros programas.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 114,
+   "type": "message",
+   "date": "2017-12-20T11:20:14",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Refatorando com padroes de projeto - Um guia em ruby.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 115,
+   "type": "message",
+   "date": "2017-12-20T11:20:30",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Containers com Docker do Desenvolvimento a Producao.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 116,
+   "type": "message",
+   "date": "2017-12-20T11:20:35",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Turbine seu CSS - folhas de estilo inteligentes com Sass.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 117,
+   "type": "message",
+   "date": "2017-12-20T11:20:47",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Design_Patterns_com_Java_Projeto.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 118,
+   "type": "message",
+   "date": "2017-12-20T11:20:52",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/CodeIgniter_Produtividade_na_criação.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 119,
+   "type": "message",
+   "date": "2017-12-20T11:20:57",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Meteor - Criando aplicações web real-time com JavaScript.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 120,
+   "type": "message",
+   "date": "2017-12-20T11:21:02",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Test_Driven_Development_Teste_e (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 121,
+   "type": "message",
+   "date": "2017-12-20T11:21:08",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/JavaFX - Interfaces com qualidade para aplicacoes desktop.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 122,
+   "type": "message",
+   "date": "2017-12-20T11:21:11",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Cucumber_e_RSpec_Construa_aplicações.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 123,
+   "type": "message",
+   "date": "2017-12-20T11:21:17",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Desenvolvimento_de_Jogos_para_Android.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 124,
+   "type": "message",
+   "date": "2017-12-20T11:21:26",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Play Framework - Java para web sem servlets e com diversao.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 125,
+   "type": "message",
+   "date": "2017-12-20T11:21:37",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/A Web Mobile - Programe para um Mundo de Muitos Dispositivos.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 126,
+   "type": "message",
+   "date": "2017-12-20T11:21:42",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/CDI Integre as Dependencias E Contextos do Seu Codigo Java.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 127,
+   "type": "message",
+   "date": "2017-12-20T11:21:50",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Arduino - Guia para colocar suas ideias em pratica.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 128,
+   "type": "message",
+   "date": "2017-12-20T11:22:09",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Xamarin_Forms_Desenvolvimento_de.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 129,
+   "type": "message",
+   "date": "2017-12-20T11:22:13",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Controlando versões com Git e GitHub.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 130,
+   "type": "message",
+   "date": "2017-12-20T11:22:20",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Mean_Full_stack_JavaScript_para.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 131,
+   "type": "message",
+   "date": "2017-12-20T11:22:30",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Desbravando_Java_e_Orientação_a.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 132,
+   "type": "message",
+   "date": "2017-12-20T11:22:33",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Desenvolva jogos com HTML5 Canvas e JavaScript .pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 133,
+   "type": "message",
+   "date": "2017-12-20T11:22:37",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Orientacao_a_Objetos_Aprenda_Seus.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 134,
+   "type": "message",
+   "date": "2017-12-20T11:22:50",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Desenvolvimento efetivo na plataforma Microsoft .pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 135,
+   "type": "message",
+   "date": "2017-12-20T11:22:58",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Windows_Server_2012_R2_Estudo_dirigido.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 136,
+   "type": "message",
+   "date": "2017-12-20T11:23:02",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Agile_Desenvolvimento_de_Software.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 137,
+   "type": "message",
+   "date": "2017-12-20T11:23:08",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/SEO Prático Seu site na primeira página das buscas.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 138,
+   "type": "message",
+   "date": "2017-12-20T11:23:30",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/A_Lógica_do_Jogo_Recriando_Clássicos.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 139,
+   "type": "message",
+   "date": "2017-12-20T11:23:35",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Guia do Mestre Programador.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 140,
+   "type": "message",
+   "date": "2017-12-20T11:23:49",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/PostgreSQL - Banco de dados para aplicações web modernas.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 141,
+   "type": "message",
+   "date": "2017-12-20T11:24:04",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Entrega_contínua_em_Android_Como.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 142,
+   "type": "message",
+   "date": "2017-12-20T11:24:09",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Swift Programe para iPhone e iPad.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 143,
+   "type": "message",
+   "date": "2017-12-20T11:24:20",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Guia_da_Startup_Como_startups_e.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 144,
+   "type": "message",
+   "date": "2017-12-20T11:24:23",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Ruby - Aprenda a programar na linguagem mais divertida.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 145,
+   "type": "message",
+   "date": "2017-12-20T11:24:32",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Economia_do_acesso_e_os_modelos.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 146,
+   "type": "message",
+   "date": "2017-12-20T11:24:39",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Gestão_de_produtos_Como_aumentar.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 147,
+   "type": "message",
+   "date": "2017-12-20T11:24:40",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Java_8_Pratico_Lambdas_Streams_e.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 148,
+   "type": "message",
+   "date": "2017-12-20T11:24:42",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/MundoJ - Orientação a Objetos.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 149,
+   "type": "message",
+   "date": "2017-12-20T11:24:54",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Elasticsearch consumindo dados real time com ELK.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 150,
+   "type": "message",
+   "date": "2017-12-20T11:24:57",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Seguranca em aplicacoes Web.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 151,
+   "type": "message",
+   "date": "2017-12-20T11:25:05",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Jogos em HTML5 Explore o mobile e física.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 152,
+   "type": "message",
+   "date": "2017-12-20T11:25:07",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Armazenando dados com Redis - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 153,
+   "type": "message",
+   "date": "2017-12-20T11:25:13",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Explorando_APIs_e_bibliotecas_Java.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 154,
+   "type": "message",
+   "date": "2017-12-20T11:25:25",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Aplicações mobile híbridas com Cordova e PhoneGap.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 155,
+   "type": "message",
+   "date": "2017-12-20T11:25:26",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Spring MVC Domine o principal framework web Java.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 156,
+   "type": "message",
+   "date": "2017-12-20T11:25:32",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Introdução à Arquitetura e Design de Software.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 157,
+   "type": "message",
+   "date": "2017-12-20T11:25:33",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Test_Driven_Development_Teste_e (2).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 158,
+   "type": "message",
+   "date": "2017-12-20T11:25:49",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Arduino_prático_10_projetos_para.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 159,
+   "type": "message",
+   "date": "2017-12-20T11:26:02",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Jenkins -  Automatize tudo sem complicacoes.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 160,
+   "type": "message",
+   "date": "2017-12-20T11:26:05",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/ABAP - O guia de Sobrevivencia do Profissional Moderno.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 161,
+   "type": "message",
+   "date": "2017-12-20T11:26:09",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Ocaml - Programação funcional na prática.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 162,
+   "type": "message",
+   "date": "2017-12-20T11:26:24",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/A jornada do empreendedor - O heroi da nossa Era.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 163,
+   "type": "message",
+   "date": "2017-12-20T11:26:37",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Scrum Gestão ágil para projetos de sucesso.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 164,
+   "type": "message",
+   "date": "2017-12-20T11:26:53",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Conhecendo o Adobe Photoshop CS6 .pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 165,
+   "type": "message",
+   "date": "2017-12-20T11:27:02",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Octave - Seus primeiros passos na programacao cientifica.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 166,
+   "type": "message",
+   "date": "2017-12-20T11:27:04",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/O_Programador_Apaixonado_Construindo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 167,
+   "type": "message",
+   "date": "2017-12-20T11:27:13",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Desenvolvimento web com ASP.NET MVC - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 168,
+   "type": "message",
+   "date": "2017-12-20T11:27:19",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Microsoft_Kinect_Crie_aplicações.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 169,
+   "type": "message",
+   "date": "2017-12-20T11:27:26",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Desenvolvimento web com PHP e MySQL - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 170,
+   "type": "message",
+   "date": "2017-12-20T11:27:40",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/iReport Crie relatorios praticos e elegantes.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 171,
+   "type": "message",
+   "date": "2017-12-20T11:27:56",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Construindo APIs REST com Node.js.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 172,
+   "type": "message",
+   "date": "2017-12-20T11:28:00",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/PLSQL - Domine a linguagem do banco de dados Oracle.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 173,
+   "type": "message",
+   "date": "2017-12-20T11:28:03",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Desenvolvimento de Jogos para iOS.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 174,
+   "type": "message",
+   "date": "2017-12-20T11:28:18",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Web Services REST com ASP .NET Web API e Windows Azure.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 175,
+   "type": "message",
+   "date": "2017-12-20T11:28:42",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Logica_de_programacao_Crie_seus.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 176,
+   "type": "message",
+   "date": "2017-12-20T11:28:49",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Guia_Front_End_O_caminho_das_pedras.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 177,
+   "type": "message",
+   "date": "2017-12-20T11:29:00",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Java_SE_8_Programmer_I_O_guia_para.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 178,
+   "type": "message",
+   "date": "2017-12-20T11:29:10",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/HTML5 e CSS3 - Domine a web do futuro.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 179,
+   "type": "message",
+   "date": "2017-12-20T11:29:15",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/O Canivete suíço do desenvolvedor Node.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 180,
+   "type": "message",
+   "date": "2017-12-20T11:29:17",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Orientação_a_Objetos_e_SOLID_para.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 181,
+   "type": "message",
+   "date": "2017-12-20T11:29:24",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/MySQL_Comece_com_o_principal_banco.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 182,
+   "type": "message",
+   "date": "2017-12-20T11:29:31",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Fragmentos_de_um_programador_Artigos.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 183,
+   "type": "message",
+   "date": "2017-12-20T11:29:37",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Protractor - Lições sobre testes end-to-end automatizados .pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 184,
+   "type": "message",
+   "date": "2017-12-20T11:29:45",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Java_SE_7_Programmer_I_O_guia_para.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 185,
+   "type": "message",
+   "date": "2017-12-20T11:29:56",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/ECMAScript 6 - Entre de cabeça no futuro do JavaScript.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 186,
+   "type": "message",
+   "date": "2017-12-20T11:29:58",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Jogos Android - Crie um game do zero usando classes nativas.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 187,
+   "type": "message",
+   "date": "2017-12-20T11:30:00",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/MundoJ - Java efetivo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 188,
+   "type": "message",
+   "date": "2017-12-20T11:30:03",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Test-Driven Development - Teste e Design no Mundo Real.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 189,
+   "type": "message",
+   "date": "2017-12-20T11:30:06",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Rest - Construa APIs inteligentes de maneira simples.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 190,
+   "type": "message",
+   "date": "2017-12-20T11:30:09",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Vraptor - Desenvolvimento Agil para web com Java.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 191,
+   "type": "message",
+   "date": "2017-12-20T11:30:12",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Componentes Reutilizaveis em Java Com Reflexoes e Anotacoes.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 192,
+   "type": "message",
+   "date": "2017-12-20T11:30:16",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/jQuery_Mobile_Desenvolva_interfaces.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 193,
+   "type": "message",
+   "date": "2017-12-20T11:30:21",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Node.js - Aplicações web real-tome com Node.js.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 194,
+   "type": "message",
+   "date": "2017-12-20T11:30:27",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/PHP_e_Laravel_Crie_aplicações_web.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 195,
+   "type": "message",
+   "date": "2017-12-20T11:30:33",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Falando_de_Grails_Altíssima_produtividade.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 196,
+   "type": "message",
+   "date": "2017-12-20T11:30:41",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Criando aplicações para o seu Windows Phone.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 197,
+   "type": "message",
+   "date": "2017-12-20T11:30:49",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Introdução e boas práticas em UX Design.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 198,
+   "type": "message",
+   "date": "2017-12-20T11:30:55",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Dominando JavaScript Com Jquery .pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 199,
+   "type": "message",
+   "date": "2017-12-20T11:31:04",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Asp_Net_Mvc5_Crie_Aplicações_Web.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 200,
+   "type": "message",
+   "date": "2017-12-20T11:31:11",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Java e Orientações a Objetos.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 201,
+   "type": "message",
+   "date": "2017-12-20T11:31:17",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Google App Engine - Construindo Servicos na Nuvem.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 202,
+   "type": "message",
+   "date": "2017-12-20T11:31:24",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Google Android - crie aplicações para celulares e tablets.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 203,
+   "type": "message",
+   "date": "2017-12-20T11:31:32",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Introdução à Computação - Da Lógica aos jogos com Ruby.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 204,
+   "type": "message",
+   "date": "2017-12-20T11:31:42",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/CSS Eficiente.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 205,
+   "type": "message",
+   "date": "2017-12-20T11:31:51",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/SOA aplicado - Integrando com web services e além.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 206,
+   "type": "message",
+   "date": "2017-12-20T11:32:00",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/iOS Programe para iPhone e iPad.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 207,
+   "type": "message",
+   "date": "2017-12-20T11:32:09",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Ruby on Rails - coloque sua aplicacao web nos trilhos.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 208,
+   "type": "message",
+   "date": "2017-12-20T11:32:18",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Coletanea_Front_End_Uma_Antologia.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 209,
+   "type": "message",
+   "date": "2017-12-20T11:32:33",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Sass - Aprendendo pré-processadores CSS.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 210,
+   "type": "message",
+   "date": "2017-12-20T11:32:53",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Azure - Coloque suas plataformas e servicos no cloud.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 211,
+   "type": "message",
+   "date": "2017-12-20T11:33:10",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Amazon AWS - Descomplicando a computacao na nuvem.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 212,
+   "type": "message",
+   "date": "2017-12-20T11:33:28",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Zend_Certified_Engineer_Descomplicando.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 213,
+   "type": "message",
+   "date": "2017-12-20T11:33:47",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Desconstruindo_a_Web_As_tecnologias.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 214,
+   "type": "message",
+   "date": "2017-12-20T11:34:13",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/C# e Visual Studio - Desenvolvimento de aplicacoes desktop.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 215,
+   "type": "message",
+   "date": "2017-12-20T11:34:44",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Business_Intelligence_Implementar.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 216,
+   "type": "message",
+   "date": "2017-12-20T11:35:12",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/LEAN_ENTERPRISE_Como_empresas_de.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 217,
+   "type": "message",
+   "date": "2017-12-20T11:36:27",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Programando_em_Go_Crie_aplicações.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 218,
+   "type": "message",
+   "date": "2017-12-20T11:36:53",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Desenvolvimento.de.Aplicativos.Android.para.Leigos.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 219,
+   "type": "message",
+   "date": "2017-12-20T11:36:55",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/pythonoo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 220,
+   "type": "message",
+   "date": "2017-12-20T11:37:04",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/python_para_desenvolvedores_2ed (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 221,
+   "type": "message",
+   "date": "2017-12-20T11:37:06",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/PT_Kali_Linux.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 222,
+   "type": "message",
+   "date": "2017-12-20T11:37:08",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/seguranca_da_informacao_excerto.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 223,
+   "type": "message",
+   "date": "2017-12-20T11:37:10",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/sousa-americo-persuasao-0.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 224,
+   "type": "message",
+   "date": "2017-12-20T11:37:24",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Hacking for Dummies.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 226,
+   "type": "message",
+   "date": "2017-12-20T11:37:33",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Web_Design_Responsivo_Páginas_adaptáveis (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 227,
+   "type": "message",
+   "date": "2017-12-20T11:37:35",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Vraptor_Desenvolvimento_Agil_para.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 228,
+   "type": "message",
+   "date": "2017-12-20T11:37:39",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Vire o jogo com spring framework - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 229,
+   "type": "message",
+   "date": "2017-12-20T11:37:44",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Dominando JavaScript Com Jquery - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 230,
+   "type": "message",
+   "date": "2017-12-20T11:37:50",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Aplicacoes web real time com Node-js - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 231,
+   "type": "message",
+   "date": "2017-12-20T11:37:53",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Desenvolvimento de Jogos para iOS - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 232,
+   "type": "message",
+   "date": "2017-12-20T11:37:58",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Desenvolvimento_de_Jogos_para_Android (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 233,
+   "type": "message",
+   "date": "2017-12-20T11:38:07",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/SOA_aplicado_Integrando_com_web.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 234,
+   "type": "message",
+   "date": "2017-12-20T11:38:15",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Google_Android_crie_aplicações_para.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 235,
+   "type": "message",
+   "date": "2017-12-20T11:38:23",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/html5 e css3 domine a web do futuro - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 236,
+   "type": "message",
+   "date": "2017-12-20T11:38:29",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Criando_aplicações_para_o_seu_Windows (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 237,
+   "type": "message",
+   "date": "2017-12-20T11:38:31",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Java_8_Pratico_Lambdas_Streams_e (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 238,
+   "type": "message",
+   "date": "2017-12-20T11:38:34",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/JavaFX_Interfaces_com_qualidade.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 239,
+   "type": "message",
+   "date": "2017-12-20T11:38:40",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/JSF_Eficaz_As_melhores_práticas.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 240,
+   "type": "message",
+   "date": "2017-12-20T11:38:48",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/A_Web_Mobile_Programe_para_um_Mundo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 241,
+   "type": "message",
+   "date": "2017-12-20T11:38:51",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Componentes_Reutilizaveis_em_Java.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 242,
+   "type": "message",
+   "date": "2017-12-20T11:38:59",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Design_Patterns_com_Java_Projeto (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 243,
+   "type": "message",
+   "date": "2017-12-20T11:39:09",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/aplicacoes-mobile-hibridas-com-cordova-e-phonegap.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 244,
+   "type": "message",
+   "date": "2017-12-20T11:39:43",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Black Hat Python Para Hackers e Pentesters.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 245,
+   "type": "message",
+   "date": "2017-12-20T11:39:44",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Introdução_ao_Metasploit.rtf.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 246,
+   "type": "message",
+   "date": "2017-12-20T11:39:45",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Jogos_Android_Crie_um_game_do_zero.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 247,
+   "type": "message",
+   "date": "2017-12-20T11:39:46",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/sousa-americo-persuasao-0 (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 248,
+   "type": "message",
+   "date": "2017-12-20T11:39:48",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/laravel5essencial_623d7dc6f843db95b7d8778371dda9c1.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 249,
+   "type": "message",
+   "date": "2017-12-20T11:39:50",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Testes_automatizados_de_software.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 250,
+   "type": "message",
+   "date": "2017-12-20T11:39:52",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/CSS_Eficiente_Técnicas_e_ferramentas.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 251,
+   "type": "message",
+   "date": "2017-12-20T11:39:54",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/MySQL_Comece_com_o_principal_banco (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 252,
+   "type": "message",
+   "date": "2017-12-20T11:39:55",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/MundoJ - Java efetivo - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 253,
+   "type": "message",
+   "date": "2017-12-20T11:39:58",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/eXtreme_programming_Praticas_para.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 254,
+   "type": "message",
+   "date": "2017-12-20T11:40:00",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/MundoJ - Orientação a Objetos - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 255,
+   "type": "message",
+   "date": "2017-12-20T11:41:02",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/(LIVRO) Engenharia Software Pressman PT.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 256,
+   "type": "message",
+   "date": "2017-12-20T11:41:13",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/22_O_Programador_Apaixonado_Construindo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 257,
+   "type": "message",
+   "date": "2017-12-20T11:41:16",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Agile_Desenvolvimento_de_software.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 258,
+   "type": "message",
+   "date": "2017-12-20T11:41:19",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Agile_Desenvolvimento_de_Software (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 259,
+   "type": "message",
+   "date": "2017-12-20T11:41:27",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Aplicacoes Java para a Web Com JDF e JPA - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 260,
+   "type": "message",
+   "date": "2017-12-20T11:41:53",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/aprendendo-django-no-planeta-terra-volume1.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 261,
+   "type": "message",
+   "date": "2017-12-20T11:41:55",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Armazenando dados com Redis - Casa do Codigo(1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 262,
+   "type": "message",
+   "date": "2017-12-20T11:41:58",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Caixa_de_Ferramentas_DevOps_Um_guia (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 263,
+   "type": "message",
+   "date": "2017-12-20T11:42:01",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/CDI_Integre_as_Dependencias_E_Contextos.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 264,
+   "type": "message",
+   "date": "2017-12-20T11:42:09",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Começando_com_o_Linux_Comandos_.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 265,
+   "type": "message",
+   "date": "2017-12-20T11:42:12",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Cucumber_e_RSpec_Construa_aplicações (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 266,
+   "type": "message",
+   "date": "2017-12-20T11:42:15",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Desenvolva_jogos_com_HTML5_Canvas.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 267,
+   "type": "message",
+   "date": "2017-12-20T11:42:22",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Desenvolvimento web com ASP (1).NET MVC - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 268,
+   "type": "message",
+   "date": "2017-12-20T11:42:27",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Desenvolvimento web com PHP e MySQL - Casa do Codigo (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 269,
+   "type": "message",
+   "date": "2017-12-20T11:42:30",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/DevOps_na_prática_entrega_de_software.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 270,
+   "type": "message",
+   "date": "2017-12-20T11:42:37",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Direto_ao_Ponto_Criando_produtos.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 271,
+   "type": "message",
+   "date": "2017-12-20T11:43:34",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Engenharia de software - Ian Sommerville - 9. ed.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 272,
+   "type": "message",
+   "date": "2017-12-20T11:43:36",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Engenharia-de-Software---Fundamentos_-Métodos-e-Padrões.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 273,
+   "type": "message",
+   "date": "2017-12-20T11:43:40",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Explorando_APIs_e_bibliotecas_Java (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 274,
+   "type": "message",
+   "date": "2017-12-20T11:43:47",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/FJ-11 - Java e Orientação a Objetos.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 275,
+   "type": "message",
+   "date": "2017-12-20T11:43:54",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Guia_da_Startup_Como_startups_e (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 276,
+   "type": "message",
+   "date": "2017-12-20T11:43:57",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Hackeando Mentes by TheWest.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 277,
+   "type": "message",
+   "date": "2017-12-20T11:44:01",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Introdução_à_Arquitetura_e_Design.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 278,
+   "type": "message",
+   "date": "2017-12-20T11:44:03",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Introdução_à_programação_em_C_Os (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 279,
+   "type": "message",
+   "date": "2017-12-20T11:44:09",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Introdução_e_boas_práticas_em_UX.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 280,
+   "type": "message",
+   "date": "2017-12-20T11:44:19",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/iOS Programe para iPhone e iPad - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 281,
+   "type": "message",
+   "date": "2017-12-20T11:44:21",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Java_EE_Aproveite_toda_a_plataforma (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 282,
+   "type": "message",
+   "date": "2017-12-20T11:44:30",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Java_SE_7_Programmer_I_O_guia_para (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 283,
+   "type": "message",
+   "date": "2017-12-20T11:44:37",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Jogos em HTML5 Explore o mobile e física - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 284,
+   "type": "message",
+   "date": "2017-12-20T11:44:44",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/k19-k41 - Desenvolvimento Mobile com Android.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 285,
+   "type": "message",
+   "date": "2017-12-20T11:44:51",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Livro Vale do Silicio.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 286,
+   "type": "message",
+   "date": "2017-12-20T11:44:56",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Logica_de_programacao_Crie_seus (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 287,
+   "type": "message",
+   "date": "2017-12-20T11:45:00",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Mean_Full_stack_JavaScript_para (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 288,
+   "type": "message",
+   "date": "2017-12-20T11:45:05",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Meteor_Criando_aplicações_web_real.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 289,
+   "type": "message",
+   "date": "2017-12-20T11:45:10",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Microsoft_Kinect_Crie_aplicações (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 290,
+   "type": "message",
+   "date": "2017-12-20T11:45:20",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/MongoDB_Construa_novas_aplicações.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 291,
+   "type": "message",
+   "date": "2017-12-20T11:45:22",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/MundoJ Segurança com Java - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 292,
+   "type": "message",
+   "date": "2017-12-20T11:45:24",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/O_Programador_Apaixonado_Construindo (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 293,
+   "type": "message",
+   "date": "2017-12-20T11:45:26",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Orientação_a_Objetos_e_SOLID_para (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 294,
+   "type": "message",
+   "date": "2017-12-20T11:45:31",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/PHP_e_Laravel_Crie_aplicações_web (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 295,
+   "type": "message",
+   "date": "2017-12-20T11:45:37",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Play_Framework_Java_para_web_sem.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 296,
+   "type": "message",
+   "date": "2017-12-20T11:45:40",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/PLSQL_Domine_a_linguagem_do_banco.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 297,
+   "type": "message",
+   "date": "2017-12-20T11:45:58",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Programação Orientada a Objetos e Algoritmos em Java.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 298,
+   "type": "message",
+   "date": "2017-12-20T11:46:00",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Programando_em_Go_Crie_aplicações (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 299,
+   "type": "message",
+   "date": "2017-12-20T11:46:02",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Rest_Construa_APIs_inteligentes.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 300,
+   "type": "message",
+   "date": "2017-12-20T11:46:05",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Ruby_Aprenda_a_programar_na_linguagem.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 301,
+   "type": "message",
+   "date": "2017-12-20T11:46:15",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Ruby_on_Rails_coloque_sua_aplicacao.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 302,
+   "type": "message",
+   "date": "2017-12-20T11:46:28",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Scrum_Gestão_ágil_para_projetos.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 303,
+   "type": "message",
+   "date": "2017-12-20T11:46:30",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/seguranca_da_informacao_excerto (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 304,
+   "type": "message",
+   "date": "2017-12-20T11:46:36",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/SEO_Prático_Seu_site_na_primeira.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 305,
+   "type": "message",
+   "date": "2017-12-20T11:46:38",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Spring_MVC_Domine_o_principal_framework.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 306,
+   "type": "message",
+   "date": "2017-12-20T11:46:41",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/SQL_Uma_abordagem_para_bancos_de.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 307,
+   "type": "message",
+   "date": "2017-12-20T11:46:46",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Swift Programe para iPhone e iPad - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 308,
+   "type": "message",
+   "date": "2017-12-20T11:46:48",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Test_Driven_Development_Teste_e (3).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 309,
+   "type": "message",
+   "date": "2017-12-20T11:46:52",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Test_Driven_Development_Teste_e (4).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 310,
+   "type": "message",
+   "date": "2017-12-20T11:46:54",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Test_Driven_Development_Teste_e (5).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 311,
+   "type": "message",
+   "date": "2017-12-20T11:46:57",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Caixa_de_Ferramentas_DevOps_Um_guia (2).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 312,
+   "type": "message",
+   "date": "2017-12-20T11:47:09",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Coletanea_Front_End_Uma_Antologia (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 313,
+   "type": "message",
+   "date": "2017-12-20T11:47:32",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Conhecendo o Adobe Photoshop CS6 - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 314,
+   "type": "message",
+   "date": "2017-12-20T11:47:36",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Controlando versões com Git e GitHub - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 315,
+   "type": "message",
+   "date": "2017-12-20T11:47:44",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Desbravando_Java_e_Orientação_a (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 316,
+   "type": "message",
+   "date": "2017-12-20T11:47:50",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Introdução e boas práticas em UX Design - Casa do Codigo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 317,
+   "type": "message",
+   "date": "2017-12-20T11:47:54",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Java_EE_Aproveite_toda_a_plataforma (2).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 318,
+   "type": "message",
+   "date": "2017-12-20T11:47:57",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Rest_Construa_APIs_inteligentes (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 319,
+   "type": "message",
+   "date": "2017-12-20T11:48:27",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Projeto-de-C.-Biológicas-Sr.-do-Bonfim.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 320,
+   "type": "message",
+   "date": "2017-12-20T11:48:30",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Armazenando dados com Redis - Casa do Codigo (1).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 321,
+   "type": "message",
+   "date": "2017-12-20T11:49:12",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/As Leis Fundamentais Do Projeto De Software (IMG-PDF).pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 322,
+   "type": "message",
+   "date": "2017-12-20T11:54:44",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "text": ""
+  },
+  {
+   "id": 323,
+   "type": "message",
+   "date": "2017-12-20T12:07:06",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "text": ""
+  },
+  {
+   "id": 324,
+   "type": "message",
+   "date": "2017-12-20T13:29:41",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "text": ""
+  },
+  {
+   "id": 325,
+   "type": "message",
+   "date": "2017-12-20T15:15:42",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "mime_type": "application/zip",
+   "text": ""
+  },
+  {
+   "id": 326,
+   "type": "message",
+   "date": "2017-12-20T15:31:06",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "text": ""
+  },
+  {
+   "id": 327,
+   "type": "message",
+   "date": "2017-12-20T21:39:32",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/3367_C ou C++.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 328,
+   "type": "message",
+   "date": "2017-12-20T21:39:35",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Programacao Em C - Senac - LPC_Apostila.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 329,
+   "type": "message",
+   "date": "2017-12-20T21:40:11",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/4954_C ou C++.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 330,
+   "type": "message",
+   "date": "2017-12-20T21:40:16",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/linguagem c.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 331,
+   "type": "message",
+   "date": "2017-12-20T21:40:37",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/15122623-Apostila-de-C-da-UFMG.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 332,
+   "type": "message",
+   "date": "2017-12-20T21:41:03",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1008_Programação_C_completo.doc",
+   "mime_type": "application/msword",
+   "text": ""
+  },
+  {
+   "id": 333,
+   "type": "message",
+   "date": "2017-12-20T21:41:31",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Processadores.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 334,
+   "type": "message",
+   "date": "2017-12-20T21:41:49",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/3048_C ou C++.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 335,
+   "type": "message",
+   "date": "2017-12-20T21:42:06",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1827_C ou C++.doc",
+   "mime_type": "application/msword",
+   "text": ""
+  },
+  {
+   "id": 336,
+   "type": "message",
+   "date": "2017-12-20T21:42:25",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/2126_C ou C++.doc",
+   "mime_type": "application/msword",
+   "text": ""
+  },
+  {
+   "id": 337,
+   "type": "message",
+   "date": "2017-12-20T21:45:28",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/1547_C ou C++.doc",
+   "mime_type": "application/msword",
+   "text": ""
+  },
+  {
+   "id": 338,
+   "type": "message",
+   "date": "2017-12-20T21:46:04",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/4085_C ou C++.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 339,
+   "type": "message",
+   "date": "2017-12-20T21:46:17",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Leiame.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 340,
+   "type": "message",
+   "date": "2017-12-20T21:46:24",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Coletânea de exercicios resolvidos em liguagem C.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 341,
+   "type": "message",
+   "date": "2017-12-20T21:46:45",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/introducao_c.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 342,
+   "type": "message",
+   "date": "2017-12-20T21:46:47",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/985_C.doc",
+   "mime_type": "application/msword",
+   "text": ""
+  },
+  {
+   "id": 343,
+   "type": "message",
+   "date": "2017-12-20T21:46:58",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/3123_C ou C++.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 344,
+   "type": "message",
+   "date": "2017-12-20T21:47:37",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/131_Outras Linguagens de Programação.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 345,
+   "type": "message",
+   "date": "2017-12-20T21:47:42",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/300_Lógica de Programação.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 346,
+   "type": "message",
+   "date": "2017-12-20T21:48:05",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/4300_C ou C++.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 347,
+   "type": "message",
+   "date": "2017-12-20T21:49:05",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/c.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 348,
+   "type": "message",
+   "date": "2017-12-20T21:49:07",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/277_C ou C++.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 349,
+   "type": "message",
+   "date": "2017-12-20T21:49:58",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/2371_C ou C++.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 350,
+   "type": "message",
+   "date": "2017-12-20T21:50:36",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/C Unicamp.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 351,
+   "type": "message",
+   "date": "2017-12-20T21:51:21",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/3046_C ou C++.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 352,
+   "type": "message",
+   "date": "2017-12-20T21:51:42",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Linguagem C UFMG.doc",
+   "mime_type": "application/msword",
+   "text": ""
+  },
+  {
+   "id": 353,
+   "type": "message",
+   "date": "2017-12-20T21:51:52",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/C__9702.DOC",
+   "mime_type": "application/msword",
+   "text": ""
+  },
+  {
+   "id": 354,
+   "type": "message",
+   "date": "2017-12-20T21:51:56",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/apostila_c_.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 355,
+   "type": "message",
+   "date": "2017-12-20T21:56:24",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Web_Penetration_Testing_with_Kali.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 356,
+   "type": "message",
+   "date": "2017-12-20T22:19:36",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Linux - Iniciante.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 357,
+   "type": "message",
+   "date": "2017-12-20T22:19:52",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/OK_Guia-do-Hacker-Brasileiro.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 359,
+   "type": "message",
+   "date": "2017-12-20T22:26:32",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Redes de Computadores  - Tanenbaum.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 360,
+   "type": "message",
+   "date": "2017-12-20T22:32:04",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/OK_Livro_Proibido_do_Curso_de_Hacker_Completo.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 361,
+   "type": "message",
+   "date": "2017-12-20T23:01:21",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/OK_universidade-hacker.pdf",
+   "mime_type": "application/pdf",
+   "text": ""
+  },
+  {
+   "id": 362,
+   "type": "message",
+   "date": "2017-12-21T00:23:06",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "mime_type": "application/x-7z-compressed",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#GIT"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Alura"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Video"
+    }
+   ]
+  },
+  {
+   "id": 363,
+   "type": "message",
+   "date": "2017-12-21T12:00:55",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "forwarded_from": ".: PR1V8 :.",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#livros"
+    },
+    " ",
+    {
+     "type": "hashtag",
+     "text": "#pr1v8"
+    },
+    " ",
+    {
+     "type": "hashtag",
+     "text": "#hacking"
+    },
+    " ",
+    {
+     "type": "hashtag",
+     "text": "#infosec"
+    },
+    " ",
+    {
+     "type": "hashtag",
+     "text": "#ptbr"
+    },
+    " ",
+    {
+     "type": "hashtag",
+     "text": "#awesomelist"
+    },
+    " \n\n",
+    {
+     "type": "bold",
+     "text": "@PR1V8 — Awesome List"
+    },
+    "\n",
+    {
+     "type": "italic",
+     "text": "Livros sobre hacking & programação em"
+    },
+    " ",
+    {
+     "type": "bold",
+     "text": "pt-BR"
+    },
+    "\n\n\n",
+    {
+     "type": "bold",
+     "text": "  · Hackers Expostos 7:"
+    },
+    " ",
+    {
+     "type": "text_link",
+     "text": "https://telegram.me/pr1v8/3658",
+     "href": "https://telegram.me/pr1v8/3658"
+    },
+    "\n\n",
+    {
+     "type": "bold",
+     "text": "  · Segurança de computadores e teste de invasão:"
+    },
+    " ",
+    {
+     "type": "text_link",
+     "text": "https://telegram.me/pr1v8/3661",
+     "href": "https://telegram.me/pr1v8/3661"
+    },
+    "\n\n",
+    {
+     "type": "bold",
+     "text": "  · Web Penetration Testing with Kali Linux:"
+    },
+    " ",
+    {
+     "type": "text_link",
+     "text": "https://telegram.me/pr1v8/448",
+     "href": "https://telegram.me/pr1v8/448"
+    },
+    "\n\n",
+    {
+     "type": "bold",
+     "text": "  · A Arte de Enganar:"
+    },
+    " ",
+    {
+     "type": "text_link",
+     "text": "https://telegram.me/pr1v8/446",
+     "href": "https://telegram.me/pr1v8/446"
+    },
+    "\n \n",
+    {
+     "type": "bold",
+     "text": "  · PR1V8: Recomendações para a Comunidade Hacktivista - Parte 1:"
+    },
+    " ",
+    {
+     "type": "text_link",
+     "text": "https://telegram.me/pr1v8/3776",
+     "href": "https://telegram.me/pr1v8/3776"
+    },
+    "\n\n",
+    {
+     "type": "bold",
+     "text": "  · O hacker profissional:"
+    },
+    " ",
+    {
+     "type": "text_link",
+     "text": "https://telegram.me/pr1v8/688",
+     "href": "https://telegram.me/pr1v8/688"
+    },
+    "\n\n",
+    {
+     "type": "bold",
+     "text": "  · Guia do Hacker Brasileiro:"
+    },
+    " ",
+    {
+     "type": "text_link",
+     "text": "https://telegram.me/pr1v8/389",
+     "href": "https://telegram.me/pr1v8/389"
+    },
+    "\n\n\n",
+    {
+     "type": "bold",
+     "text": "Junte-se à nós:"
+    },
+    " ",
+    {
+     "type": "text_link",
+     "text": "https://telegram.me/pr1v8",
+     "href": "https://telegram.me/pr1v8"
+    },
+    " ",
+    {
+     "type": "bold",
+     "text": "&"
+    },
+    " ",
+    {
+     "type": "text_link",
+     "text": "http://pr1v8.co.nf",
+     "href": "http://pr1v8.co.nf/"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 364,
+   "type": "message",
+   "date": "2017-12-23T16:14:27",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "forwarded_from": ".: PR1V8 :.",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#reverseng"
+    },
+    " ",
+    {
+     "type": "hashtag",
+     "text": "#pr1v8"
+    },
+    " ",
+    {
+     "type": "hashtag",
+     "text": "#free"
+    },
+    " ",
+    {
+     "type": "hashtag",
+     "text": "#informacaolivre"
+    },
+    " ",
+    {
+     "type": "hashtag",
+     "text": "#papobinario"
+    },
+    " ",
+    {
+     "type": "hashtag",
+     "text": "#kopimi"
+    },
+    " \n\n",
+    {
+     "type": "bold",
+     "text": "Curso de Engenharia Reversa Online - Aula 3 - Arquivos binários"
+    },
+    "\n\n",
+    {
+     "type": "text_link",
+     "text": "https://www.youtube.com/watch?v=b-oFTSZo-jY",
+     "href": "https://www.youtube.com/watch?v=b-oFTSZo-jY"
+    },
+    "\n\n🌐 ",
+    {
+     "type": "mention",
+     "text": "@PR1V8"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 365,
+   "type": "message",
+   "date": "2017-12-29T13:04:06",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "forwarded_from": ".: PR1V8 :.",
+   "photo": "(File not included. Change data exporting settings to download.)",
+   "width": 918,
+   "height": 1280,
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#python"
+    },
+    " ",
+    {
+     "type": "hashtag",
+     "text": "#automatize"
+    },
+    " ",
+    {
+     "type": "hashtag",
+     "text": "#ebook"
+    },
+    " ",
+    {
+     "type": "hashtag",
+     "text": "#novatec"
+    },
+    "\n\nAutomatize tarefas maçantes com Python\n\nEditora: Novatec   \nAutor: Al Sweigart\nAno: 2015\nPáginas: 568 \n\nCréditos: ",
+    {
+     "type": "mention",
+     "text": "@Eduandy"
+    },
+    "\n\n🌐 ",
+    {
+     "type": "mention",
+     "text": "@PR1V8"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 366,
+   "type": "message",
+   "date": "2017-12-29T13:04:06",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "forwarded_from": ".: PR1V8 :.",
+   "file": "files/Automatize tarefas macantes com - Al Sweigart.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    "🌐 ",
+    {
+     "type": "mention",
+     "text": "@PR1V8"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 367,
+   "type": "message",
+   "date": "2018-01-01T12:42:09",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "forwarded_from": ".: PR1V8 :.",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#esec"
+    },
+    " ",
+    {
+     "type": "hashtag",
+     "text": "#solyd"
+    },
+    " ",
+    {
+     "type": "hashtag",
+     "text": "#pr1v8"
+    },
+    " ",
+    {
+     "type": "hashtag",
+     "text": "#informacaolivre"
+    },
+    " ",
+    {
+     "type": "hashtag",
+     "text": "#acervopr1v8"
+    },
+    "\n",
+    {
+     "type": "italic",
+     "text": "Novo curso no @acervopr1v8"
+    },
+    "\n\n",
+    {
+     "type": "bold",
+     "text": "Nós da @PR1V8 desejamos a todos um feliz ano novo e próspero 2018!"
+    },
+    "\n\n",
+    {
+     "type": "bold",
+     "text": "Solyd - Pentest Profissional v2017:"
+    },
+    " ",
+    {
+     "type": "link",
+     "text": "https://t.me/acervopr1v8/247"
+    },
+    "\n\n",
+    {
+     "type": "bold",
+     "text": "Esecurity - Security Specialists:"
+    },
+    " ",
+    {
+     "type": "link",
+     "text": "https://t.me/acervopr1v8/309"
+    },
+    "\n\n\n🌐 ",
+    {
+     "type": "mention",
+     "text": "@PR1V8"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 368,
+   "type": "message",
+   "date": "2018-01-02T11:36:30",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "forwarded_from": "Acervo PR1V8",
+   "text": [
+    {
+     "type": "bold",
+     "text": "ReadMe"
+    },
+    "\n\n",
+    {
+     "type": "bold",
+     "text": "Os dois ultimos cursos foram reorganizados e o curso Solyd Pentest Profissional v2017 está sem módulo 36 porque não foi liberado na plataforma oficial do curso(quando for será atualizado aqui)"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 369,
+   "type": "message",
+   "date": "2018-01-02T12:45:36",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Android C   Game Development(Inglês).pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Game_Android_com_C"
+    },
+    "++ \n",
+    {
+     "type": "hashtag",
+     "text": "#Em_Ingles"
+    }
+   ]
+  },
+  {
+   "id": 370,
+   "type": "message",
+   "date": "2018-01-02T12:46:02",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Apostila Introdução a Programação 1(1).pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Intro_a_Programacao"
+    }
+   ]
+  },
+  {
+   "id": 371,
+   "type": "message",
+   "date": "2018-01-02T12:46:31",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Breve Introdução à Programação(1).pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Breve_Intro_a_Programacao"
+    }
+   ]
+  },
+  {
+   "id": 372,
+   "type": "message",
+   "date": "2018-01-02T12:47:44",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/caelum-java-objetos-fj11.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Java_POO_Caelum"
+    }
+   ]
+  },
+  {
+   "id": 373,
+   "type": "message",
+   "date": "2018-01-02T12:49:18",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/c-completo-e-total-3_-ed11-herbert-schildt-makron-books.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#C_Completo_e_Total"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#815_paginas"
+    }
+   ]
+  },
+  {
+   "id": 374,
+   "type": "message",
+   "date": "2018-01-02T12:50:10",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/slago-C.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Linguagem_C"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#137_paginas"
+    }
+   ]
+  },
+  {
+   "id": 375,
+   "type": "message",
+   "date": "2018-01-02T12:50:37",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Tecnicas_de_Programacao_1.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Tecnicas_de_Programacao"
+    }
+   ]
+  },
+  {
+   "id": 376,
+   "type": "message",
+   "date": "2018-01-02T12:57:38",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "video_file",
+   "mime_type": "video/mp4",
+   "duration_seconds": 606,
+   "width": 1280,
+   "height": 720,
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Criando_um_programa_para_enviar_email_em_massa"
+    }
+   ]
+  },
+  {
+   "id": 377,
+   "type": "message",
+   "date": "2018-01-02T13:00:28",
+   "edited": "2018-01-02T20:03:33",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "text": [
+    {
+     "type": "link",
+     "text": "http://minhateca.com.br/Cursos.TI.gratuitos"
+    },
+    "\n\n",
+    {
+     "type": "hashtag",
+     "text": "#3842Gb_de_Apostilas_e_Videos_sobre_TI"
+    }
+   ]
+  },
+  {
+   "id": 378,
+   "type": "message",
+   "date": "2018-01-02T13:04:16",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "video_file",
+   "mime_type": "video/mp4",
+   "duration_seconds": 8415,
+   "width": 1280,
+   "height": 720,
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Deploy_de_aplicações_Python"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 379,
+   "type": "message",
+   "date": "2018-01-02T13:10:49",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "mime_type": "application/zip",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Django_na_Pratica"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Django"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Python_Web"
+    }
+   ]
+  },
+  {
+   "id": 380,
+   "type": "message",
+   "date": "2018-01-02T13:23:17",
+   "edited": "2018-01-02T14:07:48",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "mime_type": "application/x-rar",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Web_Design_2014_part_1"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Total_80_videos"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Necessario_ter_todas_as_partes_para_extrair"
+    }
+   ]
+  },
+  {
+   "id": 381,
+   "type": "message",
+   "date": "2018-01-02T13:29:01",
+   "edited": "2018-01-02T14:08:09",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "mime_type": "application/x-rar",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Web_Design_2014_part_2"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Total_80_videos"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Necessario_ter_todas_as_partes_para_extrair"
+    }
+   ]
+  },
+  {
+   "id": 382,
+   "type": "message",
+   "date": "2018-01-02T13:35:30",
+   "edited": "2018-01-02T14:08:15",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "mime_type": "application/x-rar",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Web_Design_2014_part_3"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Total_80_videos"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Necessario_ter_todas_as_partes_para_extrair"
+    }
+   ]
+  },
+  {
+   "id": 383,
+   "type": "message",
+   "date": "2018-01-02T13:41:54",
+   "edited": "2018-01-02T14:08:20",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "mime_type": "application/x-rar",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Web_Design_2014_part_4"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Total_80_videos"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Necessario_ter_todas_as_partes_para_extrair"
+    }
+   ]
+  },
+  {
+   "id": 384,
+   "type": "message",
+   "date": "2018-01-02T13:47:27",
+   "edited": "2018-01-02T14:08:26",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "mime_type": "application/x-rar",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Web_Design_2014_part_6"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Total_80_videos"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Necessario_ter_todas_as_partes_para_extrair"
+    }
+   ]
+  },
+  {
+   "id": 385,
+   "type": "message",
+   "date": "2018-01-02T13:53:54",
+   "edited": "2018-01-02T14:08:31",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "mime_type": "application/x-rar",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Web_Design_2014_part_7"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Total_80_videos"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Necessario_ter_todas_as_partes_para_extrair"
+    }
+   ]
+  },
+  {
+   "id": 386,
+   "type": "message",
+   "date": "2018-01-02T14:01:23",
+   "edited": "2018-01-02T14:08:42",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "mime_type": "application/x-rar",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Web_Design_2014_part_8"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Total_80_videos"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Necessario_ter_todas_as_partes_para_extrair"
+    }
+   ]
+  },
+  {
+   "id": 387,
+   "type": "message",
+   "date": "2018-01-02T14:15:23",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "mime_type": "application/x-rar",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Web_Design_2014_part_5"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Total_80_videos"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Necessario_ter_todas_as_partes_para_extrair"
+    }
+   ]
+  },
+  {
+   "id": 388,
+   "type": "message",
+   "date": "2018-01-04T12:06:28",
+   "edited": "2018-01-04T14:56:29",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "mime_type": "application/x-7z-compressed",
+   "text": [
+    "Lógica de Programação I\nJavascript\nParte 1 de 2\nAulas 1 a 5\n",
+    {
+     "type": "hashtag",
+     "text": "#Alura"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 389,
+   "type": "message",
+   "date": "2018-01-05T01:55:43",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "(File exceeds maximum size. Change data exporting settings to download.)",
+   "mime_type": "application/x-7z-compressed",
+   "text": [
+    "Lógica de Programação I\nJavascript\nParte 2 de 2\nAulas 6 a 9\n",
+    {
+     "type": "hashtag",
+     "text": "#Alura"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 390,
+   "type": "message",
+   "date": "2018-01-12T12:57:50",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/SQL_Oracle_Apostilas.zip",
+   "mime_type": "application/zip",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Apostilas_SQL_Oracle"
+    }
+   ]
+  },
+  {
+   "id": 391,
+   "type": "message",
+   "date": "2018-01-12T13:03:15",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Curso_Intensivo_de_Python_–_Uma.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Python_Intensivo"
+    }
+   ]
+  },
+  {
+   "id": 393,
+   "type": "message",
+   "date": "2018-01-28T18:46:12",
+   "edited": "2018-01-28T18:46:27",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Python_Machine_Learning.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Python_Machine_Learning"
+    }
+   ]
+  },
+  {
+   "id": 394,
+   "type": "message",
+   "date": "2018-01-28T18:47:46",
+   "edited": "2018-01-28T18:47:59",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Violent_Python.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Violent_Python"
+    }
+   ]
+  },
+  {
+   "id": 395,
+   "type": "message",
+   "date": "2018-02-10T10:21:57",
+   "edited": "2018-02-10T10:34:28",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "text": [
+    {
+     "type": "link",
+     "text": "http://pythonclub.com.br/material-do-tutorial-web-scraping-na-nuvem.html"
+    }
+   ]
+  },
+  {
+   "id": 396,
+   "type": "message",
+   "date": "2018-02-11T00:25:55",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "forwarded_from": "Guzmán",
+   "file": "files/IntrotoPythonforDataScience_ch04.pdf",
+   "mime_type": "application/pdf",
+   "text": "DataCamp - Numpy"
+  },
+  {
+   "id": 399,
+   "type": "message",
+   "date": "2018-02-18T19:19:39",
+   "edited": "2018-02-18T19:20:10",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Learning Robotics using Python.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Learning_Robotics_using_Python"
+    }
+   ]
+  },
+  {
+   "id": 400,
+   "type": "message",
+   "date": "2018-02-18T19:20:26",
+   "edited": "2018-02-18T19:21:04",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Python Penetration Testing for Developers Inglês.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Python_Penetration_Testing_for_Developers_Inglês"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 402,
+   "type": "message",
+   "date": "2018-02-18T19:22:29",
+   "edited": "2018-02-18T19:22:38",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Python Data Analysis Cookbook.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Python_Data_Analysis_Cookbook"
+    }
+   ]
+  },
+  {
+   "id": 403,
+   "type": "message",
+   "date": "2018-02-22T14:44:38",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Making_Games_with_Python_and_Pygame.zip",
+   "mime_type": "application/zip",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#PDF_em_Inglês"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Jogos_Python_PyGame"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Making_Games_with_Python_and_Pygame"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 404,
+   "type": "message",
+   "date": "2018-02-22T14:45:53",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Invent_Your_Own_Computer_Games_w.zip",
+   "mime_type": "application/zip",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#PDF_em_Inglês"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Jogos_Python"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Invent_Your_Own_Computer_Games_with_Python"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Invente_seus_próprios_jogos_de_computador_com_Python"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 405,
+   "type": "message",
+   "date": "2018-02-22T14:47:14",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Hacking_Secret_ciphers_with_Python.zip",
+   "mime_type": "application/zip",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#PDF_em_Inglês"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Hacking_Secret_ciphers_with_Python"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Hackeando_Cifras_Secretas_com_Python"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 406,
+   "type": "message",
+   "date": "2018-02-22T14:49:04",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Cracking_Codes_with_Python.zip",
+   "mime_type": "application/zip",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#PDF_em_Inglês"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Cracking_Codes_with_Python"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Cracking_de_Códigos_com_Python"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 407,
+   "type": "message",
+   "date": "2018-02-22T14:54:38",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Scratch-Programming.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#PDF_em_Inglês"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Scratch_Programming"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#292_paginas"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Guanabara_do_CeV_usou_o_mesmo_sistema_no_curso_de_Algoritmo"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 408,
+   "type": "message",
+   "date": "2018-02-22T15:17:40",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Apostilas_PyQT.rar",
+   "mime_type": "application/x-rar",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#PyQt"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Inglês_2_PDFs_e_1_site"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Portugues_2_sites"
+    },
+    ""
+   ]
+  },
+  {
+   "id": 409,
+   "type": "message",
+   "date": "2018-02-24T19:10:01",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/A Arte de Enganar – Kevin D. Mitnick.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#A_arte_de_Enganar"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Engenharia_Social"
+    }
+   ]
+  },
+  {
+   "id": 410,
+   "type": "message",
+   "date": "2018-02-24T19:17:42",
+   "edited": "2018-02-24T19:18:32",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/SQL e Modelo Relacional.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#SQL_e_Modelo_Relacional"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#BD"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#Banco_de_Dados"
+    }
+   ]
+  },
+  {
+   "id": 411,
+   "type": "message",
+   "date": "2018-02-24T19:18:34",
+   "from": "Acervo Estude Programação",
+   "from_id": 9767245784,
+   "file": "files/Projeto de Banco de Dados 4ª Edição.pdf",
+   "mime_type": "application/pdf",
+   "text": [
+    {
+     "type": "hashtag",
+     "text": "#Projeto_de_Banco_de_Dados_4_Edição"
+    },
+    "\n",
+    {
+     "type": "hashtag",
+     "text": "#BD"
+    },
+    "\n"
+   ]
+ }
+]
+}

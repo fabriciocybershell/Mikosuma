@@ -1,35 +1,118 @@
 #! /bin/bash
 
-#sudo pkill -f transmission-cli
+> dir.txt
+> dir2.txt
 
-echo "SERVIÇO INICIADOOOOOOOOOOOOOOOOOOO"
+[[ $(printf "%s\n" baixado/*/*/*/*) = 'baixado/*/*/*/*' ]] || {
+	echo "passou pelo 1"
+	nop=1 
+	printf "%s\n" baixado/*/*/*/* | while read diretorio;do
+	[[ "${diretorio##*/}" = *".zip"* ]] && {
+		(unzip -nj "$diretorio" -d baixado/descompactado)
+	}
+	done
+
+	printf "%s\n" baixado/*/*/*/* | while read diretorio;do
+		echo "$diretorio" >> dir.txt
+		#varredura
+		#categorizar_upar "${diretorio%$arquivo}$filt"
+	done
+}
+
+[[ $nop = 1 ]] || {
+	echo "testando 2"
+[[ $(printf "%s\n" baixado/*/*/*) = 'baixado/*/*/*' ]] || {
+	echo "passou pelo 2"
+	nop=1
+	printf "%s\n" baixado/*/*/* | while read diretorio;do
+	[[ "${diretorio##*/}" = *".zip"* ]] && {
+		(unzip -nj "$diretorio" -d baixado/descompactado)
+	}
+	done
+
+	printf "%s\n" baixado/*/*/* | while read diretorio;do
+		echo "$diretorio" >> dir.txt
+		#varredura
+		#categorizar_upar "${diretorio%$arquivo}$filt"
+	done
+}
+}
+
+[[ $nop = 1 ]] || {
+	echo "testando 3"
+[[ $(printf "%s\n" baixado/*/*) = 'baixado/*/*' ]] || {
+	echo "passou pelo 3"
+	nop=1
+	printf "%s\n" baixado/*/* | while read diretorio;do
+		[[ "${diretorio##*/}" = *".zip"* ]] && {
+			(unzip -nj "$diretorio" -d baixado/descompactado)
+		}
+	done
+
+	ls -d baixado/*/* | while read diretorio;do
+		echo "$diretorio" >> dir.txt
+		#varredura
+		#categorizar_upar "${diretorio%$arquivo}$filt"
+	done
+}
+}
+
+[[ $nop = 1 ]] || {
+	echo "testando 4"
+[[ $(printf "%s\n" baixado/*) = 'baixado/*' ]] || {
+	echo "passou pelo 4"
+	nop=1
+	printf "%s\n" baixado/* | while read diretorio;do
+	[[ "${diretorio##*/}" = *".zip"* ]] && {
+		(unzip -nj "$diretorio" -d baixado/descompactado)
+	}
+	done
+
+	printf "%s\n" baixado/* | while read diretorio;do
+		echo "$diretorio" >> dir.txt
+		#varredura
+		#categorizar_upar "${diretorio%$arquivo}$filt"
+	done
+}
+}
+
+#echo "antes do shellbot:"
+#printf "%s\n" baixado/*/*
 
 source ShellBot.sh
+
+#find -type f -exec echo baixado{} \;
+
+#echo "após o shellbot:"
+#printf "%s\n" baixado/*/*
 
 bot_token='865837947:AAGC9_tA2YYNAgBwqzZWAVm_Wrez6FsjjS4'
 
 ShellBot.init --token "$bot_token" --return map
 
-assunto=$(cat topico.txt)
-
 local_documento(){
-	ShellBot.sendDocument --chat_id -1001363904405 --document @"$1" --caption "hashtag: #$assunto\nlegenda: $legenda"
+	taguear
+	(ShellBot.sendDocument --chat_id -1001363904405 --document @"$1" --caption "hashtag: $assunto\nlegenda: $legenda")
 }
 
 foto() {
-	ShellBot.sendPhoto --chat_id -1001363904405 --photo @"$1" --caption "hashtag: #$assunto\nlegenda: $legenda"
+	taguear
+	(ShellBot.sendPhoto --chat_id -1001363904405 --photo @"$1" --caption "hashtag: $assunto\nlegenda: $legenda")
 }
 
 local_video() {
+	taguear
 	ShellBot.sendChatAction --chat_id -1001363904405 --action upload_video
-	ShellBot.sendVideo --chat_id -1001363904405 --video @"$1" --caption "hashtag: #$assunto\nlegenda: $legenda"
+(	ShellBot.sendVideo --chat_id -1001363904405 --video @"$1" --caption "hashtag: $assunto\nlegenda: $legenda")
 }
 
 fixarbot(){
-	ShellBot.pinChatMessage	--chat_id -1001363904405 --message_id ${return[message_id]}
+	taguear
+	(ShellBot.pinChatMessage	--chat_id -1001363904405 --message_id ${return[message_id]})
 }
 
 audio(){ 
+	taguear
 	let valor=$(($2/3));
 	repetir=0
 	while [  $repetir -lt $valor ]; do
@@ -38,345 +121,211 @@ audio(){
    		sleep 3s
 	done
 	ShellBot.sendChatAction --chat_id -1001363904405 --action upload_audio
-	ShellBot.sendAudio --chat_id -1001363904405 --audio @$1 --caption "#$assunto\n$legenda"
+	(ShellBot.sendAudio --chat_id -1001363904405 --audio @$1 --caption "$assunto\n$legenda")
 }
 
 enviar() {
+	taguear
 	mensagem=${mensagem//+/%2B}
 	ShellBot.sendMessage --chat_id -1001363904405 --text "$mensagem" $1
 }
 
-descompactarelimpar(){
-	#ls | grep "*.zip"
-	#[[ "$?" = "0" ]] && {
-	(unzip -nj '*.zip')
-	[[ "$?" = "1" ]] && {
-		entrar=1
-		echo "arquivo compactado não detectado"
-	}
-	#}
-	#for i in $(ls | tr " " "#");do filt=$( echo $i | tr -d "][&,"); mv "${i//#/ }" $filt; done
-	rm -rf *.txt
-	rm -rf *.uri
-	rm -rf *.url
-	rm -rf *.exe
+taguear(){
+	minusc=$(echo ${legenda,,} | tr "#" " ")
+	assunto=""
+	[[ "$minusc" = *"java"* ]] && assunto+="#java "
+	[[ "$minusc" = *"python"* ]] && assunto+="#python "
+	[[ "$minusc" = *"mysql"* ]] && assunto+="#mysql "
+	[[ "$minusc" = *"shell"* || "$minusc" = *"shellscript"* ]] && assunto+="#shellscript"
+	[[ "$minusc" = *"php"* ]] && assunto+="#php "
+	[[ "$minusc" = *"linux"* ]] && assunto+="#linux "
+	[[ "$minusc" = *"windows"* ]] && assunto+="#windows "
+	[[ "$minusc" = "c" ]] && assunto+="#c "
+	[[ "$minusc" = *"c#"* ]] && assunto+="#c# "
+	[[ "$minusc" = *"c++"* ]] && assunto+="#c++ "
+	[[ "$minusc" = *"lua"* ]] && assunto+="#lua "
+	[[ "$minusc" = *"ruby"* ]] && assunto+="#ruby "
+	[[ "$minusc" = *"design"* ]] && assunto+="#design "
+	[[ "$minusc" = *"design-patterns"* ]] && assunto+="#design_patterns "
+	[[ "$minusc" = *"pattern"* ]] && assunto+="#pattern "
+	[[ "$minusc" = *"exploit"* ]] && assunto+="#exploit "
+	[[ "$minusc" = *"exploitation"* ]] && assunto+="#exploitation "
+	[[ "$minusc" = *"pentest"* ]] && assunto+="#pentest "
+	[[ "$minusc" = *"hacking"* ]] && assunto+="#hacking "
+	[[ "$minusc" = *"hack"* ]] && assunto+="#hack "
+	[[ "$minusc" = *"begginers"* ]] && assunto+="#begginers "
+	[[ "$minusc" = *"wifi"* ]] && assunto+="#wifi "
+	[[ "$minusc" = *"deep larning"* ]] && assunto+="#deep_larning "
+	[[ "$minusc" = *"inteligência artificial"* ]] && assunto+="#inteligência_artificial "
+	[[ "$minusc" = *"artificial inteligence"* ]] && assunto+="#artificial_inteligence "
+	[[ "$minusc" = *"visual"* ]] && assunto+="#visual "
+	[[ "$minusc" = *"ti"* ]] && assunto+="#ti "
+	[[ "$minusc" = *"clean code"* || "$minusc" = *"clean-code"* ]] && assunto+="#clean-code "
+	[[ "$minusc" = *"metasploit"* ]] && assunto+="#metasploit "
+	[[ "$minusc" = *"metaxploit"* ]] && assunto+="#metaxploit "
+	[[ "$minusc" = *"attack"* ]] && assunto+="#attack "
+	[[ "$minusc" = *"attacking"* ]] && assunto+="#attacking "
+	[[ "$minusc" = *"fonrense"* ]] && assunto+="#forense "
+	[[ "$minusc" = *"sniffers"* || "$minusc" = *"sniffer"* ]] && assunto+="#sniffers "
+	[[ "$minusc" = *"vulnerabilidades"* ]] && assunto+="#vulnerabilidades "
+	[[ "$minusc" = *"vulnerabilities"* ]] && assunto+="#vulnerabilities "
+	[[ "$minusc" = *"ddos"* ]] && assunto+="#ddos "
+	[[ "$minusc" = *"bypass"* ]] && assunto+="#bypass "
+	[[ "$minusc" = *"bypassing"* ]] && assunto+="#bypassing "
+	[[ "$minusc" = *"buffer"* ]] && assunto+="#buffer "
+	[[ "$minusc" = *"botnet"* ]] && assunto+="#botnet "
+	[[ "$minusc" = *"segurança"* ]] && assunto+="#segurança "
+	[[ "$minusc" = *"secuity"* ]] && assunto+="#secuity "
+	[[ "$minusc" = *"redes"* ]] && assunto+="#redes "
+	[[ "$minusc" = *"network"* ]] && assunto+="#network "
+	[[ "$minusc" = *"internet"* ]] && assunto+="#internet "
+	[[ "$minusc" = *"apostila"* || "$minusc" = *"apost"* ]] && assunto+="#apostila "
+	[[ "$minusc" = *"iptables"* ]] && assunto+="#iptables "
+	[[ "$minusc" = *"anonimato"* ]] && assunto+="#anonimato "
+	[[ "$minusc" = *"keylogger"* ]] && assunto+="#keyloger "
+	[[ "$minusc" = *"xss"* ]] && assunto+="#xss "
+	[[ "$minusc" = *"html"* ]] && assunto+="#html "
+	[[ "$minusc" = *"html5"* ]] && assunto+="#html5 "
+	[[ "$minusc" = *"css"* ]] && assunto+="#css "
+	[[ "$minusc" = *"css3"* ]] && assunto+="#css3 "
+	[[ "$minusc" = *"fbi"* ]] && assunto+="#fbi "
+	[[ "$minusc" = *"nsa"* ]] && assunto+="#nsa "
+	[[ "$minusc" = *"nasa"* ]] && assunto+="#nasa "
+	[[ "$minusc" = *"firewall"* ]] && assunto+="#firewall "
+	[[ "$minusc" = *"bash"* ]] && assunto+="#bash "
+	[[ "$minusc" = *"nexus"* ]] && assunto+="#nexus "
+	[[ "$minusc" = *"zsh"* ]] && assunto+="#zsh "
+	[[ "$minusc" = *"monads"* ]] && assunto+="#monads "
+	[[ "$minusc" = *"monoids"* ]] && assunto+="#monoids "
+	[[ "$minusc" = *"json"* ]] && assunto+="#json "
+	[[ "$minusc" = *"web"* ]] && assunto+="#web "
+	[[ "$minusc" = *"photoshop"* ]] && assunto+="#photoshop "
+	[[ "$minusc" = *"gimp"* ]] && assunto+="#gimp "
+	[[ "$minusc" = *"iphone"* ]] && assunto+="#iphone "
+	[[ "$minusc" = *"rust"* ]] && assunto+="#rust "
+	[[ "$minusc" = *"bootstrap"* ]] && assunto+="#bootstrap "
+	[[ "$minusc" = *"engineering"* ]] && assunto+="#engineering "
+	[[ "$minusc" = *"reverse"* ]] && assunto+="#reverse "
+	[[ "$minusc" = *"assembly"* ]] && assunto+="#assembly "
+	[[ "$minusc" = *"raspberry"* ]] && assunto+="#raspberry pi "
+	[[ "$minusc" = *"algorithms"* ]] && assunto+="#algorithms "
+	[[ "$minusc" = *"scrath"* ]] && assunto+="#scrath "
+	[[ "$minusc" = *"sql"* ]] && assunto+="#sql "
+	[[ "$minusc" = *"nutrition"* ]] && assunto+="#nutrition "
+	[[ "$minusc" = *"nfc"* ]] && assunto+="#nfc "
+	[[ "$minusc" = *"manual"* ]] && assunto+="#manual "
+	[[ "$minusc" = *"git"* ]] && assunto+="#git "
+	[[ "$minusc" = *"github"* ]] && assunto+="#github "
+	[[ "$minusc" = *"black hat"* ]] && assunto+="#black_hat "
+	[[ "$minusc" = *"comandos"* ]] && assunto+="#comandos "
+	[[ "$minusc" = *"commands"* ]] && assunto+="#commands "
+	[[ "$minusc" = *"certificação"* ]] && assunto+="#certificacao "
+	[[ "$minusc" = *"certificate"* ]] && assunto+="#certificate "
+	[[ "$minusc" = *"redes"* ]] && assunto+="#redes "
+	[[ "$minusc" = *"expressoes"* ]] && assunto+="#expressoes "
+	[[ "$minusc" = *"regulares"* ]] && assunto+="#regulares "
+	[[ "$minusc" = *"laravel"* ]] && assunto+="#laravel "
+	[[ "$minusc" = *"tor"* ]] && assunto+="#tor "
+	[[ "$minusc" = *"dark"* ]] && assunto+="#dark "
+	[[ "$minusc" = *"art"* ]] && assunto+="#art "
+	[[ "$minusc" = *"anonymity"* ]] && assunto+="#anonymity "
+	[[ "$minusc" = *"deep web"* ]] && assunto+="#deep_web "
+	[[ "$minusc" = *"kali linux"* ]] && assunto+="#kali_linux "
+	[[ "$minusc" = *"arduino"* ]] && assunto+="#arduino "
+	[[ "$minusc" = *"flutter"* ]] && assunto+="#flutter "
+	[[ "$minusc" = *"dommies"* ]] && assunto+="#dommies "
+	[[ "$minusc" = *"manual"* ]] && assunto+="#manual "
+	[[ "$minusc" = *"excel"* ]] && assunto+="#excel "
+	[[ "$minusc" = *"vba"* ]] && assunto+="#vba "
+	[[ "$minusc" = *"data science"* ]] && assunto+="#data_science "
+	[[ "$minusc" = *"scraping"* ]] && assunto+="#web_scraping "
+	[[ "$minusc" = *"django"* ]] && assunto+="#django "
+	[[ "$minusc" = *"dummies"* ]] && assunto+="#dummies "
+	[[ "$minusc" = *"neuro"* ]] && assunto+="#neuro "
+	[[ $assunto ]] || assunto="não identificado"
+	echo "TAGS: $assunto"
 }
 
-# colocar o bot no diretório dos arquivos baixados
+categorizar_upar(){
+
+arquivo=${1##*/}
+
+legenda=${arquivo%.*}
+legenda=${legenda//#/ }
+
+[[ "$arquivo" = *".mp4"* || "$arquivo" = *".mkv"* || "$arquivo" = *".webm"* ]] && {
+	echo "TEM MP4, mkv, ou webm"	
+	local_video "$1"
+	rm -rf "$1"
+}
+
+[[ "$arquivo" = *".mp3"* || "$arquivo" = *".wav"* ]] && {
+	echo "TEM MP3 ou WAV"
+	audio "$1"
+	rm -rf "$1"
+}
+
+[[ "$arquivo" = *".pdf"* || "$arquivo" = *".epub"* ]] && {
+	echo "TEM PDF ou EPUB"
+	local_documento "$1"
+	rm -rf "$1"
+}
+
+[[ "$arquivo" = *".jpg"* || "$arquivo" = *".jpeg"* || "$arquivo" = *".png"* ]] && {
+	echo "TEM JPG ,JPEG ou PNG"
+	foto "$1"
+	local_documento "$1"
+	rm -rf "$1"
+}
+
+[[ "$arquivo" = *".pptx"* ]] && {
+	echo "TEM pptx"
+	local_documento "$1"
+	rm -rf "$1"
+}
+
+[[ "$arquivo" = *".srt"* ]] && {
+	echo "TEM srt"
+	local_documento "$1"
+	rm -rf "$1"
+}
+
+[[ "$arquivo" = *".vtt"* ]] && {
+	echo "TEM vtt"
+	local_documento "$1"
+	rm -rf "$1"
+}
+}
+
+varredura(){
+	filt=$(echo ${diretorio##*/} | tr ' ' '#' | tr -d '][&,')
+	arquivo=${diretorio##*/}
+	modificado="${diretorio%$arquivo*}$filt"
+	mv "${diretorio}" "$modificado"
+	echo "$modificado" >> dir2.txt
+}
 
 pkill transmission
 
-cd baixado
-cd zzanalisar
-cd perigo
-echo "dentro de analisando: $(ls)"
-#entrar=$(ls | head -n1)
-#cd "$entrar"
+nop=0
 
-#pasta=$(ls | head -n1)
-#[[ $pasta ]] || {
-#	echo "sem pasta, criando : zzzzzzzzzzzz"
-#	mkdir zzzzzzzzz
-#}
-#tar -czvf abudabi.zip "$pasta"
-#zip -r abudabi.zip "$pasta"
+while read diretorio;do
+	filt=$(echo ${diretorio##*/} | tr ' ' '#' | tr -d '][&,')
+	arquivo=${diretorio##*/}
+	modificado="${diretorio%$arquivo*}$filt"
+	mv "${diretorio}" "$modificado"
+	echo "$modificado" >> dir2.txt
+done < dir.txt
 
-descompactarelimpar
+while read diretorio;do
+	categorizar_upar "$diretorio"
+	rm -f "$diretorio"
+done < dir2.txt
 
-retorno=2
-entrar=0
-#inicar o ciclo de entrar nas pastas e subpastas, caso houver
-for i in $(ls | tr " " "#");do filt=$( echo $i | tr -d "][&,"); mv "${i//#/ }" $filt; done
+> dir.txt
+> dir2.txt
 
-pasta=$filt
-
-for primeiro in $(ls);do
-	[[ "$entrar" = "0" ]] && {
-	echo "entrando em: $primeiro"
-	cd "$primeiro"
-}
-	[[ "$?" = "1" ]] && {
-		echo "sem pasta, desativando retorno"
-		retorno=1
-		#mkdir dir
-	}
-
-for i in $(ls | tr " " "#");do filt=$( echo $i | tr -d '][&,'); mv "${i//#/ }" $filt; done
-
-	for j in $(ls);do
-	[[ "$retorno" = "1" ]] || {
-		[[ "$entrar" = "0" ]] && {
-			echo "entrando em: $j"
-			cd "$j"
-			descompactarelimpar
-	}
-	[[ "$?" = "1" ]] && {
-		echo "sem pasta, desativando retorno"
-		retorno=1
-		#mkdir dir
-	}
-	}
-
-echo "ANALISANDO E ENVIANDO: "
-
-[[ $(ls | fgrep ".mp4") ]] && {
-echo "TEM MP4"
-for i in $(ls  | fgrep ".mp4");do
-
-filt=$(echo $i | tr -d "][&,")
-
-#mv "$i" $filt
-
-echo $filt
-
-legenda=$(echo "${filt//#/ }" | cut -d "." -f1)
-
-local_video "$filt"
-
-rm -rf "$i"
-
-done
-mensagem="novos conteúdos de $assunto"
+mensagem="conteúdo solicitado sobre: $(< atual.txt)"
 enviar
-}
-
-[[ $(ls | fgrep ".mkv") ]] && {
-echo "TEM MKV"
-for i in $(ls  | fgrep ".mkv");do
-
-filt=$(echo $i | tr -d "][&,")
-
-#mv "$i" $filt
-
-echo $filt
-
-legenda=$(echo "${filt//#/ }" | cut -d "." -f1)
-
-local_video "$filt"
-
-rm -rf "$i"
-
-done
-mensagem="novos conteúdos de $assunto"
-enviar
-}
-
-[[ $(ls | fgrep ".mp3") ]] && {
-echo "TEM MP3"
-for i in $(ls  | fgrep ".mp3");do
-
-filt=$(echo $i | tr -d "][&,")
-
-#mv "$i" $filt
-
-echo $filt
-
-legenda=$(echo "${filt//#/ }" | cut -d "." -f1)
-
-audio "$i"
-
-rm -rf "$i"
-
-done
-mensagem="novos conteúdos de $assunto"
-enviar
-}
-
-[[ $(ls | fgrep ".pdf") ]] && {
-echo "TEM PDF"
-for i in $(ls  | fgrep ".pdf");do
-
-filt=$(echo $i | tr -d "][&,")
-
-#mv "$i" $filt
-
-echo $filt
-
-legenda=$(echo "${filt//#/ }" | cut -d "." -f1)
-
-local_documento "$filt"
-
-rm -rf "$i"
-
-done
-mensagem="novos conteúdos de $assunto"
-enviar
-}
-
-[[ $(ls | fgrep ".epub") ]] && {
-echo "TEM EPUB"
-for i in $(ls  | fgrep ".epub");do
-
-filt=$(echo $i | tr -d "][&,")
-
-#mv "$i" $filt
-
-echo $filt
-
-legenda=$(echo "${filt//#/ }" | cut -d "." -f1)
-
-local_documento "$i"
-
-rm -rf "$i"
-
-done
-mensagem="novos conteúdos de $assunto"
-enviar
-}
-
-[[ $(ls | fgrep ".jpg") ]] && {
-echo "TEM JPG"
-for i in $(ls  | fgrep ".jpg");do
-
-filt=$(echo $i | tr -d "][&,")
-
-#mv "$i" $filt
-
-echo $filt
-
-legenda=$(echo "${filt//#/ }" | cut -d "." -f1)
-
-foto "$filt"
-local_documento "$filt"
-
-rm -rf "$i"
-
-done
-mensagem="novos conteúdos de $assunto"
-enviar
-}
-
-[[ $(ls | fgrep ".jpeg") ]] && {
-echo "TEM JPEG"
-for i in $(ls  | fgrep ".jpeg");do
-
-filt=$(echo $i | tr -d "][&,")
-
-#mv "$i" $filt
-
-echo $filt
-
-legenda=$(echo "${filt//#/ }" | cut -d "." -f1)
-
-foto "$filt"
-local_documento "$filt"
-
-rm -rf "$i"
-
-done
-mensagem="novos conteúdos de $assunto"
-enviar
-}
-
-[[ $(ls | fgrep ".png") ]] && {
-echo "TEM PNG"
-for i in $(ls  | fgrep ".png");do
-
-filt=$(echo $i | tr -d "][&,")
-
-#mv "$i" $filt
-
-echo $filt
-
-legenda=$(echo "${filt//#/ }" | cut -d "." -f1)
-
-foto "$filt"
-
-local_documento "$filt"
-
-rm -rf "$i"
-
-done
-mensagem="novos conteúdos de $assunto"
-enviar
-}
-
-[[ $(ls | fgrep ".pptx") ]] && {
-echo "TEM pptx"
-for i in $(ls  | fgrep ".pptx");do
-
-filt=$(echo $i | tr -d "][&,")
-
-#mv "$i" $filt
-
-echo $filt
-
-legenda=$(echo "${filt//#/ }" | cut -d "." -f1)
-
-local_documento "$filt"
-
-rm -rf "$i"
-
-done
-mensagem="novos conteúdos de $assunto"
-enviar
-}
-
-[[ $(ls | fgrep ".srt") ]] && {
-echo "TEM srt"
-for i in $(ls  | fgrep ".srt");do
-
-filt=$(echo $i | tr -d "][&,")
-
-#mv "$i" $filt
-
-echo $filt
-
-legenda="arquivo de legenda: ${filt//#/ }"
-
-local_documento "$filt"
-
-rm -rf "$i"
-
-done
-mensagem="novos conteúdos de $assunto"
-enviar
-}
-
-[[ $(ls | fgrep ".vtt") ]] && {
-echo "TEM vtt"
-for i in $(ls  | fgrep ".vtt");do
-
-filt=$(echo $i | tr -d "][&,")
-
-#mv "$i" $filt
-
-echo $filt
-
-legenda="arquivo de legenda: ${filt//#/ }"
-
-local_video "$filt"
-
-rm -rf "$i"
-
-done
-mensagem="novos conteúdos de $assunto"
-enviar
-}
-
-
-#sair das pastas a cada diretório encontrado
-	[[ "$retorno" = "2" ]] && {
-		echo "retornando uma pasta ..."
-		cd ..
-		rm -rf "$j"
-	} || {
-		echo "retorno desativado"
-	}
-	done
-	[[ "$retorno" = "2" ]] && {
-		echo "retornando uma pasta ..."
-		cd ..
-	} || {
-		echo "retorno desativado"
-	}
-done
-
-rm -r "$pasta"
-
-[[ "$?" = "1" ]] && {
-	cd ..
-	rm -r "$pasta"
-}
 
 echo "FIM DA ANALISE"
