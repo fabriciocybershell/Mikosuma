@@ -30,6 +30,10 @@
 23. um novo sistema de postagem de conteúdo automatizada;
 34. possui controle comportamental por botões de menu, permitindo configurar como ela irá agir nos grupos.
 
+## API utilizada:
+
+[ShellBot](https://github.com/shellscriptx/ShellBot)
+
 ## atualização
 1. a nova atualização permite a customização das ações da duda, você pode configurar a "personalidade" dela em como ela irá agir nos grupos e o que ela irá avaliar;
 2. sistema de postagem de conteúdo automatizada. este sistema permite ela ir atrás de conteúdos pela internet para realizar postagens em canais de forma autonoma, com título e tag do tópico solicitado. o canal padrão é definido dentro do código, ainda não adaptado para personalização individual.
