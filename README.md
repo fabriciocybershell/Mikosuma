@@ -27,7 +27,7 @@
 21. realizar anotações interna das dúvidas, habilidades, e usuários sendo avaliados;
 22. simular algumas breves dúvidas em alguns assuntos para dar assuntos ao grupo ( apenas com algumas duvidas configuradas, sobre PHP, e comentários sobre inteligencia artificial. );
 23. um novo sistema de postagem de conteúdo automatizada;
-34. possui controle comportamental por botões de menua, permitindo configurar como ela irá agir nos grupos.
+34. possui controle comportamental por botões de menu, permitindo configurar como ela irá agir nos grupos.
 
 ## atualização
 1. a nova atualização permite a customização das ações da duda, você pode configurar a "personalidade" dela em como ela irá agir nos grupos e o que ela irá avaliar;
@@ -51,8 +51,7 @@ para ajudar com as melhorias e evoluções (se considerar este projeto útil), m
 <a href="https://liberapay.com/fabriciocybershell/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
 
 # dependências
-´´´
+
+```
 jq, imagemagick, ffmpeg, python3, speech_recognition (python), curl, translate-shell.
-´´´
-
-
+```
