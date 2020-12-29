@@ -2,7 +2,7 @@
 
 source ShellBot.sh
 
-bot_token='865837947:AAGC9_tA2YYNAgBwqzZWAVm_Wrez6FsjjS4'
+bot_token='SUA_TOKEN'
 
 ShellBot.init --token "$bot_token" --return map
 
