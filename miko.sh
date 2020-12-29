@@ -2,7 +2,7 @@
 
 source ShellBot.sh
 
-bot_token='TOKEN-AQUI'
+bot_token='SEU_TOKEN_AQUI'
 
 ShellBot.init --token "$bot_token" --return map
 
@@ -430,7 +430,10 @@ for id in $(ShellBot.ListUpdates)
 					for diretorio in $(ls comparar);do
 						porcent=$(convert $arquivo comparar/$diretorio -compose Difference -composite \
        	    														   -colorspace gray -format '%[fx:mean*100]' info:)
-   	    				[[ ${porcent%%.*} -le 1 ]] && banir=1
+   	    				[[ ${porcent%%.*} -le 1 ]] && {
+   	    					banir=1
+   	    					break
+   	    				}
        				done
 					[[ $banir -eq 1 ]] && {
 							banir=0
@@ -484,7 +487,7 @@ for id in $(ShellBot.ListUpdates)
 				name_audio=$(echo ${return[file_path]##*/} | cut -d "." -f1)
 				ffmpeg -i $arquivo $name_audio.wav
 				rm -rf $arquivo
-				transcricao=$(python3 transcrever.py $name_audio.wav)
+				transcricao=$(python3.8 transcrever.py $name_audio.wav)
 				rm -rf $name_audio.wav
 				Consulta_table audios
 				transcrever_audio=$valor
@@ -517,7 +520,7 @@ for id in $(ShellBot.ListUpdates)
 			;;
 
 			"duda, protocolo de processamento")
-				mensagem="blz"
+7				mensagem="blz"
 				responder
 				mensagem="blablabla blabla bla blablabla"
 				escrever
@@ -1066,36 +1069,42 @@ for id in $(ShellBot.ListUpdates)
 			;;
 
 			*'diga: '* | *'diz: '* | *'fala: '* | *'fale: '*)
-				texto=$(echo $minusc | cut -d ":" -f2-)
-				casas=${#texto}
-				[[ "$casas" -ge "280" ]] || {
-					comp="'"
-					comp+=$(echo -e '{"speed":"0","length":13,"words":2,"lang":"pt-br","text":"'$texto'"}')
-					comp+="'"
-					#requisitando sintetização da mensagem
-					linkjs=$(eval $( echo -e " curl -s 'https://www.soarmp3.com/api/v1/text_to_audio/' -H 'authority: www.soarmp3.com' -H 'accept: */*' -H 'dnt: 1' -H 'x-csrftoken: cooDEjiS4AjiZiWyoeY9CecG28uSvi2j' -H 'x-requested-with: XMLHttpRequest' -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36' -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' -H 'origin: https://www.soarmp3.com' -H 'sec-fetch-site: same-origin' -H 'sec-fetch-mode: cors' -H 'sec-fetch-dest: empty' -H 'referer: https://www.soarmp3.com/' -H 'accept-language: pt-BR,pt;q=0.9,en;q=0.8' -H 'cookie: __cfduid=d8b070b6ad1386288b67d0d35b54cc46d1595177682; csrftoken=cooDEjiS4AjiZiWyoeY9CecG28uSvi2j; sessionid=ejte4r2g6gevvqtnxzdcgbaq68nlkj8a' --data-raw $comp --compressed"))
-					#pegar lista de audios sintetizados e separar informações:
-					link=$(echo $linkjs | jq '.urldownload' | tr -d '"')
-					audio=$(echo $linkjs | jq '.urldownload' | tr -d '"' | cut -d "/" -f6-)
-					#baixar audio sintetizado
-					curl -s $link -o $audio
-					#converter audio no formato legível ao telegram como gravação.
-					ffmpeg -i $audio -c:a libopus -ac 1 $audio.ogg
-					rm -rf $audio
-					#enviando audio sintetizado
-					audio $audio.ogg 1 "$resp"
-					rm -rf $audio.ogg
-					sleep 3m
-					deletarbot
-			}
+				#texto=$(echo $minusc | cut -d ":" -f2-)
+				./IBMvoz.sh "$(echo $minusc | cut -d ":" -f2-)" "${message_from_id[$id]}"
+				ffmpeg -i ${message_from_id[$id]}.mp3 -c:a libopus -ac 1 ${message_from_id[$id]}.ogg
+				rm -rf ${message_from_id[$id]}.mp3
+				audio ${message_from_id[$id]}.ogg 2 "$resp"
+				rm -rf ${message_from_id[$id]}.ogg
 
-			[[ "$casas" -ge "280" ]] && {
-				mensagem="este texto é muito longo para eu falar ($casas/280)"
-				escrever
-				responder
-				sleep 1m
-				deletarbot			
-			}
+				#casas=${#texto}
+				#[[ "$casas" -ge "280" ]] || {
+				#	comp="'"
+				#	comp+=$(echo -e '{"speed":"0","length":13,"words":2,"lang":"pt-br","text":"'$texto'"}')
+				#	comp+="'"
+				#	#requisitando sintetização da mensagem
+				#	linkjs=$(eval $( echo -e " curl -s 'https://www.soarmp3.com/api/v1/text_to_audio/' -H 'authority: www.soarmp3.com' -H 'accept: */*' -H 'dnt: 1' -H 'x-csrftoken: cooDEjiS4AjiZiWyoeY9CecG28uSvi2j' -H 'x-requested-with: XMLHttpRequest' -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36' -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' -H 'origin: https://www.soarmp3.com' -H 'sec-fetch-site: same-origin' -H 'sec-fetch-mode: cors' -H 'sec-fetch-dest: empty' -H 'referer: https://www.soarmp3.com/' -H 'accept-language: pt-BR,pt;q=0.9,en;q=0.8' -H 'cookie: __cfduid=d8b070b6ad1386288b67d0d35b54cc46d1595177682; csrftoken=cooDEjiS4AjiZiWyoeY9CecG28uSvi2j; sessionid=ejte4r2g6gevvqtnxzdcgbaq68nlkj8a' --data-raw $comp --compressed"))
+				#	#pegar lista de audios sintetizados e separar informações:
+				#	link=$(echo $linkjs | jq '.urldownload' | tr -d '"')
+				#	audio=$(echo $linkjs | jq '.urldownload' | tr -d '"' | cut -d "/" -f6-)
+				#	#baixar audio sintetizado
+				#	curl -s $link -o $audio
+				#	#converter audio no formato legível ao telegram como gravação.
+				#	ffmpeg -i $audio -c:a libopus -ac 1 $audio.ogg
+				#	rm -rf $audio
+				#	#enviando audio sintetizado
+				#	audio $audio.ogg 1 "$resp"
+				#	rm -rf $audio.ogg
+				#	sleep 3m
+				#	deletarbot
+			#}
+
+			#[[ "$casas" -ge "280" ]] && {
+			#	mensagem="este texto é muito longo para eu falar ($casas/280)"
+			#	escrever
+			#	responder
+			#	sleep 1m
+			#	deletarbot			
+			#}
 			;;
 
 			#*'as novidades'* | *'alguma novidade'* | *'noticia nova'* | *'noticias novas'*)
@@ -2535,7 +2544,7 @@ for id in $(ShellBot.ListUpdates)
 				sleep 3s
 				case $minusc in
 
-					*' oi'* | *'oi '*)
+				*' oi'* | *'oi '*)
 
 				Consulta_table php
 				nome=$valor
@@ -2590,19 +2599,24 @@ for id in $(ShellBot.ListUpdates)
 							mensagem="não encontrei nenhum mensagem para eu ler, talvez na próxima :v"
 							responder
 						}
-						comp="'"
-						comp+=$(echo -e '{"speed":"0","length":13,"words":2,"lang":"pt-br","text":"'${message_reply_to_message_text[$id]}}'"}')
-						comp+="'"
-						linkjs=$(eval $( echo -e "curl -s 'https://www.soarmp3.com/api/v1/text_to_audio/' -H 'authority: www.soarmp3.com' -H 'accept: */*' -H 'dnt: 1' -H 'x-csrftoken: cooDEjiS4AjiZiWyoeY9CecG28uSvi2j' -H 'x-requested-with: XMLHttpRequest' -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36' -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' -H 'origin: https://www.soarmp3.com' -H 'sec-fetch-site: same-origin' -H 'sec-fetch-mode: cors' -H 'sec-fetch-dest: empty' -H 'referer: https://www.soarmp3.com/' -H 'accept-language: pt-BR,pt;q=0.9,en;q=0.8' -H 'cookie: __cfduid=d8b070b6ad1386288b67d0d35b54cc46d1595177682; csrftoken=cooDEjiS4AjiZiWyoeY9CecG28uSvi2j; sessionid=ejte4r2g6gevvqtnxzdcgbaq68nlkj8a' --data-raw $comp --compressed"))
-						link=$(echo $linkjs | jq '.urldownload' | tr -d '"')
-						audio=$(echo $linkjs | jq '.urldownload' | tr -d '"' | cut -d "/" -f6-)
-						curl -s $link -o $audio
-						ffmpeg -i $audio -c:a libopus -ac 1 $audio.ogg
-						rm -rf $audio
-						audio $audio.ogg 11 "$resp"
-						rm -rf $audio.ogg
-						sleep 1m
-						deletarbot
+						#comp="'"
+						#comp+=$(echo -e '{"speed":"0","length":13,"words":2,"lang":"pt-br","text":"'${message_reply_to_message_text[$id]}}'"}')
+						#comp+="'"
+						#linkjs=$(eval $( echo -e "curl -s 'https://www.soarmp3.com/api/v1/text_to_audio/' -H 'authority: www.soarmp3.com' -H 'accept: */*' -H 'dnt: 1' -H 'x-csrftoken: cooDEjiS4AjiZiWyoeY9CecG28uSvi2j' -H 'x-requested-with: XMLHttpRequest' -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36' -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' -H 'origin: https://www.soarmp3.com' -H 'sec-fetch-site: same-origin' -H 'sec-fetch-mode: cors' -H 'sec-fetch-dest: empty' -H 'referer: https://www.soarmp3.com/' -H 'accept-language: pt-BR,pt;q=0.9,en;q=0.8' -H 'cookie: __cfduid=d8b070b6ad1386288b67d0d35b54cc46d1595177682; csrftoken=cooDEjiS4AjiZiWyoeY9CecG28uSvi2j; sessionid=ejte4r2g6gevvqtnxzdcgbaq68nlkj8a' --data-raw $comp --compressed"))
+						#link=$(echo $linkjs | jq '.urldownload' | tr -d '"')
+						#audio=$(echo $linkjs | jq '.urldownload' | tr -d '"' | cut -d "/" -f6-)
+						#curl -s $link -o $audio
+						#ffmpeg -i $audio -c:a libopus -ac 1 $audio.ogg
+						#rm -rf $audio
+						#audio $audio.ogg 11 "$resp"
+						#rm -rf $audio.ogg
+						#sleep 1m
+						#deletarbot
+						./IBMvoz.sh "${message_reply_to_message_text[$id]}" "${message_from_id[$id]}"
+						ffmpeg -i ${message_from_id[$id]}.mp3 -c:a libopus -ac 1 ${message_from_id[$id]}.ogg
+						rm -rf ${message_from_id[$id]}.mp3
+						audio ${message_from_id[$id]}.ogg 2 "$resp"
+						rm -rf ${message_from_id[$id]}.ogg
 					;;
 
 					*'a lista'*)
