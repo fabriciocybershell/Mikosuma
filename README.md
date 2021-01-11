@@ -58,9 +58,9 @@ para ajudar com as melhorias e evoluções (se considerar este projeto útil), m
 # dependências
 
 ```
-jq, imagemagick, ffmpeg, python3, speech_recognition (python), curl, translate-shell.
+jq, imagemagick, ffmpeg, python3, speech_recognition (python), curl, translate-shell, transmission-cli.
 ```
 ## comando diréto para instalação:
 ```
-sudo apt install jq imagemagick ffmpeg python3 curl translate-shell && pip install SpeechRecognition
+sudo apt install jq imagemagick ffmpeg python3 curl translate-shell transmission-cli && pip install SpeechRecognition
 ```
