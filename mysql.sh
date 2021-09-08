@@ -1,4 +1,7 @@
 #! /bin/bash
+#este script não é usado, apenas está aqui de puro enfeite 
+# de como ele era antes. o atual feito aoenas em shell
+# esta dentro da pasta plugins.
 
 # permissão de acesso ao banco de dados mysql
 sudo echo "permissão concedida" || echo "ACESSO AO BANCO DE DADOS NEGADO, SAINDO ..." && exit 1
