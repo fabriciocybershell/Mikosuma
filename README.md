@@ -72,10 +72,10 @@ sudo apt install curl ffmpeg html2text sox && sudo snap install jq || sudo apt i
 ## como rodar:
 dê as permissões necessárias para o arquivo ser executado dentro da pasta:
 ```
-chmor +x miko.sh
+chmod +x miko.sh
 ```
 e rodando com:
 ```
 ./miko.sh
 ```
-se aparecer um "dane-se" na tela, é porqueesta tudo ok :D
+se aparecer um "dane-se" na tela, é porque esta tudo ok :D
