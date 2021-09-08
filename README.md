@@ -27,11 +27,10 @@ LINK do canal da duda de postagem de podcasts diários: https://t.me/mikoduda;"
 17. responder a mensções ao seu nome ou apelido 'o que permite você perguntar algumas coisas ou conversar brevemente com ela ...';"
 18. interagir com bom dia, tarde e noite;"
 19. fazer leves brincadeiras (alterado para formas normais de respóstas);"
-20. resumir textos de mensagens (um recurso apra resumir links , livros e documentos e em massa esta sendo desenvolvido, por demandar muito processamento: será pago, menos esta de reusmir mensagens);"
+20. resumir textos de mensagens (um recurso para resumir links , livros e documentos e em massa, esta sendo desenvolvido, por demandar muito processamento: será pago, menos esta de resumir mensagens);"
 21. lhe permite adicionar link de regra e canal, sempre que alguém perguntar sobre ou pedir, ela irá mostrar;"
-22. você pode pedir para ela criar um podcast no canal dela, porém não é personalizavel ou utilizavel em outros canais por em quanto;"
-23. comentários e outros níveis de interações a depender dos tópicos das conversas (se ativado);"
-34. buscar vídeos no youtube."
+22. comentários e outros níveis de interações a depender dos tópicos das conversas (se ativado);"
+23. buscar vídeos no youtube."
 
 ## API utilizada para 90% da comunicação com o telegram:
 
@@ -56,16 +55,16 @@ ela é autônoma, o que significa que muitos erros e problemas que ocorrerem ela
 ## aqui estão listadas as dependências necessárias, as seguintes são para recursos ainda em desenvolvimento.
 
 ```
-curl, jq, ffmpeg, sox.
+curl, jq, ffmpeg, sox, html2text.
 ```
 
 ## estes são os não necessários, pois os recursos estão desativados no código.
 ```
-html2text, pdf2txt/pdftotxt, catdoc.
+pdf2txt/pdftotxt, catdoc.
 
 ```
 
 ## comando direto para instalação de dependências:
 ```
-sudo apt install curl ffmpeg, sox && sudo snap  install jq || sudo apt install jq
+sudo apt install curl ffmpeg html2text sox && sudo snap install jq || sudo apt install jq
 ```
