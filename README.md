@@ -41,7 +41,7 @@ um novo sistema de banco de dados foi criado baseado no mysql, usando metodologi
 o desempenho é ABSURDO, e entre outras coisas, todos os códigos foram refatorados, e os novos e alguns antigos criados foram separados em módulos, o que lhes permitem serem usados para outros projetos, funções novas da duda e APIs futuras.
 
 ## nota:
-todo o código foi refatorado do absoluto 0, cada método foi refeito e reprojetado, funções mais inteligentes e algoritmos muito poderosos foram recontruidos do zero, e outros contruidos novos com técnicas mais atuais.
+todo o código foi refatorado do absoluto 0, cada método foi refeito e reprojetado, funções mais inteligentes e algoritmos muito poderosos foram reconstruidos do zero, e outros construidos novos com técnicas mais atuais.
 
 ## obs:
 use a duda por sua conta e rísco, fique sempre de olho no algoritmo em execussão, pois ela mesmo não necessariamente aprendendo com os dados como uma IA, porém os algoritmos são avançados o suficiente para já conseguirem mudar algumas das respóstas e comportamentos em diversas situações, algumas delas não programadas.
