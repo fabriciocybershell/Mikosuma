@@ -1,33 +1,65 @@
 #! /bin/bash
 
-tratar="$1"
-tratar=${tratar//\+/\%\2\B}
-tratar=${tratar// /\+}
-tratar=${tratar//â/\%\C\3\%\A\2}
-tratar=${tratar//ã/\%\C\3\%\A\3}
-tratar=${tratar//ç/\%\C\3\%\A\7}
-tratar=${tratar//á/\%\C\3\%\A\1}
-tratar=${tratar//\,/\%\2\C}
-tratar=${tratar//\:/\%\3\A}
-tratar=${tratar//\;/\%\3\B}
-tratar=${tratar//\//\%\2\F}
-tratar=${tratar//\?/\%\3\F}
-tratar=${tratar//\*/\%\2\A}
-tratar=${tratar//\{/\%\7\B}
-tratar=${tratar//\}/\%\7\D}
-tratar=${tratar//ó/\%\C\3\%\B\3}
-tratar=${tratar//ô/\%\C\3\%\B\4}
-tratar=${tratar//é/\%\C\3\%\A\9}
-tratar=${tratar//ê/\%\C\3\%\A\A}
-tratar=${tratar//í/\%\C\3\%\A\D}
-tratar=${tratar//ú/\%\C\3\%\B\A}
-tratar=${tratar//\</\%\3C}
-tratar=${tratar//\>/\%\3\E}
+#fonetica=$(echo $1| tr -d '\n')
+fonetica=${1//google/gúgou}
+fonetica=${fonetica//play/plêy}
+fonetica=${fonetica//ifood/aifuud}
+fonetica=${fonetica//whatch/uóti}
+fonetica=${fonetica//covid-19/covid dizenove}
+fonetica=${fonetica//eléctrico/elétrico}
+fonetica=${fonetica//spotfy/spóti fái}
+fonetica=${fonetica//playlist/pleylist}
+fonetica=${fonetica//yahoo/iaruu}
+fonetica=${fonetica//podcast/pódiquésti}
+fonetica=${fonetica//display/displei}
+fonetica=${fonetica//iphone/aifone}
+fonetica=${fonetica//live/láive}
+fonetica=${fonetica// ,/, }
+fonetica=${fonetica// \?/\? }
+fonetica=${fonetica//headset/readsét}
+fonetica=${fonetica//chrome/crome}
+fonetica=${fonetica//startup/estartáp}
+fonetica=${fonetica//setup/setáp}
+fonetica=${fonetica// \|/\,}
+fonetica=${fonetica//action/éction}
+fonetica=${fonetica//online/onláine}
+fonetica=${fonetica//software/sóftwér}
+fonetica=${fonetica//whatsapp/uátzap}
+fonetica=${fonetica//bing/bíng}
+fonetica=${fonetica//ransomware/ransomwér}
+fonetica=${fonetica//smart/smárt}
+fonetica=${fonetica//device/deváice}
+fonetica=${fonetica//iot/íótêê}
+fonetica=${fonetica//designer/desáiner}
+fonetica=${fonetica//site/sáite}
+fonetica=${fonetica//renault/renôú}
+fonetica=${fonetica//facebook/feicebúck}
+fonetica=${fonetica//microsoft/maicroçófit}
+fonetica=${fonetica//windows/uindouls}
+fonetica=${fonetica//apple/épou}
+fonetica=${fonetica//telegram/télegrâm}
+fonetica=${fonetica//instagram/ínstagrâm}
+fonetica=${fonetica//uber/úber}
+fonetica=${fonetica//bluetooth/blutufi}
+fonetica=${fonetica//like/láique}
+tratar=${fonetica//usuarios/usuáríos}
+tratar=${tratar//puta/mãe}
+tratar=${tratar//cyberpunk/saiberpânk}
 tratar=${tratar//porra/lindo}
-tratar=${tratar//caralho/delicia}
-tratar=${tratar//bunda/nadegas}
+tratar=${tratar//caralho/delícia}
+tratar=${tratar//bunda/nádega}
+tratar=${tratar//app/ép}
+tratar=${tratar//canaltech/canal téck}
+tratar=${tratar//delivery/delíveri}
 
-curl "https://text-to-speech-demo.ng.bluemix.net/api/v3/synthesize?text=${tratar}&voice=pt-BR_IsabelaV3Voice&ssmlLabel=SSML&download=true&accept=audio%2Fmp3" \
+tratar=$(tr -d '\&\*\+\-\/\<\=\>\^\_\`\{\|\}\~' <<< "$tratar" | sed 's/([^)]*)//')
+tratar=$(jq -R -r @uri <<< "$tratar")
+tratar=$(tr -d '\n' <<< $tratar)
+
+[[ "${3}" =~ "portugues" ]] && idioma="pt-BR_IsabelaV3Voice"
+[[ "${3}" =~ "ingles" ]] && idioma="en-US_AllisonV3Voice"
+
+curl -s "https://text-to-speech-demo.ng.bluemix.net/api/v3/synthesize?text=${tratar:-erro, conteúdo não capturado.}&voice=${idioma:-pt-BR_IsabelaV3Voice}&ssmlLabel=SSML&download=true&accept=audio%2Fmp3" \
   -H 'Connection: keep-alive' \
   -H 'DNT: 1' \
   -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36' \
@@ -37,4 +69,4 @@ curl "https://text-to-speech-demo.ng.bluemix.net/api/v3/synthesize?text=${tratar
   -H 'Sec-Fetch-Dest: audio' \
   -H 'Referer: https://text-to-speech-demo.ng.bluemix.net/' \
   -H 'Accept-Language: pt-BR,pt;q=0.9,en;q=0.8' \
-  --compressed --output ${2}.mp3
+  --output ${2}.mp3

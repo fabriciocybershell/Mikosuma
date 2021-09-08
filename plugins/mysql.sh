@@ -5,7 +5,7 @@ sudo echo "permissão concedida"
 [[ "$?" = "1" ]] && echo "ACESSO AO BANCO DE DADOS NEGADO, ERROS PODERÃO OCORRER."
 
 #senha em base 64
-passwd=$(echo "sua senha" | base64 -d)
+passwd=$(base64 -d <<< "sua senha")
 
 #conexão com o banco de dados/DATABASE
 CS="mysql -u root -p$passwd -e"
