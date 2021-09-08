@@ -89,7 +89,7 @@ freelancerdatabase(){
 
 Consulta_table_freela(){
 	name="freelancers"
-	valor=$(cat dados/freelancers.lil)
+	valor="$(< dados/freelancers.lil)"
 	[[ $valor ]] && {
 		valor=${valor##*freela\:}
 	}
