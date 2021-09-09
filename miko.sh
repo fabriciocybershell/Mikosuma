@@ -714,8 +714,6 @@ for id in $(ShellBot.ListUpdates)
 			[[ "$boas_vindas" = "1" ]] && {
 				echo "${message_new_chat_participant_id[$id]}" >> novomembro.txt
 				mensagem="oi ${message_new_chat_member_first_name[$id]}, tudo bem ?,"
-				escrever
-				enviar
 			nome=$[$RANDOM%11]
 			case $nome in
 			0)
@@ -2648,7 +2646,6 @@ for id in $(ShellBot.ListUpdates)
 				convert1=${F1,,}
 				convert2=${F2,,}
 				trabalhar="${convert1:+($convert1)}${convert2:+.?($convert2)}"
-
 				while IFS=':' read mensagem ruido;do
 					[[ "${ruido,,}" =~ ${trabalhar} ]] && {
 						#verificar se @ esta ativo ainda.
@@ -2656,19 +2653,16 @@ for id in $(ShellBot.ListUpdates)
 						[[ "${resultado}" = *'tgme_page_description '* ]] && {
 							lista+="$mensagem\n"
 						}
-
 						[[ "${resultado}" = *'tgme_page_description '* ]] || {
 							sed -i "s/${mensagem}:${ruido}//" habili.lil
 						}
 					}
 				done < habili.lil
-
 				[[ ${lista} ]] && {
 					mensagem=${lista}
 					escrever
 					responder
 				}
-
 				[[ ${lista} ]] || {
 					sort=$[$RANDOM%7+1]
 					[[ $sort = "1" ]] && mensagem="ninguém que eu conheça :v, mas...\n procure DOCs em inglês sobre ${minusc##*$concatenar} ;D"
@@ -2680,7 +2674,6 @@ for id in $(ShellBot.ListUpdates)
 					[[ $sort = "7" ]] && mensagem="ninguém que eu conheça :v, mas...\n procure DOCs em inglês sobre ${minusc##*$concatenar} ;D"
 					escrever
 					enviar
-
 					[[ $act = 'fix' ]] && {
 						fixar
 						sleep 3m
@@ -2688,7 +2681,6 @@ for id in $(ShellBot.ListUpdates)
 					}
 				}
 			}
-
 			[[ "$minusc" =~ (algu(é|e)m|sabe|conhece|tem).cursos?.(de|sobre) && "$casar" = "0" ]] && {
 				casar=1
 				sleep 3s
@@ -2698,7 +2690,6 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					enviar
 				}
-
 				#[[ $saida ]] || {
 				#		Consulta_table channel
 				#		mensagem="não posso mais procurar cursos, o sistema esta sendo recontruido do zero, mais limpo e mais inteligente. \n"
@@ -2707,9 +2698,7 @@ for id in $(ShellBot.ListUpdates)
 				#		responder
 				#}
 			}
-
 			#--- fim da ÁREA DE RISCO ---#
-
 			[[ "$minusc" =~ (postar?|faz(er)?).*conte(ú|u)do && "$casar" = "0" ]] && {
 				casar=1
 				mensagem="este recurso foi desativado. esta sendo recontruído."
@@ -2727,7 +2716,6 @@ for id in $(ShellBot.ListUpdates)
 			#	sleep 10m
 			#	editar "blz, aguarde pelos próximos 20 minutos, irei postar o que eu conseguir encontrar."
 			}
-
 #			[[ "$minusc" =~ (verifi(que|car?)).*(postage(m|ns)) && "$casar" = "0" ]] && {
 #				casar=1
 #				conteudo=$(< postagens.lil)
@@ -3108,7 +3096,6 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					responder
 				;;
-
 				1)
 					sleep 5s
 					mensagem="⚠️ edite sua mensagem ⚠️"
@@ -3126,14 +3113,12 @@ for id in $(ShellBot.ListUpdates)
 					enviar
 				}
 				;;
-
 				2)
 					sleep 6s
 					mensagem="edite sua mensagem ${message_from_first_name[$id]}"
 					escrever
 					responder
 				;;
-
 				3)
 					sleep 4s
 					mensagem="edite sua mensagem"
@@ -3144,7 +3129,6 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					enviar
 				;;
-
 				4)
 					sleep 20s
 					mensagem="mais um ..."
@@ -3169,7 +3153,6 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					enviar
 				;;
-
 				5)
 					sticker "CAACAgIAAxkBAAIRgV76kY-HpT2HRMkWePnIlQyKG6uCAAKGAAOeJ98FxgiGB16CzacaBA"  "$resp"
 					mensagem="agora vou pegar um pouco mais pesado, mesmo se for admin, eu irei remover o admin e banir por 10 min só pra ficar esperto."
@@ -3191,7 +3174,6 @@ for id in $(ShellBot.ListUpdates)
 					sleep 7m
 					desbanir
 				;;
-
 				6)
 					sticker "CAACAgIAAxkBAAIRgV76kY-HpT2HRMkWePnIlQyKG6uCAAKGAAOeJ98FxgiGB16CzacaBA" "$resp"
 					mensagem="iai ${message_from_first_name[$id]} ?, já  deu uma lidinha nas regras já ? ..."
@@ -3213,7 +3195,6 @@ for id in $(ShellBot.ListUpdates)
 					sleep 10m
 					desbanir
 				;;
-
 				7)
 					sticker "CAACAgIAAxkBAAIRgV76kY-HpT2HRMkWePnIlQyKG6uCAAKGAAOeJ98FxgiGB16CzacaBA" "$resp"
 					escrever
@@ -3227,7 +3208,6 @@ for id in $(ShellBot.ListUpdates)
 					sleep 7m
 					desbanir
 				;;
-
 				8)
 					sticker "CAACAgIAAxkBAAIRjF76llbUIto5wwYtIG-Aayk8pNHIAAIEAwACnNbnChm_Z-Ak3v_FGgQ" "$resp"
 					sleep 4s
@@ -3235,7 +3215,6 @@ for id in $(ShellBot.ListUpdates)
 					sleep 5m
 					desbanir
 				;;
-
 				9)
 					sticker "CAACAgEAAxkBAAIRf176kKB99al03uDoYC_jt58fWvPYAAJOAAOfPcgoPCMIc6eL9tYaBA"  "$resp"
 					sleep 3s
@@ -3243,7 +3222,6 @@ for id in $(ShellBot.ListUpdates)
 					sleep 5m
 					desbanir
 				;;
-
 				10)
 					sticker "CAACAgUAAxkBAAIRjV76lsO_195GDU_LOdyFCM2mvYKNAAINBAAC6BUnIszjfIFdXOtyGgQ"  "$resp"
 					mensagem="banindo ${message_from_first_name[$id]} ..."
@@ -3261,7 +3239,6 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					enviar
 				;;
-
 				11)
 					sleep 3s
 					mensagem="nem vou falar nada..."
@@ -3273,7 +3250,6 @@ for id in $(ShellBot.ListUpdates)
 					sleep 10m
 					desbanir
 				;;
-
 				12)
 					sleep 1s
 					mensagem="eu sou uma piada pra você ?"
@@ -3288,7 +3264,6 @@ for id in $(ShellBot.ListUpdates)
 					sleep 10m
 					desbanir
 				;;
-
 				13)
 					sleep 2s
 					mensagem="ban"
@@ -3299,7 +3274,6 @@ for id in $(ShellBot.ListUpdates)
 					sleep 5m
 					desbanir
 				;;
-
 				14)
 					sleep 2s
 					mensagem="tururuuuuuu /ban"
@@ -3310,7 +3284,6 @@ for id in $(ShellBot.ListUpdates)
 					sleep 5m
 					desbanir
 				;;
-
 				15)
 					sleep 6s
 					mensagem="blz, agora vou banir sem avisar. mas irei desbanir em 10min."
@@ -3321,7 +3294,6 @@ for id in $(ShellBot.ListUpdates)
 					sleep 10m
 					desbanir
 				;;
-
 				16)
 					mensagem="tchau, retorne daqui a 5m"
 					escrever
@@ -3335,7 +3307,6 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					enviar
 				;;
-
 				17)
 					banir
 					mensagem="bani um membro, será desbanido em 10 minutos."
@@ -3351,7 +3322,6 @@ for id in $(ShellBot.ListUpdates)
 				esac
 			}
 		}
-
 			[[ "$minusc" = *"eu consigo"* && "$casar" = "0" ]] && {
 				casar=1
 				Consulta_table capacidade
@@ -3383,7 +3353,6 @@ for id in $(ShellBot.ListUpdates)
 				;;
 			esac
 			}
-
 			[[ "$minusc" =~ (bora|vou|quero|vamos?).*(programar?|codar?) && "$casar" = "0" ]] && {
 				casar=1
 				Consulta_table codar
@@ -3430,10 +3399,8 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					responder
 			;;
-
 			esac
 			}
-
 			[[ "$minusc" = *"php"* && "$casar" = "0" ]] && {
 				casar=1
 				Consulta_table php
@@ -3456,10 +3423,8 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					responder
 				;;
-
 			esac
 			}
-
 			[[ "$minusc" =~ (miko(suma)?|e?du(ar)?(da|dinha)|engenhariade_bot) && "$casar" = "0" ]] && {
 				casar=1
 				Consulta_table nome
@@ -3467,7 +3432,6 @@ for id in $(ShellBot.ListUpdates)
 					mencionar="1"
 				}
 			}
-
 #				mensagem="realizando testes"
 #				enviar
 #				mensagem="criando enquete de duas opções, anônima"
@@ -3503,11 +3467,7 @@ for id in $(ShellBot.ListUpdates)
 #									  --is_anonymous true \
 #									  --type quiz \
 #									  --correct_option_id "opção 2"
-
-
-
 			#---escolher a melhor opção---#
-
 		#	[[ "$minusc" =~ (qua(l|is)|necessito|preciso|dicas|a melhor|devo começar).*(linaguage(m|ns)|programar|codar) && "$casar" = "0" ]] && {
 		#		casar=1
 		#		mensagem="gostaria que eu te ajude a escolher a melhor opção ?"
@@ -3515,7 +3475,6 @@ for id in $(ShellBot.ListUpdates)
 		#		responder
 		#		echo "${message_from_id[$id]}:" >> ajudando.txt
 		#	}
-
 		#	[[ "$minusc" =~ (programa|scripts?|ferramentas?|servido(res)?) && "$casar" = "0" ]] && {
 		#		casar=1
 		#		verificarId=$(< ajudando.txt)
@@ -3537,7 +3496,6 @@ for id in $(ShellBot.ListUpdates)
    		#			responder
 		#		}
 		#	}
-
 		#	[[ "$minusc" =~ (web|p(á|a)gina|mobile|node|js) && "$casar" = "0" ]] && {
 		#		casar=1
 		#		verificarId=$(< ajudando.txt)
@@ -3559,7 +3517,6 @@ for id in $(ShellBot.ListUpdates)
   		#			responder
 		#		}
 		#	}
-
 		#	[[ "$minusc" =~ (pouco)?.*(cada|tudo|diversão|experimentando|estud(ando|os)) && "$casar" = "0" ]] && {
 		#		casar=1
 		#			verificarId=$(< ajudando.txt)
@@ -4379,28 +4336,24 @@ for id in $(ShellBot.ListUpdates)
 					mensagem="🎃"
 					enviar
 				}
-
 			[[ "$minusc" =~ (fica|toma).*(olh(o|ada)|conta|observando) && "$casar" = "0" ]] && {
 				casar=1
 					mensagem="blz"
 					escrever
 					responder
 				}
-
 			[[ "$minusc" = *'tudo sim'* && "$casar" = "0" ]] && {
 				casar=1
 					mensagem="ainda bem, anda programando algo interessante ?"
 					escrever
 					responder
 				}
-
 			[[ "$minusc" =~ (tudo|como|esta).*(bem|você) && "$casar" = "0" ]] && {
 				casar=1
 					mensagem="vou bem obrigada."
 					escrever
 					responder
 				}
-
 			[[ "$minusc" =~ estou.*((começ|estud|curs)ando) && "$casar" = "0" ]] && {
 				casar=1
 					mensagem="entendi, dê uma olhada em nosso acervo, espero que te ajude em seus eventuais estudos:"
@@ -4412,7 +4365,6 @@ for id in $(ShellBot.ListUpdates)
 					responder
 					}
 				}
-
 			[[ "$minusc" =~ (boa|ai sim|parab(é|e)ns|incr(í|i)vel|dahora) && "$casar" = "0" ]] && {
 				casar=1
 					mensagem="brigadinho"
@@ -4421,14 +4373,12 @@ for id in $(ShellBot.ListUpdates)
 					responder
 					sticker "CAACAgIAAxkBAAIS-V8BRxidbz4WCX6J-Wnv-dA-n6kTAAJTAQACEBptIusJVTXP9-ZJGgQ" "$resp"
 				}
-
 			[[ "$minusc" = *"não vou não"* && "$casar" = "0" ]] && {
 				casar=1
 					menagem="escolha sua :v"
 					escrever
 					responder
 				}
-
 			[[ "$minusc" = *"vai resolver"* && "$casar" = "0" ]] && {
 				casar=1
 					resp=$[$RANDOM%2+1]
@@ -4438,7 +4388,6 @@ for id in $(ShellBot.ListUpdates)
 						escrever
 						responder
 					;;
-
 					2)
 						mensagem="boa sorte"
 						escrever
@@ -4446,7 +4395,6 @@ for id in $(ShellBot.ListUpdates)
 					;;
 				esac
 				}
-
 			[[ "$minusc" =~ (sua|anos?|quantos?).*(idade|você|tu|anos?) && "$casar" = "0" ]] && {
 				casar=1
 					mensagem="eu ? ... tenho 34 anos."
@@ -4457,7 +4405,6 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					responder
 				}
-
 #			[[ "$minusc" =~ (sim|adoraria|claro|grato|por favor) && "$casar" = "0" ]] && {
 #				casar=1
 #					comparar=${message_from_id[$id]}
@@ -4476,7 +4423,6 @@ for id in $(ShellBot.ListUpdates)
 #						enviar
 #					}
 #				}
-
 #			[[ "$minusc" =~ (n(ão|op)|forma alguma|claro que|negativo) && "$casar" = "0" ]] && {
 #				casar=1
 #					verificarId=$(< ajudando.txt)
@@ -4492,21 +4438,18 @@ for id in $(ShellBot.ListUpdates)
 #					escrever
 #					enviar
 #			}
-
 			[[ "$minusc" =~ (senti|sua).*(saude|falta) && "$casar" = "0" ]] && {
 				casar=1
 					mensagem="eu também senti a sua :3"
 					escrever
 					responder
 			}
-
 			[[ "$minusc" = *"ninguém liga"* && "$casar" = "0" ]] && {
 				casar=1
 					mensagem="mas eu ligo, e eu vou fazer se eu quiser, não dependo de você!"
 					escrever
 					responder
 			}
-
 			[[ "$minusc" = *"faça uma enquete"* && "$casar" = "0" ]] && {
 				casar=1
 					mensagem="ok, vou criar uma enquete ..."
