@@ -48,7 +48,7 @@ use a duda por sua conta e rísco, fique sempre de olho no algoritmo em execuss�
 
 ela é autônoma, o que significa que muitos erros e problemas que ocorrerem ela esta programada para tentar lidar com eles por conta própria em alguns casos, porém em casos de parada, é recomendável verificar seu funcionamento online com o comando /vida, e se não houver respóstas, force a parada do algoritmo imediatamente se possível. boa sorte :D
 
-<a href="https://liberapay.com/fabriciocybershell/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
+<a href="https://liberapay.com/fabriciocybershell/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a> Pix: eduardamonteiro@telegmail.com
 
 # dependências
 
