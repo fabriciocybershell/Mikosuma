@@ -4,7 +4,9 @@
 ![Package Version](https://img.shields.io/badge/version-0.3.2-green.svg?cacheSeconds=2592000) ![Package Version](https://img.shields.io/badge/linguagem-ShellScript-blue.svg?cacheSeconds=2592000)
 # eduarda monteiro
 
-**eduarda** é um projeto de bot para telegram, capaz de gerenciar um grupo completo por linguagem natural e poucos comandos, agindo como uma humana comum, capaz de realizar as seguntes ações:
+**eduarda** é um projeto de bot para telegram, capaz de ajudar e facilitar o gerenciamento automático grupo quase por completo, utilizando linguagem natural e poucos comandos para permitir melhor interação dela com os membros do grupo, agindo similar a uma humana comum. 
+
+este algoritmo é capaz de realizar as seguntes ações:
 
 1. atender novos integrandes;"
 2. fazendo checagens para verificar se são pessoas ou bots durante o processo de entrada;"
