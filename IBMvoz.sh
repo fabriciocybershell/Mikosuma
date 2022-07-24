@@ -56,8 +56,8 @@ tratar=$(tr -d '\&\*\+\-\/\<\=\>\^\_\`\{\|\}\~' <<< "$tratar" | sed 's/([^)]*)//
 tratar=$(jq -R -r @uri <<< "$tratar")
 tratar=$(tr -d '\n' <<< $tratar)
 
-[[ "${3}" =~ "portugues" ]] && idioma="pt-BR_IsabelaV3Voice"
-[[ "${3}" =~ "ingles" ]] && idioma="en-US_AllisonV3Voice"
+[[ "${3}" =~ portugu(e|ê)s ]] && idioma="pt-BR_IsabelaV3Voice"
+[[ "${3}" =~ "ingl(e|ê)s" ]] && idioma="en-US_AllisonV3Voice"
 
 curl -s "https://text-to-speech-demo.ng.bluemix.net/api/v3/synthesize?text=${tratar:-erro, conteúdo não capturado.}&voice=${idioma:-pt-BR_IsabelaV3Voice}&ssmlLabel=SSML&download=true&accept=audio%2Fmp3" \
   -H 'Connection: keep-alive' \
