@@ -16,7 +16,7 @@
 		i=$((i+1))
 	done < base.txt
 
-	tratar=$(echo -e "${array[@]//#/\\n}" | sort -n | head -n1)
+	tratar=$(echo -e "${array[@]//#/\\n}" | sort -nr | head -n1)
 
 	[[ "${tratar%%:*}" = "0" ]] && {
 		echo "hmmm..."

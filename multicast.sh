@@ -4,10 +4,12 @@
 
 echo "$(< consulta.lil)" > anterior.lil
 
+#LIMPEZA
 rm -rf podcast/*
 rm -rf production/*
 > postagem.lil
 > consulta.lil
+> err_log.txt
 
 #--------------------------------------------
 
@@ -61,7 +63,7 @@ dateDiff(){
 # criar a lista dos links de criação de podcasts autorizados por padrão
 [[ -a sites.url ]] || {
 echo "conf1/https://www.nytimes.com/;ingles
-conf2/https://canaltech.com.br/;portugues
+conf6/https://canaltech.com.br/;portugues
 conf1/https://olhardigital.com.br/;portugues
 conf3/https://arstechnica.com/;ingles
 conf4/https://www.oobservador.com.br/;portugues
@@ -73,7 +75,7 @@ conf1/https://www.omgubuntu.co.uk/;ingles
 
 [[ -a analisar.url ]] || {
 echo "conf1/https://www.nytimes.com/;ingles
-conf2/https://canaltech.com.br/;portugues
+conf6/https://canaltech.com.br/;portugues
 conf1/https://olhardigital.com.br/;portugues
 conf3/https://arstechnica.com/;ingles
 conf4/https://www.oobservador.com.br/;portugues
@@ -83,7 +85,16 @@ conf1/https://www.omgubuntu.co.uk/;ingles
 " > analisar.url
 }
 
-#gerar ponte de contagem
+#conf1/https://www.nytimes.com/;ingles +
+#conf2/https://canaltech.com.br/;portugues +
+#conf1/https://olhardigital.com.br/;portugues +
+#conf3/https://arstechnica.com/;ingles +
+#conf4/https://www.oobservador.com.br/;portugues -
+#conf5/https://www.cnnbrasil.com.br/;portugues +
+#conf5/https://g1.globo.com/;portugues +
+#conf1/https://www.omgubuntu.co.uk/;ingles +
+
+#gerar pontes de contagem
 [[ -a contagem ]] && rm contagem
 [[ -a contagem ]] || mkfifo contagem
 
@@ -96,7 +107,6 @@ while IFS=':' read F1 F2 F3 F4 F5 F6;do
 #as que não forem maiores do que a data atual, calcular dias restantes.
 	[[ "${F3}" > "${data_atual}" ]] || {
 		dateDiff "$(date +%y-%m-%d)" "${F3}"
-		#echo "data arquivo: ${F3}, data atual: "${data_atual}" diferença: ${diferenca}"
 		# se for <0 OU -1, mudar para inativo
 		[[ ${diferenca} -le -1 ]] && {
 			sed -i "s/${F1}:${F2}:${F3}:${F4}:${F5}:${F6}/${F1}:${F2}:inativo:${F4}:${F5}:${F6}/" fontes.ref
@@ -115,7 +125,9 @@ echo "$(< analisar2.url)" > analisar.url
 rm -r analisar2.url
 
 #----------------------------------------------------------------------------------------------
+#trava simples para testes de código
 [[ "a" = "a" ]] && {
+
 #contagem total de links disponíveis antes da leitura em massa
 while read line;do
 	[[ "${line}" = *"conf"* ]] && total_sites=$((total_sites+1))
@@ -127,110 +139,130 @@ while IFS='/' read F1 F2 F3 F4 F5;do
 	tempo=$((tempo+2))
 	[[ "${F1}" = *"conf"* ]] && {
 		(
-    	# capturar nomes de domínios para utilizar em dadas situações
-    	IFS='.' read D1 D2 D3 <<< "${F4}"
-    	[[ "${D1}" = "www" ]] && dominio="${D2}" || dominio="${D1}"
+	    	# capturar nomes de domínios para utilizar em dadas situações
+	    	IFS='.' read D1 D2 D3 <<< "${F4}"
+	    	[[ "${D1}" = *"www"* ]] && dominio="${D2}" || dominio="${D1}"
 
-    	# capturar idioma do site
-    	IFS=';' read L1 L2 <<< "${F4}${F5}"
-    	[[ "${L2}" =~ (ingles|portugues) ]] && idioma=${BASH_REMATCH[1]}
+	    	# capturar idioma do site
+	    	IFS=';' read L1 L2 <<< "${F4}${F5}"
+	    	[[ "${L2}" =~ (ingles|portugues) ]] && idioma=${BASH_REMATCH[1]}
 
-    	# captura da primeira notícia
-    	[[ "${F1}" = "conf1" ]] && padr="(${F2}//${F4//./\\.}/)(([0-9]{2}|$(date +%Y))/[0-9]{2}/([0-9]{2}|$(date +%Y))|[0-9]{1,}).*[^\"]*\""
-    	[[ "${F1}" = "conf2" ]] && padr="(href=\")/.{6,}/([0-9]{2}|$(date +%Y))?[^\"]*\""
-    	[[ "${F1}" = "conf3" ]] && padr="https?://(${F4}).*/([0-9]{2}|$(date +%Y))/[^\"]*\""
-    	[[ "${F1}" = "conf4" ]] && padr="(href=\"/).*/.*([0-9]{2,4}).*[a-z]{3,}.*[^\"]*\""
-    	#[[ "${F1}" = "conf5" ]] && padr="<a href=\"https?://(${F4}).*/.*/([0-9]{2}|$(date +%Y))/.*[^\"]"
-    	[[ "${F1}" = "conf5" ]] && padr="<a href=\"https?://${F4}/[a-z]{5,}[^/]*/([0-9]{1,2}|$(date +%Y)|[a-z])+[^\"]*"
+	    	# definindo método de captura de notícia
+	    	[[ "${F1}" = "conf1" ]] && padr="(${F2}//${F4//./\\.}/)(([0-9]{2}|$(date +%Y))/[0-9]{2}/([0-9]{2}|$(date +%Y))|[0-9]{1,}).*[^\"]*\""
+	    	[[ "${F1}" = "conf2" ]] && padr="(href=\")/.{6,}/([0-9]{2}|$(date +%Y))?[^\"]*\""
+	    	[[ "${F1}" = "conf3" ]] && padr="https?://(${F4}).*/([0-9]{2}|$(date +%Y))/[^\"]*\""
+	    	[[ "${F1}" = "conf4" ]] && padr="(href=\"/).*/.*([0-9]{2,4}).*[a-z]{3,}.*[^\"]*\""
+	    	[[ "${F1}" = "conf5" ]] && padr="<a href=\"https?://${F4}/[a-z]{5,}[^/]*/([0-9]{1,2}|$(date +%Y)|[a-z])+[^\"]*"
+	    	[[ "${F1}" = "conf6" ]] && padr="url\"\:\"/.{6,}/[^\"]*"
+			[[ "${F1}" = "conf7" ]] && padr="<a href=('|\")https?://${F4}/(([a-z]{5,}|$(date +%Y))[^/]*/){1,2}[^(\"|\')]*"
 
-    	IFS='"' read A1 A2 A3 <<< $(curl -s "${F2}//${F4}/" | egrep -o "${padr}")
+	    	IFS='"' read A1 A2 A3 A4 <<< $(curl -s "${F2}//${F4}/" --compressed | egrep -o "${padr}")
 
-    	# montagem do link
-    	[[ "${F1}" = "conf1" || "${F1}" = "conf3" ]] && link="${A1}"
-    	[[ "${F1}" = "conf2" || "${F1}" = "conf4" ]] && link="${F2}//${F4}${A2}"
-    	[[ "${F1}" = "conf5" ]] && link="${A2}"
-    	IFS=' ' read P1 P2 <<< "${link}"
-      link="${P1}"
+	    	# montagem do link
+	    	[[ "${F1}" = "conf1" || "${F1}" = "conf3" ]] && link="${A1}"
+	    	[[ "${F1}" = "conf2" || "${F1}" = "conf4" ]] && link="${F2}//${F4}${A2}"
+	    	[[ "${F1}" = "conf6" ]] && link="${F2}//${F4}${A3}" #>> err_log.txt
+	    	[[ "${F1}" = "conf5" ]] && link="${A2}"
+	    	[[ "${F1}" = "conf7" ]] && link="${A1##*\'}"
+	    	IFS=' ' read P1 P2 <<< "${link}"
+	      link="${P1}"
 
-    	# captura do título
-	   regex_title='<title.*>(.*)</title>'
-		while read linha;do
-			[[ "${linha}" =~ $regex_title ]] && {
-				titulo=$(html2text -utf8 -nometa <<< ${BASH_REMATCH[1]})
-				break
-			}
-		done <<< $(curl -s "$link")
+#	    	echo "estrutura criada:
+#	    	A1: ${A1}
+#	    	A2: ${A2}
+#	    	A3: ${A3}
+#	    	A4: ${A4}
+#	    	F1: ${F1}
+#	    	F2: ${F2}
+#	    	F3: ${F3}
+#	    	LINK: ${link}
+#	    	" >> err_log.txt
 
-	   consulta=$(tr -d '\n' <<< "${dominio};${link};${titulo}")
-	   echo -e "${consulta}\n" >> consulta.lil
+	    	# captura do título
+#		   regex_title='<title.*>(.*)</title>'
+		   regex_title='<title[^\>]*>([^\>]*)</title>'
+			while read linha;do
+				[[ "${linha}" =~ $regex_title ]] && {
+					titulo=$(html2text -utf8 -nometa <<< ${BASH_REMATCH[1]})
+					break
+				}
+			done <<< $(curl -s "${link}")
 
-	   sleep ${tempo}s
+		   #gravar no arquivo para postagens
+		   consulta=$(tr -d '\n' <<< "${dominio};${link};${titulo}")
+		   echo -e "${consulta}\n" >> consulta.lil
 
-	   #resumir notícia da página
-		noticia=$(./sumarizador_novo.sh -a "$link" --no | head -n4)
-		[[ "$noticia" ]] || {
-			echo -e "\n\nnoticia em falta [$dominio]: ${noticia}" >> err_log.txt
-			IFS=';' read L1 L2 L3 <<< $(fgrep "${dominio}" anterior.lil)
-			titulo="${L3}"
-			noticia=$(./sumarizador_novo.sh -a "$L2" --no | head -n4)
-		}
+		   # tempo para evitar queda de latência na rede e falha nos arquivos gerados
+		   sleep ${tempo}s
 
-		noticiar "$noticia" "production" "${idioma}"
-		
-		sleep 5s
-
-		while :
-		do
-			contagem=$((contagem+1))
-			[[ ${contagem} -eq 10 ]] && {
-				echo -e "\n\nerr_log:$dominio:\n${noticia}" >> err_log.txt
-				break
-			}
-
-			ffmpeg -i production/${dominio}.mp3 production/${dominio}.wav && {
-				break
-			} || {
-				rm -rf production/${dominio}.mp3
-				noticiar "$noticia" "production" "${idioma}"
-				echo -e "\nparte inicial:$dominio:\n${noticia}" >> err_log.txt
-			}
-		done
-		rm -rf "production/${dominio}.mp3" &
-
-		noticiar "${titulo}" "podcast" "${idioma}"
-
-		contagem=0
-		while :
-		do
-			contagem=$((contagem+1))
-			[[ ${contagem} -eq 10 ]] && {
-				echo -e "\n\nerr_log:$titulo" >> err_log.txt
-				break
+		   #resumir notícia capturada
+			noticia=$(./sumarizador_novo.sh -a "${link}" --no | head -n4)
+			[[ "${noticia}" ]] || {
+				# log de erro
+				echo -e "\n\nnoticia em falta [$dominio]: ${noticia}" >> err_log.txt
+				IFS=';' read L1 L2 L3 <<< $(fgrep "${dominio}" anterior.lil)
+				titulo="${L3}"
+				noticia=$(./sumarizador_novo.sh -a "${L2}" --no | head -n4)
 			}
 
-			ffmpeg -i podcast/${dominio}.mp3 podcast/${dominio}_intro.wav && {
-				break
-			} || {
-				rm -rf podcast/${dominio}.mp3
-				noticiar "${titulo}" "podcast" "${idioma}"
-				echo -e "\nparte inicial:$titulo" >> err_log.txt
-			}
-		done
-		rm -rf "podcast/${dominio}.mp3"
+			noticiar "${noticia}" "production" "${idioma}"
+			
+			sleep 5s
 
-		echo "a" > contagem
-	)&
+			while :
+			do
+				contagem=$((contagem+1))
+				[[ ${contagem} -eq 10 ]] && {
+					echo -e "\n\nerr_log:$dominio:\n${noticia}" >> err_log.txt
+					break
+				}
+
+				ffmpeg -y -i production/${dominio}.mp3 production/${dominio}.wav && {
+					break
+				} || {
+					rm -rf production/${dominio}.mp3
+					noticiar "$noticia" "production" "${idioma}"
+					echo -e "\nparte inicial:$dominio:\n${noticia}" >> err_log.txt
+				}
+			done
+			rm -rf "production/${dominio}.mp3" &
+
+			noticiar "${titulo}" "podcast" "${idioma}"
+
+			contagem=0
+			while :
+			do
+				contagem=$((contagem+1))
+				[[ ${contagem} -eq 10 ]] && {
+					echo -e "\n\nerr_log:$titulo" >> err_log.txt
+					break
+				}
+
+				ffmpeg -y -i podcast/${dominio}.mp3 podcast/${dominio}_intro.wav && {
+					break
+				} || {
+					rm -rf podcast/${dominio}.mp3
+					noticiar "${titulo}" "podcast" "${idioma}"
+					echo -e "\nparte inicial:$titulo" >> err_log.txt
+				}
+			done
+			rm -rf "podcast/${dominio}.mp3"
+
+	#sinalizar término para o controle de threads
+			echo "a" > contagem
+		)&
 	}
 done < analisar.url
 
 #esperar todos os subprocessos finalizarem
 while :
 do
-	soma=$(wc -l <<< $(cat contagem))
+	soma=$(wc -l <<< "$(< contagem)")
 	contagem=$((contagem+soma))
 	[[ "$contagem" = "${total_sites}" ]] && break
 done
 
+# fazer conversões para edição
 for i in production/*.wav;do
 	sox ${i} -r 16000 ${i%.*}_news.wav vol 2.7
 	rm -rf ${i}
@@ -254,7 +286,7 @@ IFS=':' read dia mes <<< $(date +%d:%m)
 [[ "${dia:0:1}" = '0' ]] && dia=${dia/0/}
 [[ "${mes:0:1}" = '0' ]] && mes=${mes/0/}
 
-#dado imutável
+#dados imutáveis
 transit="e agora vamos para as notícias."
 fim="e estes foram os principais destaques até o momento, espéro que tenham gostado, tenha um ótimo dia."
 
@@ -271,118 +303,136 @@ while IFS=':' read F1 F2 F3 F4 F5 F6;do
 	[[ "${F1}" ]] && {
 		[[ "${F3}" = "inativo" ]] || {
 			tempo=$((tempo+2))
-		(
-			sleep ${tempo}s
+			(
+				sleep ${tempo}s
 
-			intro="oi, sejam bem vindos ao podcast do ${F4} ${F5}, eu me chamo eduarda, hoje é dia $dia de ${meses[$mes]}, e vamos para as principais notícias do momento."
-			IFS=';' read S1 S2 S3 S4 <<< "${F6}"
-			ref="estas notícias foram retiradas do ${S1}, ${S2}, ${S3}, e ${S4}."
+				intro="oi, sejam bem vindos ao podcast do ${F4} ${F5}, eu me chamo eduarda, hoje é dia $dia de ${meses[$mes]}, e vamos para as principais notícias do momento."
+				IFS=';' read S1 S2 S3 S4 <<< "${F6}"
+				ref="estas notícias foram retiradas do ${S1}, ${S2}, ${S3}, e ${S4}. e estes foram os podcasts do momento, espero que tenham gostado, tenham um ótimo dia"
 
-#INTRODUÇÃO
-			fono "${intro}" "podcast" "${F1}_intro" "${idioma}"
+	#INTRODUÇÃO
+				fono "${intro}" "podcast" "${F1}_intro" "${idioma}"
 
-			sleep 0.5s
+	#FINALIZAÇÃO
+				fono "${ref}" "podcast" "${F1}_final" "portugues"
 
-			ffmpeg -i podcast/${F1}_intro.mp3 podcast/${F1}_intro.wav
+				sleep 0.5s
 
-			rm -rf podcast/${F1}_intro.mp3
+	#CONVERSÃO
+				ffmpeg -y -i podcast/${F1}_intro.mp3 podcast/${F1}_intro.wav
+
+				ffmpeg -y -i podcast/${F1}_final.mp3 podcast/${F1}_final.wav
+
+	#LIMPEZA
+				rm -rf podcast/${F1}_intro.mp3
+				rm -rf podcast/${F1}_final.mp3
 
 				IFS=';' read C1 C2 C3 <<< "$(fgrep "${S4}" consulta.lil)"
-				
+
 				[[ "${C1}" =~ (nytimes|arstechnica|omgubuntu) ]] && idioma="ingles" || idioma="portugues"
 				C3+=". ${transit}"
 
 				fono "${C3}" "podcast" "${F1}_intro_1" "${idioma}"
 
-				ffmpeg -i podcast/${F1}_intro_1.mp3 podcast/${F1}_intro_1.wav
+				ffmpeg -y -i podcast/${F1}_intro_1.mp3 podcast/${F1}_intro_1.wav
 				rm -rf podcast/${F1}_intro_1.mp3
 
-# regulando volumes
+	# regulando volumes
+				sox podcast/${F1}_intro.wav -r 16000 podcast/${F1}_segunda-etapa0.wav vol 2.5
+				sox podcast/${F1}_intro_1.wav -r 16000 podcast/${F1}_segunda-etapa1.wav vol 2.5
+				sox podcast/${F1}_final.wav -r 16000 podcast/${F1}_segunda-etapa2.wav vol 2.5
+				rm -rf podcast/${F1}_intro_1.wav podcast/${F1}_intro.wav podcast/${F1}_final.wav
 
-			sox podcast/${F1}_intro.wav -r 16000 podcast/${F1}_segunda-etapa0.wav vol 2.5
-			sox podcast/${F1}_intro_1.wav -r 16000 podcast/${F1}_segunda-etapa1.wav vol 2.5
-			rm -rf podcast/${F1}_intro_1.wav podcast/${F1}_intro.wav
-
-#último título receberá som de transição. logo, juntar todos, e depois som de transição.
-
+	#último título receberá som de transição. logo, juntar todos, e depois som de transição.
 				sox podcast/${F1}_segunda-etapa0.wav sons/transit.wav podcast/${F1}_segunda-etapa0_modify.wav
 				sox podcast/${F1}_segunda-etapa1.wav sons/transit.wav podcast/${F1}_segunda-etapa1_modify.wav
-				rm podcast/${F1}_segunda-etapa0.wav podcast/${F1}_segunda-etapa1.wav
+				sox podcast/${F1}_segunda-etapa2.wav sons/transit.wav podcast/${F1}_segunda-etapa2_modify.wav
+
+				rm podcast/${F1}_segunda-etapa0.wav podcast/${F1}_segunda-etapa1.wav podcast/${F1}_segunda-etapa2.wav
+
 				mv podcast/${F1}_segunda-etapa0_modify.wav podcast/${F1}_segunda-etapa0.wav
 				mv podcast/${F1}_segunda-etapa1_modify.wav podcast/${F1}_segunda-etapa1.wav
+				mv podcast/${F1}_segunda-etapa2_modify.wav podcast/${F1}_segunda-etapa2.wav
 
-#juntar todos eles em um só de forma organizada, e deletar todos os anteriores soltos
+	#juntar todos eles em um só de forma organizada, e deletar todos os anteriores soltos
+				juntar+="podcast/${F1}_segunda-etapa0.wav podcast/${S1}_intro.wav podcast/${S2}_intro.wav podcast/${S3}_intro.wav podcast/${F1}_segunda-etapa1.wav"
 
-			juntar+="podcast/${F1}_segunda-etapa0.wav podcast/${S1}_intro.wav podcast/${S2}_intro.wav podcast/${S3}_intro.wav podcast/${F1}_segunda-etapa1.wav"
-
-			sox $juntar podcast/${F1}_primeira_parte.wav
-			[[ -a podcast/${F1}_primeira_parte.wav ]] || {
-				sox $juntar podcast/${F1}_primeira_parte.wav || {
-					echo -e "\n\narquivo da primeira parte não convertido, podcast[${F1}], dados do fono:${C2}|podcast|${F1}_intro|${idioma}" >> err_log.txt
-				}			
-			}
-			rm -rf podcast/${F1}_segunda-etapa0.wav podcast/${F1}_segunda-etapa1.wav
-
-#juntar notícias que serão narradas para este usuário
-
-			news="production/${S1}_news.wav production/${S2}_news.wav production/${S3}_news.wav production/${S4}_news.wav"
-
-#juntar as notícias com roteiro final
-			sox ${news} podcast/${F1}_segunda_parte.wav
-
-#incluir a música de fundo da primeira parte
-
-#pegar a duração total da primeira parte
-			[[ "$(sox --i podcast/${F1}_primeira_parte.wav)" =~ ([0-9]{2}\:){2}[0-9]{2}\.[0-9]{2} ]]
-
-#escolher som de fundo e cortar na proporção da primeira parte
-
-			sox sons/fundo$[$RANDOM%7+1].wav podcast/${F1}_primeiro_som.wav trim 0 ${BASH_REMATCH[0]}
-
-#juntar som de fundo com a primeira parte
-			sox -m podcast/${F1}_primeira_parte.wav podcast/${F1}_primeiro_som.wav podcast/${F1}_camada1.wav
-			rm -rf podcast/${F1}_primeira_parte.wav podcast/${F1}_primeiro_som.wav
-
-#incluir a música de fundo da segunda parte
-#pegar a duração total da segunda parte
-			[[ "$(sox --i podcast/${F1}_segunda_parte.wav)" =~ ([0-9]{2}\:){2}[0-9]{2}\.[0-9]{2} ]]
-
-#escolher som de fundo e cortar na proporção da primeira parte
-
-			sox sons/saida$[$RANDOM%3+1].wav podcast/${F1}_segundo_som.wav trim 0 ${BASH_REMATCH[0]}
-
-#juntar som de fundo com a primeira parte
-			sox -m podcast/${F1}_segunda_parte.wav podcast/${F1}_segundo_som.wav podcast/${F1}_camada2.wav
-			rm -rf podcast/${F1}_segunda_parte.wav podcast/${F1}_segundo_som.wav
-
-#converter as duas partes para mono
-			for i in podcast/${F1}_camada*.wav;do
-				[[ "${i}" =~ ${F1}_camada(.{1,2})\.wav ]] && {
-					ffmpeg -i ${i} -ac 1 podcast/${F1}_camada_mono${BASH_REMATCH[1]}.wav || {
-						rm -rf podcast/${F1}_camada_mono${BASH_REMATCH[1]}.wav
-						ffmpeg -i ${i} -ac 1 podcast/${F1}_camada_mono${BASH_REMATCH[1]}.wav
-					}
-				rm -rf ${i}
+				sox $juntar podcast/${F1}_primeira_parte.wav
+				[[ -a podcast/${F1}_primeira_parte.wav ]] || {
+					sox $juntar podcast/${F1}_primeira_parte.wav || {
+						echo -e "\n\narquivo da primeira parte não convertido, podcast[${F1}], dados do fono:${C2}|podcast|${F1}_intro|${idioma}" >> err_log.txt
+					}			
 				}
-			done
+				rm -rf podcast/${F1}_segunda-etapa0.wav podcast/${F1}_segunda-etapa1.wav
 
-			sox podcast/${F1}_camada_mono1.wav podcast/${F1}_camada_mono2.wav podcast/${F1}_final.wav
-			rm -rf podcast/${F1}_camada_mono1.wav podcast/${F1}_camada_mono2.wav
+	#juntar notícias que serão narradas para este usuário, mais parte de finalização
+				news="production/${S1}_news.wav production/${S2}_news.wav production/${S3}_news.wav production/${S4}_news.wav podcast/${F1}_segunda-etapa2.wav"
 
-			ffmpeg -i podcast/${F1}_final.wav -vn -ar 44100 -ac 2 -b:a 192k podcast/newslettercast_${F1}.mp3
-			rm -rf podcast/${F1}_final.wav
+	#juntar as notícias com roteiro final
+				sox ${news} podcast/${F1}_segunda_parte.wav
 
-			echo "a" > contagem
-		)&
+				rm -rf podcast/${F1}_segunda-etapa2.wav
+
+	#---------------------------------------------------------------------------------------
+	#incluir a música de fundo da primeira parte:
+	#---------------------------------------------------------------------------------------
+	#pegar a duração total da primeira parte
+				[[ "$(sox --i podcast/${F1}_primeira_parte.wav)" =~ ([0-9]{2}\:){2}[0-9]{2}\.[0-9]{2} ]]
+
+	#escolher som de fundo e cortar na proporção da primeira parte
+				sox sons/fundo$[$RANDOM%7+1].wav podcast/${F1}_primeiro_som.wav trim 0 ${BASH_REMATCH[0]}
+				#sox sons/1input$[$RANDOM%7+1].wav podcast/${F1}_primeiro_som.wav trim 0 ${BASH_REMATCH[0]}
+
+	#juntar som de fundo com a primeira parte
+				sox -m podcast/${F1}_primeira_parte.wav podcast/${F1}_primeiro_som.wav podcast/${F1}_camada1.wav
+				rm -rf podcast/${F1}_primeira_parte.wav podcast/${F1}_primeiro_som.wav
+
+	#---------------------------------------------------------------------------------------
+	#incluir a música de fundo da segunda parte:
+	#---------------------------------------------------------------------------------------
+	#pegar a duração total da segunda parte
+				[[ "$(sox --i podcast/${F1}_segunda_parte.wav)" =~ ([0-9]{2}\:){2}[0-9]{2}\.[0-9]{2} ]]
+
+	#escolher som de fundo e cortar na proporção da primeira parte
+				sox sons/saida$[$RANDOM%3+1].wav podcast/${F1}_segundo_som.wav trim 0 ${BASH_REMATCH[0]}
+				#sox sons/2input$[$RANDOM%7+1].wav podcast/${F1}_segundo_som.wav trim 0 ${BASH_REMATCH[0]}
+
+	#juntar som de fundo com a primeira parte
+				sox -m podcast/${F1}_segunda_parte.wav podcast/${F1}_segundo_som.wav podcast/${F1}_camada2.wav
+				rm -rf podcast/${F1}_segunda_parte.wav podcast/${F1}_segundo_som.wav
+	#---------------------------------------------------------------------------------------
+
+	#converter as duas partes para mono
+				for i in podcast/${F1}_camada*.wav;do
+					[[ "${i}" =~ ${F1}_camada(.{1,2})\.wav ]] && {
+						ffmpeg -y -i ${i} -ac 1 podcast/${F1}_camada_mono${BASH_REMATCH[1]}.wav || {
+							rm -rf podcast/${F1}_camada_mono${BASH_REMATCH[1]}.wav
+							ffmpeg -y -i ${i} -ac 1 podcast/${F1}_camada_mono${BASH_REMATCH[1]}.wav
+						}
+						rm -rf ${i}
+					}
+				done
+
+	#gerar bruto do podcast
+				sox podcast/${F1}_camada_mono1.wav podcast/${F1}_camada_mono2.wav podcast/${F1}_final.wav
+				rm -rf podcast/${F1}_camada_mono1.wav podcast/${F1}_camada_mono2.wav
+
+	#converter podcast para os padrões de envio compatíveis com telegram e plataformas gerais
+				ffmpeg -y -i podcast/${F1}_final.wav -vn -ar 44100 -ac 2 -b:a 192k podcast/newslettercast_${F1}.mp3
+				rm -rf podcast/${F1}_final.wav
+
+	#sinalizar término para o controle de threads
+				echo "a" > contagem
+			)&
+		}
 	}
-}
 done < fontes.ref
 
 #esperar todos os subprocessos finalizarem
 contagem=''
 while :
 do
-	recebido=$(wc -l <<< $(cat contagem))
+	recebido=$(wc -l <<< "$(< contagem)")
 	verify=${recebido#*0}
 	contagem=$((contagem+${rerify:-$recebido}))
 	[[ "${contagem}" = "${total_users}" ]] && break

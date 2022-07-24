@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------------------------------------
 #	DATA:				10 de abril de 2020 (1-⁰ dia de operação)
 #	SCRIPT:				miko.sh
-#	VERSÃO:				0.5.5
+#	VERSÃO:				0.5.8
 #	DESENVOLVIDO POR:	Fabrício Caetano [F43®1¢10 m0h∆m3d]
 #	PÁGINA:				https://eduardamonteiro.zyrosite.com/
 #	CHANNEL:			https://t.me/mikoduda
@@ -30,35 +30,33 @@
 # CONFIGURAÇÕES E TOKENS DA EDUARDA MONTEIRO (DUDA/BOT):
 #--------------------------------------------------------------------------------------------------------------
 #chave/token da duda/bot
-bot_token='SUA_TOKEN'
+bot_token='<SUA_CHAVE_PRINCIPAL>' #duda principal
+#bot_token='<sua_chave_teste>' # duda teste
 #---------------------------
 
 # token de pagamentos stripe:
-doar_token='SUA_TOKEN'
-
-token_pay='SUA_TOKEN' #teste duda
+token_pay='<TOKEN_VÁLIDA>' #real
+#token_pay='<token teste>' #teste
 
 #---------------------------
 #token da deepai.org para detecção de porn e imagens extremistas
-token_porn='SUA_TOKEN'
-
+token_porn='<TOKEN_DEEPAI>' # ficará defasado após futuras atualizações
 #---------------------------
 
-# ID do dono, EUUUUUUUUU
-ID_DONO="SUA_ID_JOVENZINHO"
-
-#realizar uma série de ações para verificar o funcionamento das ações.
-ativar_teste="false"
+# ID do dono, VOCÊ
+ID_DONO="<SEU_USER_ID>"
 
 #--------------------------------------------------------------------------------------------------------------
+
 # VERIFICAÇÃO DE PASTAS IMPORTANTES:
 #--------------------------------------------------------------------------------------------------------------
-[[ -a dados ]] || mkdir dados
 [[ -a guia ]] || mkdir guia
-[[ -a podcast ]] || mkdir podcast
-[[ -a production ]] || mkdir production
-[[ -a resumir ]] || mkdir resumir
 [[ -a sons ]] || mkdir sons
+[[ -a audio ]] || mkdir audio
+[[ -a dados ]] || mkdir dados
+[[ -a podcast ]] || mkdir podcast
+[[ -a resumir ]] || mkdir resumir
+[[ -a production ]] || mkdir production
 #--------------------------------------------------------------------------------------------------------------
 
 # usando set +f e -f para habilitar e 
@@ -95,7 +93,6 @@ done
 }
 #--------------------------------------------------------------------------------------------------------------
 
-
 #baixar API para comunicação do telegram, caso o mesmo não esteja disponível no diretório do bot em questão
 #--------------------------------------------------------------------------------------------------------------
 [[ -a ShellBot.sh ]] || {
@@ -108,14 +105,12 @@ done
 }
 #--------------------------------------------------------------------------------------------------------------
 
-
 # IMPORTANDO DEPENDÊNCIAS
 #--------------------------------------------------------------------------------------------------------------
 source ShellBot.sh
 
-ShellBot.init --token "$bot_token" --return map
+ShellBot.init --token "${bot_token}" --return map
 #--------------------------------------------------------------------------------------------------------------
-
 
 # encapsulando funções das funções do shellbot
 # para facilitar e focar na codificação das interações
@@ -127,7 +122,7 @@ escrever(){
 	# para emular o tempo real de digitação média
 	# de um ser humano médio a elevado em termos tecnológicos.
 
-	# número de caracteres da mensagem * tempo médio de pressiona-
+	# número de caracteres da mensagem X tempo médio de pressiona-
 	# mento de teclas de um usuário comum / por tempo de espera
 	# entre requisições de 'digitando ...'
 	repetir=$(bc <<< "${#mensagem}*0.12/3")
@@ -138,10 +133,10 @@ escrever(){
 }
 
 enviar() {
-	mensagem=${mensagem//+/%2B}
+	mensagem="${mensagem//\+/\%2B}"
 	id_chat=${my_chat_member_from_id[$id]}
 	id_chat=${message_chat_id[$id]:-$id_chat}
-	ShellBot.sendMessage --chat_id ${callback_query_message_chat_id:-$id_chat} --text "$mensagem" $1
+	ShellBot.sendMessage --chat_id ${callback_query_message_chat_id:-$id_chat} --text "${mensagem}" $1
 }
 
 responder() {
@@ -149,7 +144,7 @@ responder() {
 }
 
 foto() {
-	ShellBot.sendPhoto --chat_id ${message_chat_id[$id]} --photo @$arquivofoto
+	ShellBot.sendPhoto --chat_id ${message_chat_id[$id]} --photo @${arquivofoto}
 }
 
 enviarfoto() {
@@ -162,11 +157,11 @@ enviar_menu(){
 }
 
 documento() {
-	ShellBot.sendDocument --chat_id ${message_chat_id[$id]} --document $1 $2
+	ShellBot.sendDocument --chat_id ${message_chat_id[$id]} --document ${1} ${2}
 }
 
 local_documento() {
-	ShellBot.sendDocument --chat_id ${message_chat_id[$id]} --document @$1 $2
+	ShellBot.sendDocument --chat_id ${message_chat_id[$id]} --document @${1} ${2}
 }
 
 enviando_documento() {
@@ -175,24 +170,25 @@ enviando_documento() {
 
 local_video() {
 	ShellBot.sendChatAction --chat_id ${message_chat_id[$id]} --action upload_video
-	ShellBot.sendVideo --chat_id ${message_chat_id[$id]} --video @$1 $2
+	ShellBot.sendVideo --chat_id ${message_chat_id[$id]} --video @${1} ${2}
 }
 
 video() {
 	ShellBot.sendChatAction --chat_id ${message_chat_id[$id]} --action upload_video
-	ShellBot.sendVideo --chat_id ${message_chat_id[$id]} --video $1 $2
+	ShellBot.sendVideo --chat_id ${message_chat_id[$id]} --video ${1} ${2}
 }
 
 local_sticker(){
-	ShellBot.sendSticker --chat_id ${message_chat_id[$id]} --sticker @$1 $2
+	ShellBot.sendSticker --chat_id ${message_chat_id[$id]} --sticker @${1} ${2}
 }
 
 sticker(){
-	ShellBot.sendSticker --chat_id ${message_chat_id[$id]} --sticker $1 $2
+	ShellBot.sendSticker --chat_id ${message_chat_id[$id]} --sticker ${1} ${2}
 }
 
 banir(){
-	ShellBot.kickChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
+	argument=${message_from_id[$id]}
+	ShellBot.kickChatMember --chat_id ${message_chat_id[$id]} --user_id ${1:-$argument}
 }
 
 banir_ref(){
@@ -211,7 +207,7 @@ adeus(){
 }
 
 animacao(){
-	ShellBot.sendAnimation --chat_id ${message_chat_id[$id]} --animation $1 $2
+	ShellBot.sendAnimation --chat_id ${message_chat_id[$id]} --animation ${1} ${2}
 }
 
 fixar(){
@@ -263,7 +259,11 @@ editaredicao(){
 deletarbot(){
 	user_id=${callback_query_message_message_id[$id]}
 	outro_chat_id=${callback_query_message_chat_id[$id]}
-	ShellBot.deleteMessage --chat_id ${message_chat_id[$id]:-$outro_chat_id} --message_id ${return[message_id]:-$user_id}
+	[[ ${1} ]] && {
+		ShellBot.deleteMessage --chat_id ${message_chat_id[$id]:-$outro_chat_id} --message_id ${1}
+	} || {
+		ShellBot.deleteMessage --chat_id ${message_chat_id[$id]:-$outro_chat_id} --message_id ${return[message_id]:-$user_id}
+	}
 }
 
 deletar(){
@@ -286,7 +286,7 @@ audio(){
    		sleep 3s
 	done
 	ShellBot.sendChatAction --chat_id ${message_chat_id[$id]} --action upload_audio
-	ShellBot.sendAudio --chat_id ${message_chat_id[$id]} --audio @$1 $3
+	ShellBot.sendAudio --chat_id ${message_chat_id[$id]} --audio @${1} ${3}
 }
 
 scope(){
@@ -298,14 +298,17 @@ scope(){
 	sleep 3s
 	done
 	ShellBot.sendChatAction --chat_id ${message_chat_id[$id]} --action upload_video_note
-	ShellBot.sendVideoNote --chat_id ${message_chat_id[$id]} --video_note @$1 $3
+	ShellBot.sendVideoNote --chat_id ${message_chat_id[$id]} --video_note @${1} ${3}
 }
 
 #determinação de gênero textual para sujeito
+#ex: envio a palavra "ventilador", ele retorna: o|com|no ventilador.
+# e os plurais também: os|uns|nos ventiladores
 #-------------------------------------------------------------
 genero(){
     parser=$[${#2}-2]
     compare=${2:$parser:2}
+
     [[ ${1} = 1 ]] && {
     	[[ "${compare}" =~ (a|ã|â|á) ]] && saida="a" || {
 			parser2=$[${#2}-3]
@@ -317,7 +320,7 @@ genero(){
     }
 
     [[ ${1} = 2 ]] && {
-        [[ "${compare}" =~ (a|ã|â|á) ]] && printf "na" ||  {
+        [[ "${compare}" =~ (a|ã|â|á) ]] && saida="na" ||  {
             parser2=$[${#2}-3]
             compare2=${2:$parser2:3}
             [[ "${compare2}" =~ (a|ã|â|á) ]] && {
@@ -327,7 +330,7 @@ genero(){
     }
 
     [[ ${1} = 3 ]] && {
-        [[ "${compare}" =~ (a|ã|â|á) ]] && printf "uma" ||  {
+        [[ "${compare}" =~ (a|ã|â|á) ]] && saida="uma" ||  {
             parser2=$[${#2}-3]
             compare2=${2:$parser2:3}
             [[ "${compare2}" =~ (a|ã|â|á) ]] && {
@@ -341,64 +344,64 @@ genero(){
     compare3=${2:$parser3:1}
     [[ "${compare3}" = "s" ]] && {
         [[ "${1}" = 3 && "${saida}" = "um" ]] && {
-            printf "uns"
-        } || printf "%ss" ${saida}
-    } || printf "%s" ${saida}
+            saida="uns"
+        } || saida="${saida}s"
+    } || saida="${saida}"
 }
 #-------------------------------------------------------------
 
 # FUNÇÃO DE DETECÇÃO DE FLOOD
 checkcontinuity() {
 	[[ ${message_reply_to_message_from_id[$id]} ]] || {
-	ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
-	Ids=$(< check/${message_chat_id[$id]}.lil)
-	[[ "${return[status]}" = "administrator" || "${return[status]}" = "creator" ]] || {
-		[[ "$Ids" = *"${message_from_id[$id]}"* ]] && {
-			echo ".${message_from_id[$id]}:" >> check/${message_chat_id[$id]}.lil
+		ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
+		Ids=$(< check/${message_chat_id[$id]}.lil)
+		[[ "${return[status]}" = "administrator" || "${return[status]}" = "creator" ]] || {
+			[[ "$Ids" = *"${message_from_id[$id]}"* ]] && {
+				echo ".${message_from_id[$id]}:" >> check/${message_chat_id[$id]}.lil
 
-			quantidade=0
-			while read linha;do
-				[[ $linha ]] && quantidade=$((quantidade+1))
-			done < check/${message_chat_id[$id]}.lil
+				quantidade=0
+				while read linha;do
+					[[ $linha ]] && quantidade=$((quantidade+1))
+				done < check/${message_chat_id[$id]}.lil
 
-			[[ $quantidade = 3 && ${#message_text[$id]} -ge 1 && ${#message_text[$id]} -le 5 ]] && {
+				[[ $quantidade = 3 && ${#message_text[$id]} -ge 1 && ${#message_text[$id]} -le 5 ]] && {
 
- 				[[ "${message_from_username[$id]}" ]] && {
-					mensagem="@${message_from_username[$id]}, faça favor de juntar suas mensagens, mensagens com poucos caracteres acima de 3 seguidas, ja é um flood, saiba que ENTER não é vírgula, respeito por favor."
-					enviar
+	 				[[ "${message_from_username[$id]}" ]] && {
+						mensagem="@${message_from_username[$id]}, faça favor de juntar suas mensagens, mensagens com poucos caracteres acima de 3 seguidas, ja é um flood, saiba que ENTER não é vírgula, respeito por favor."
+						enviar
+					}
+					[[ "${message_from_username[$id]}" ]] || {
+						mensagem="${message_from_first_name[$id]}, faça favor de juntar suas mensagens, mensagens com poucos caracteres acima de 3 seguidas, ja é um flood, saiba que ENTER não é vírgula, respeito por favor."
+						responder
+					}
+					sleep 1m
+					deletarbot
 				}
-				[[ "${message_from_username[$id]}" ]] || {
-					mensagem="${message_from_first_name[$id]}, faça favor de juntar suas mensagens, mensagens com poucos caracteres acima de 3 seguidas, ja é um flood, saiba que ENTER não é vírgula, respeito por favor."
+
+				[[ $quantidade = 5 ]] && {
+					[[ "${message_from_username[$id]}" ]] && {
+						mensagem="@${message_from_username[$id]}, cuidado com o flood, você será banido se continuar."
+						enviar
+					} || {
+						mensagem="${message_from_first_name[$id]}, cuidado com o flood, você será banido se continuar."
+						responder
+					}
+					sleep 1m
+					deletarbot
+				}
+
+				[[ $quantidade -ge 7 ]] && {
+					mensagem="você floodou, até."
 					responder
+					banir
+					> check/${message_chat_id[$id]}.lil
+					sleep 1m
+					deletarbot
 				}
-				sleep 1m
-				deletarbot
-			}
-
-			[[ $quantidade = 5 ]] && {
-				[[ "${message_from_username[$id]}" ]] && {
-					mensagem="@${message_from_username[$id]}, cuidado com o flood, você será banido se continuar."
-					enviar
-				} || {
-					mensagem="${message_from_first_name[$id]}, cuidado com o flood, você será banido se continuar."
-					responder
-				}
-				sleep 1m
-				deletarbot
-			}
-
-			[[ $quantidade -ge 7 ]] && {
-				mensagem="você floodou, até."
-				responder
-				banir
-				> check/${message_chat_id[$id]}.lil
-				sleep 1m
-				deletarbot
 			}
 		}
+		[[ "$Ids" = *".${message_from_id[$id]}:"* ]] || echo ".${message_from_id[$id]}:" > check/${message_chat_id[$id]}.lil
 	}
-	[[ "$Ids" = *".${message_from_id[$id]}:"* ]] || echo ".${message_from_id[$id]}:" > check/${message_chat_id[$id]}.lil
-}
 }
 
 edit="--parse_mode markdown"
@@ -482,10 +485,7 @@ ShellBot.getUpdates --limit 100 --offset $(ShellBot.OffsetNext) --timeout 5
 
 				keyboard1="$(ShellBot.InlineKeyboardMarkup -b 'anexo')"
 
-				D1=${D1%;*}
-				D2=${D2%;*}
-				D3=${D3%;*}
-				D4=${D4%;*}
+				D1=${D1%;*} ; D2=${D2%;*} ; D3=${D3%;*} ; D4=${D4%;*}
 
 				T1=${T1%%-*} ; T1=${T1%%|*} ; T1=${T1//\;/ } ; T1=${T1//\_/ }
 				T2=${T2%%-*} ; T2=${T2%%|*} ; T2=${T2//\;/ } ; T2=${T2//\_/ }
@@ -506,9 +506,10 @@ ShellBot.getUpdates --limit 100 --offset $(ShellBot.OffsetNext) --timeout 5
 				layout+="*❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱*\n"
 				layout+="—————(${data})—————\n"
 				layout+="BY: @engenhariade\_bot\n"
+				layout+="se quiser fazer uma doação, pix: eduardamonteiro@telegmail.com 👀"
 				ShellBot.sendAudio --chat_id "${F2}" --audio "@podcast/newslettercast_${F1}.mp3" --title "newslettercast de ${F5//_/ }" --caption "${layout}" --reply_markup "$keyboard1" --parse_mode markdown
 				#avisar que não foi enviado, com um marcador de pré aviso
-				#[[ "$?" = 1 ]] && 
+				#[[ "$?" = 1 ]] &&
 			)&
 		done < fontes.ref
 
@@ -520,18 +521,18 @@ ShellBot.getUpdates --limit 100 --offset $(ShellBot.OffsetNext) --timeout 5
 #--- informação para saber a quem deve responder ---#
 resp="--reply_to_message_id ${message_message_id[$id]}"
 
-for id in $(ShellBot.ListUpdates) 
+for id in $(ShellBot.ListUpdates)
 		do
 			(
 			minusc=${message_text[$id],,}
 			[[ ${message_caption[$id]} ]] && minusc=${message_caption[$id],,}
 
-			[[ -a lista_negra.lil ]] || > lista_negra.lil 
+			[[ -a lista_negra.lil ]] || > lista_negra.lil
 			while read linha;do
 				[[ ${linha} ]] && {
 					[[ "${minusc}" = *"${linha}"* || ${message_from_username[$id]} = "${linha}" || ${message_from_id[$id]} = "${linha}" ]] && {
-       	            	deletar
-						deletar_ref
+       	            	deletar &
+						deletar_ref &
 						banir
 					}
 				}
@@ -583,7 +584,7 @@ for id in $(ShellBot.ListUpdates)
 					IFS=' ' read f1 f2 <<< "${message_text[$id]}"
 					[[ ${f2} ]] && {
 						deletar
-						sed -i "${F2}" lista_negra.lil
+						sed -i "${f2}" lista_negra.lil
 						mensagem="ítem removido da lista."
 						enviar
 					} || {
@@ -639,7 +640,7 @@ for id in $(ShellBot.ListUpdates)
 					mensagem="enviando alerta em massa ..."
 					enviar
 
-                    cd dados
+			        cd dados
 
 					set +f
 				    for i in *;do
@@ -647,13 +648,17 @@ for id in $(ShellBot.ListUpdates)
 							tratando=$(sed 's/^a/-/' <<< "${i}")
 							chat_banco=$(tr 'a-z' '0-9' <<< "${tratando%.*}")
 
-							ShellBot.sendMessage --chat_id "${chat_banco}" --text "${tratamento}" --parse_mode markdown
-							[[ "${message_text[$id]}" =~ \#(important|pin|fix) ]] && ShellBot.pinChatMessage	--chat_id "${chat_banco}" --message_id ${return[message_id]}
-								ShellBot.leaveChat --chat_id "${chat_banco}"
-								rm -rf ${i}
+							ShellBot.sendMessage --chat_id "${chat_banco}" --text "${tratamento}" --parse_mode markdown && sucesso=true
+							[[ ${sucesso} = true ]] && {
+								[[ "${message_text[$id],,}" =~ \#(important|pin|fix) ]] && ShellBot.pinChatMessage	--chat_id "${chat_banco}" --message_id ${return[message_id]}
+							}
+
+#							[[ ${sucesso} ]] || {
+#								ShellBot.leaveChat --chat_id "${chat_banco}" &
+#								rm -rf ${i}
+#							}
 						)&
 				    done
-					set -f
 
 				    cd ..
 		  			mensagem="alerta enviado a todos com sucesso!"
@@ -672,28 +677,43 @@ for id in $(ShellBot.ListUpdates)
 
 			#--- se usuário enviar mensagem ao entrar, será removido da lista de banimento ---#
 			#--- e sendo usado como gancho para o antiflood inteligente
-			[[ -a novomembro ]] && > novomembro.txt
-			sed -i "s/${message_from_id[$id]}//" novomembro.txt
-			#verificar se a pessoa está floodando ou não
-			Consulta_table iflood
-			[[ "$valor" = "1" ]] && {
-				checkcontinuity &
-			}
+			[[ -a novomembro.txt ]] && > novomembro.txt
+			(
+				#verificar padrões da mensagem para golpistas
+				fgrep -q "${message_from_id[$id]}" novomembro.txt && {
+					[[ ${minusc,,} =~ (🤑|💸|r?\$|💰|⚠️|✅) && ${minusc} =~ [0-9]{1,} ]] && {
+						banir &
+                        deletar &
+                        mensagem="golpista/scan banido"
+						enviar
+						sleep 6s
+						deletarbot
+					}
+				}
 
-		#--- função teste para banir membros globalmente antes de entrar. ---#
-		#	[[ -a bombardear.lil ]] && echo "" > bombardear.lil
-		#		while read linha;do
-		#		[[ "${message_from_username[$id]}" = "$linha" ]] && {
-		#			banir
-		#			mensagem="este usuário está configurado para banimento global, ele foi denunciado por algo em algum lugar por alguém. nada mais a saber, para desbanir ou pedir redenção, entre no chat do nosso guardião julgador, conte seu relato e provas, e ele baterá o martelo e decidir quem é inocente ou culpado. \n https://t.me/joinchat/KMg9nxptCrcWOygzBeO_Ag"
-		#			responder
-		#		}
-		#	done < bombardear.lil
+				#verificar se ele esta no banco, e verificar se ele enviou algum spam
+				sed -i "/${message_from_id[$id]}/d" novomembro.txt
+				#verificar se a pessoa está floodando ou não
+				Consulta_table iflood
+				[[ "${valor}" = "1" ]] && {
+					checkcontinuity &
+				}
+			)&
+
+			#--- função teste para banir membros globalmente antes de entrar. ---#
+			#	[[ -a bombardear.lil ]] && echo "" > bombardear.lil
+			#		while read linha;do
+			#		[[ "${message_from_username[$id]}" = "$linha" ]] && {
+			#			banir
+			#			mensagem="este usuário está configurado para banimento global, ele foi denunciado por algo em algum lugar por alguém. nada mais a saber, para desbanir ou pedir redenção, entre no chat do nosso guardião julgador, conte seu relato e provas, e ele baterá o martelo e decidir quem é inocente ou culpado. \n https://t.me/joinchat/KMg9nxptCrcWOygzBeO_Ag"
+			#			responder
+			#		}
+			#	done < bombardear.lil
 
 			#--- BOAS-VINDAS ---#
 			[[ ${message_new_chat_member_id[$id]} ]] && {
-			Consulta_table boasvindas
-			boas_vindas=$valor
+				Consulta_table boasvindas
+				boas_vindas=${valor}
 
 				[[ ${message_new_chat_participant_is_bot[$id]} = "true" && "#${message_new_chat_participant_id[$id]}#" != "#865837947#" ]] && {
 					boas_vindas=0
@@ -703,7 +723,7 @@ for id in $(ShellBot.ListUpdates)
 					responder
 				}
 
-				[[ "#${message_new_chat_participant_id[$id]}#" = "#865837947#" ]] && {
+				[[ "#${message_new_chat_participant_id[$id]}#" = "#${return[id]}#" ]] && {
 					boas_vindas=0
 					mensagem="oiii, obrigada por me adicionarem ao seu grupo ou ... canal."
 					enviar
@@ -713,102 +733,127 @@ for id in $(ShellBot.ListUpdates)
 
 			[[ "$boas_vindas" = "1" ]] && {
 				echo "${message_new_chat_participant_id[$id]}" >> novomembro.txt
-				mensagem="oi ${message_new_chat_member_first_name[$id]}, tudo bem ?,"
-			nome=$[$RANDOM%11]
-			case $nome in
-			0)
-				mensagem+='tem alguma habilidade relacionada ao tema do grupo que gostaria de compartilhar ? :3 '
-			;;
-			1)
-				mensagem+='poderia nos contar um pouco sobre você e seus objetivos aqui ? (se tiver algum e quiser compartilhar conosco ;D) '
-			;;
-			2)
-				mensagem+='você sabe algo sobre o tema deste grupo ou está estudando alguma relacionada ? :v '
-			;;
-			3)
-				mensagem+='fique a vontade, possui alguma habilidade relacionda ao tema deste grupo ? '
-			;;
-			4)
-				mensagem+="você está estudando alguma coisa sobre o tema deste grupo ? "
-			;;
-			5)
-				mensagem+='quais habilidades você possui que são relacionadas ao tema deste grupo ? :v '
-			;;
-			6)
-				mensagem+='esta estudando alguma coisa interessante ? :3 '
-			;;
-			7)
-				mensagem+="quais são seus interesses pelo tema deste grupo, ${message_new_chat_member_first_name[$id]} ?, poderia compartilhar conosco :3 ? "
-			;;
-			8)
-				mensagem+='você tem alguma afinidade com o tema deste grupo ou ainda está descobrindo alguma coisa que você se identifique melhor ? '
-			;;
-			9)
-				mensagem+='seu nome é interessante, o que você sabe sobre o tema deste grupo ?, ou está em busca de algo novo e ainda não sabe muita coisa ? :v'
-			;;
-			10)
-				mensagem+='conte-nos um pouco sobre você. está estudando alguma coisa relacionada ao tema deste grupo ? '
- 			;;
-			11)
-				mensagem+='o que você esta aprendendo atualmente relacionado ao tema deste grupo ?'
-			;;
-		esac
-		escrever
-		responder
-		sleep 30s
-		analisar=$(< novomembro.txt)
-		esta_na_lista=$(fgrep "${message_new_chat_participant_id[$id]}" <<< $analisar)
-		[[ $esta_na_lista ]] && {
-			[[ ${message_new_chat_members_username[$id]} ]] && {
-				mensagem="@${message_new_chat_member_username[$id]}, preciso que você interaja conosco, temos que saber se você não é um spammer ou um bot, e infelizmente te remover. você tem 10 minutos para enviar alguma mensagem, não queremos te perder :3"
+
+				#gerar apelido:
+				[[ ${message_new_chat_member_username[$id]} ]] && {
+					apel="@${message_new_chat_member_username[$id]}"
+				} || {
+					apel="${message_new_chat_member_first_name[$id]:0:2}"
+					[[ ${apel,,} =~ ^.(a|e|i|o|u) ]] || apel="${message_new_chat_member_first_name[$id]:0:3}"
+					apel="${apel}${apel,,}"
+				}
+				mensagem="oi ${apel}, tudo bem ?"
 				escrever
 				enviar
-			}
-			[[ ${message_new_chat_members_username[$id]} ]] || {
-				mensagem="fale algo ${message_new_chat_member_first_name[$id]}, eu preciso saber se você não é um spammer ou um bot, pois terei que remover você infelizmene caso não responda em 10 minutos."
+				mensagem=''
+				nome=$[$RANDOM%11]
+				case $nome in
+					0)
+						mensagem+='tem alguma habilidade relacionada ao tema do grupo que gostaria de compartilhar ? :3'
+					;;
+					1)
+						mensagem+='poderia nos contar um pouco sobre você e seus objetivos aqui ? (se tiver algum e quiser compartilhar conosco ;D)'
+					;;
+					2)
+						mensagem+='você sabe algo sobre o tema deste grupo ou está estudando alguma relacionada ? :v'
+					;;
+					3)
+						mensagem+='sinta-se a vontade :), possui alguma habilidade relacionda ao tema deste grupo ?'
+					;;
+					4)
+						mensagem+="você está estudando alguma coisa sobre o tema deste grupo ?"
+					;;
+					5)
+						mensagem+='quais habilidades você poderia compartilhar conosco ? :v'
+					;;
+					6)
+						mensagem+='esta estudando alguma coisa interessante ? :3'
+					;;
+					7)
+						mensagem+="quais são seus interesses pelo tema deste grupo, ${message_new_chat_member_first_name[$id]} ?, poderia compartilhar conosco :3 ?"
+					;;
+					8)
+						mensagem+='você tem alguma afinidade com o tema deste grupo ou ainda está descobrindo alguma coisa que você se identifique melhor ?'
+					;;
+					9)
+						mensagem+='seu nome é interessante, o que você sabe sobre o tema deste grupo ?, ou está em busca de algo novo e ainda não sabe muita coisa ? :v'
+					;;
+					10)
+						mensagem+='conte-nos um pouco sobre você. está estudando alguma coisa relacionada ao tema deste grupo ? '
+		 			;;
+					11)
+						mensagem+='o que você esta aprendendo atualmente relacionado ao tema deste grupo ?'
+					;;
+				esac
 				escrever
 				responder
-			}
-		sleep 10m
-		deletarbot
-		}
-		esta_na_lista=""
-		analisar=$(< novomembro.txt)
-		esta_na_lista=$(fgrep "${message_new_chat_participant_id[$id]}" <<< $analisar)
-		[[ $esta_na_lista ]] && {
-			#banir
-			deletarbot &
-			ShellBot.kickChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_new_chat_participant_id[$id]}
-			[[ ${message_new_chat_members_username[$id]} ]] && {
-				mensagem="removi @${message_new_chat_members_username[$id]}, não respondeu na entrada, '-'"	
-			}
-			[[ ${message_new_chat_members_username[$id]} ]] || {
-				mensagem="removi ${message_new_chat_member_first_name[$id]}, por não ter falado nada, infelizmente"	
-			}
-			enviar
-			sleep 30m
-			deletarbot
-		}
+				sleep 30s
+				fgrep -q "${message_new_chat_participant_id[$id]}" novomembro.txt && {
+					#salvar envio anterior para deletar
+					user_id=${callback_query_message_message_id[$id]}
+					param=${return[message_id]:-$user_id}
 
-		comparar=${message_new_chat_member_first_name[$id]}
-		echo ${analisar/$comparar/} > novomembro.txt
-		[[ $esta_na_lista ]] || {
-			[[ ${message_new_chat_members_username[$id]} ]] && {
-				mensagem="@${message_new_chat_members_username[$id]}"	
+					[[ ${message_new_chat_members_username[$id]} ]] && {
+						mensagem="@${message_new_chat_member_username[$id]}, preciso que você interaja conosco, temos que saber se você não é um spammer ou um bot. você tem 10 minutos para enviar alguma mensagem, não queremos te perder :3"
+						escrever
+						enviar
+					}
+					[[ ${message_new_chat_members_username[$id]} ]] || {
+						mensagem="fale algo ${message_new_chat_member_first_name[$id]}, eu preciso saber se você não é um spammer ou um bot, pois terei que remover você infelizmene caso não responda em 10 minutos."
+						escrever
+						responder
+					}
+
+					for((rodada=0;rodada<=120;rodada++));do
+						sleep 5s
+						while read -r linha;do
+							[[ "${linha}" = "${message_new_chat_participant_id[$id]}" ]] && {
+								persistencia=1
+							}
+						done < novomembro.txt
+						[[ ${persistencia} -eq 1 ]] || {
+							deletarbot
+							persistencia=1
+							break
+						}
+					done
+				}
+
+				fgrep -q "${message_new_chat_participant_id[$id]}" novomembro.txt && {
+					deletarbot &
+					deletarbot "${param}" &
+
+					ShellBot.kickChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_new_chat_participant_id[$id]}
+					[[ ${message_new_chat_members_username[$id]} ]] && {
+						mensagem="removi @${message_new_chat_members_username[$id]}, não respondeu na entrada, '-'"
+					}
+					[[ ${message_new_chat_members_username[$id]} ]] || {
+						mensagem="removi ${message_new_chat_member_first_name[$id]}, por não ter falado nada, infelizmente"
+					}
+					enviar
+					sleep 1m
+					deletarbot
+				}
+
+				fgrep -q "${message_new_chat_participant_id[$id]}" novomembro.txt && {
+					sed -i "/${message_new_chat_member_first_name[$id]}/d" novomembro.txt
+				} || {
+					[[ ${message_new_chat_members_username[$id]} ]] && {
+						mensagem="@${message_new_chat_members_username[$id]}"	
+					}
+					[[ ${message_new_chat_members_username[$id]} ]] || {
+						mensagem="${message_new_chat_member_first_name[$id]}"
+					}
+					mensagem+=", fique a vontade para fazer perguntas e tirar dúvidas :3,"
+					Consulta_table channel
+					[[ "$valor" = "0" ]] || mensagem+="dê uma olhada em nosso acervo\canal do grupo: \n $valor"
+					Consulta_table regra
+					[[ "$valor" = "0" ]] || mensagem+="\n e nas regras:\n regras:\n $valor"
+					mensagem+=" espero que te ajudemos no que procura :)"
+					responder
+				}
 			}
-			[[ ${message_new_chat_members_username[$id]} ]] || {
-				mensagem="${message_new_chat_member_first_name[$id]}"
-			}
-			mensagem+=", fique a vontade para fazer perguntas e tirar dúvidas :3,"
-			Consulta_table channel
-			[[ "$valor" = "0" ]] || mensagem+="dê uma olhada em nosso acervo\canal do grupo: \n $valor"
-			Consulta_table regra
-			[[ "$valor" = "0" ]] || mensagem+="\n e nas regras:\n regras:\n $valor"
-			mensagem+=" espero que te ajudemos no que procura :)"
-			responder
-		}
-	}
-	} &
+		} &
 
 #--------------- DETECTOR DE SPAMMERS POR IMAGEM, VÍDEO, GIF e STICKERS ---------------#
 			[[ ${message_sticker_thumb_file_id[$id]} ]] && file_id=${message_sticker_thumb_file_id[$id]} && spammer=1
@@ -871,30 +916,80 @@ for id in $(ShellBot.ListUpdates)
 				file_id=${file_id[0]}
 				download_audio=0
 				ShellBot.getFile --file_id $file_id
-				ShellBot.downloadFile --file_path ${return[file_path]} --dir $PWD
+				ShellBot.downloadFile --file_path ${return[file_path]} --dir $PWD/audio
 				file_id=''
 				arquivo=${return[file_path]##*/}
 				name_audio=${return[file_path]##*/}
 				name_audio=${name_audio%%.*}
-				ffmpeg -i $arquivo -r 48k $name_audio.flac
-				rm -rf $arquivo
-				transcricao=$(curl -s -X POST --data-binary @$name_audio.flac --user-agent 'Mozilla/5.0' --header 'Content-Type: audio/x-flac; rate=48000;' "https://www.google.com/speech-api/v2/recognize?output=json&lang=pt-BR&key=AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw&client=Mozilla/5.0" | jq '.result[].alternative[].transcript')
-				rm -rf $name_audio.flac &
-				while read linha;do
-					texto=$linha
-				done <<< "$transcricao"
+
+				#convertendo o audio
+				ffmpeg -i audio/$arquivo -r 48k audio/${name_audio}.flac
+				rm -rf audio/${arquivo} &
+
+				#separando fragmentos
+				sox -V3 audio/${name_audio}.flac audio/${name_audio}_.flac silence -l  1 0.3 0.1%   1 0.3 0.1% : newfile : restart #1 0.2 0.3% 1 0.2 0.3% : newfile : restart
+				rm -rf audio/${name_audio}.flac &
+
+				texto=''
+				set +f
+
+				#buscar o último e deletar || ao mesmo tempo que edita para melhor transcrição
+				for envio in audio/${name_audio}_*flac;do
+					sox audio/silencio.wav ${envio} audio/silencio.wav "${envio%.*}.wav"
+					ffmpeg -y -i "${envio%.*}.wav" "${envio%.*}.flac"
+					rm -f "${envio%.*}.wav"
+				#	ultimo=${envio}
+				done
+				#rm -f ${ultimo}
+
+				for envio in audio/${name_audio}_*flac;do
+					transcricao=$(curl -s -X POST --data-binary @${envio} --user-agent 'Mozilla/5.0' --header 'Content-Type: audio/x-flac; rate=48000;' "https://www.google.com/speech-api/v2/recognize?output=json&lang=pt-BR&key=AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw&client=Mozilla/5.0" | jq '.result[].alternative[].transcript')
+					rm -f "${envio}" &
+
+					while read linha;do
+						texto=${linha//\"/}
+					done <<< "${transcricao,,}"
+
+					texto_final+=${texto:+$texto\,\ }
+				done
+				set -f
+				texto_final=${texto_final%\,*}
+
+				texto_final="${texto_final:+$texto_final.}"
+
+				#aplicando filtro de comandos:
+				texto_final=${texto_final//vírgula/\,}
+				texto_final=${texto_final// ponto final/\.}
+				texto_final=${texto_final// ponto interrogação/\?}
+				texto_final=${texto_final// ponto de interrogação/\?}
+				texto_final=${texto_final// dois pontos/\:}
+				texto_final=${texto_final// nova linha/\\n }
+				texto_final=${texto_final// novo paragrafo/\\n\\n   }
+				texto_final=${texto_final// paragrafo/\\n\\n   }
+				texto_final=${texto_final// abre aspas/\"}
+				texto_final=${texto_final// fecha aspas/\"}
+				texto_final=${texto_final// reticencias/\.\.\.}
+				texto_final=${texto_final//\,\,/\,}
+				texto_final=${texto_final//\.\./\.}
 
 				Consulta_table audios
 				transcrever_audio=$valor
 				ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
 				[[ "$transcrever_audio" = "1" || "${return[status]}" = "member" ]] && {
-					[[ ${texto//\"/} ]] && {
-						mensagem="escrita:\n${texto//\"/}"
+					[[ ${texto_final} ]] && {
+						mensagem="escrita:\n${texto_final}"
+						responder
+					} || {
+						while read -r linha; do
+							frase+=( "${linha}" )
+						done <<< $(printf "%s\n" não\ {consegui,pude}\ {ouvir,entender,escutar}\ {nada\ d,}o\ audio.)
+						mensagem="${frase[$[$RANDOM%${#frase[@]}]]}"
+						escrever
 						responder
 					}
 				}
 				unset mensagem transcricao
-				minusc=${texto,,}
+				minusc=${texto_final,,}
 				}
 
 			[[ -a enviando.txt ]] || > enviando.txt
@@ -906,7 +1001,7 @@ for id in $(ShellBot.ListUpdates)
 
 #--------------- parte de análise de padrões de fala, para tomar medidas e ações ---------------#
 			casar=0
-			[[ "$minusc" = "/start"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = "/start"* && "${casar}" = "0" ]] && {
 				casar=1
 				mensagem="olá, sou a mikosumabot (miko), mais conhecida como eduarda monteiro (duda). interpreto linguagem natural para gerenciar grupos com base em conversas, sou configurada por conversa natural, e gerenciamento por análise comportamental e falas naturais. para me configurar, me adicione como admin em um grupo, e para exibir minhas funções e sanar algumas dúvidas, envie /configurar no grupo que deseja me configurar."
 				mensagem+="\n\ne para saber mais sobre como funciono, envie: /helpduda"
@@ -915,7 +1010,7 @@ for id in $(ShellBot.ListUpdates)
 				enviar
 			}
 
-			[[ "$minusc" = "/configurar"* && "$casar" = "0" ]] && {
+			[[ "${minusc%%@*}" = "/configurar" && "${casar}" = "0" ]] && {
 				casar=1
 				ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
 				[[ "${return[status]}" =~ (administrator|creator|member) ]] && dita=1
@@ -932,8 +1027,9 @@ for id in $(ShellBot.ListUpdates)
 					mensagem+="\nfixar mensagens: /fixar"
 					mensagem+="\nbom dia, tarde, noite: /bomdia"
 					mensagem+="\nanti-flood inteligente, padrão (7) /iflood"
-					mensagem+="\n/doar <valor a doar OBS: acima de 5,50 R$, é o mínimo permitido pela plataforma>"
-					mensagem+="\ntodos são desativados por padrão."
+#					mensagem+="\n/doar <valor a doar OBS: acima de 5,50 R$, é o mínimo permitido pela plataforma>"
+					mensagem+="\na maioria das opções são desativados por padrão."
+					mensagem+="\nenvie /doar e eu mando meu pix :D"
 					enviar
 					sleep 1m
 					deletarbot
@@ -943,36 +1039,48 @@ for id in $(ShellBot.ListUpdates)
 					mensagem="você não é administrator '-', então não posso te conceder acesso, talvez futuramente se conseguir ajudar este grupo o suficiente para virar admin :v"
 					escrever
 					responder
-					sleep 5s
-					deletarbot
+					sleep 10s
+					deletarbot &
 					deletar
 				}
 			}
 
+			#----------- AO PARTICIPANTE SAIR, MENSAGEM DE SAIDA SERÁ REMOVIDA ---------#
 			[[ "${message_left_chat_participant_id[$id]}" ]] && {
 				deletar
 			}
 
-			[[ "$minusc" =~ (miko(suma)?|duda|e?du(ar)?da).*(ban(e|ir)|remov(a|e)r?) && "$casar" = "0" ]] && {
-				comparar=${BASH_REMATCH[0]}
+			[[ "${minusc}" =~ (miko(suma)?|duda|e?du(ar)?da).*((\/)?ban(e|ir)|remov(a|e)r?) && "${casar}" = "0" ]] && {
+				comparar="${BASH_REMATCH[0]}"
 				casar=1
 				ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
 				[[ "${return[status]}" =~ (administrator|creator) ]] && dita=1
-				[[ "$dita" = "1" ]] && {
+				[[ "${dita}" = "1" ]] && {
 					(
 						deletar
 					)&
 
-					banir_ref &
-					[[ "$comparar" = *"remove"* ]] && desbanir
+					[[ "${minusc}" =~ \@[^(\ |$)]* ]] && {
+						banir "${BASH_REMATCH[0]}." &
+					} || {
+						banir_ref &
+					}
 
+					enviar
+
+					[[ "${comparar}" = *"remove"* ]] && {
+						desbanir
+					}
+
+					#prevenir saída caso não tiver sido permitida a realizar banimentos.
 					(
-						[[ "$comparar" = *"remove"* ]] && {
+						[[ "${comparar}" = *"remove"* ]] && {
 							mensagem="removido!"
 						} || {
 							mensagem="banido!"
 						}
-							enviar
+						enviar
+
 						(
 							sleep 3s
 							deletarbot
@@ -984,30 +1092,30 @@ for id in $(ShellBot.ListUpdates)
 					dita=0
 				}
 
-				[[ "$dita" = "0" ]] || {
+				[[ "${dita}" = "0" ]] || {
 					mensagem="não posso receber suas ordens ainda, pois ... você não é administrador."
 					escrever
 					responder
-					sleep 5s
-					deletarbot
+					sleep 10s
+					deletarbot &
 					deletar
 				}
 			}
 
-			[[ "$minusc" = "/helpduda"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = "/helpduda"* && "${casar}" = "0" ]] && {
 				casar=1
 				mensagem="entre no link abaixo para acessar minha lista de funções e como interagir comigo:\nhttps://telegra.ph/Eduarda-Monteiro--manual-09-20"
 				ShellBot.sendMessage --chat_id ${message_chat_id[$id]} --text "$mensagem"
 			}
 
-			[[ "$minusc" = "/inicio"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = "/inicio"* && "${casar}" = "0" ]] && {
 				casar=1
 				mensagem="ok, agora mande seus arquivos para eu postar eles lá no chat principal :3"
 				enviar
 				echo "${message_from_id[$id]}" >> enviando.txt
 			}
 
-			[[ "$minusc" = "/fim"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = "/fim"* && "${casar}" = "0" ]] && {
 				casar=1
 				[[ $(fgrep "${message_from_id[$id]}" enviando.txt) ]] && {
 					ShellBot.sendMessage --chat_id ${message_chat_id[$id]} --text "enviando arquivos para o Programando em ..."
@@ -1020,13 +1128,13 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" = "/habilidade"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = "/habilidade"* && "${casar}" = "0" ]] && {
 				casar=1
-				mensagem+="1. atender novos integrandes;"
+				mensagem+="\n\n1. atender novos integrantes;"
 				mensagem+="\n\n2. fazendo checagens para verificar se são pessoas ou bots durante o processo de entrada;"
 				mensagem+="\n\n3. verificar imagens, GIFs, stickers e vídeos para ver se é pornografia, propaganda, discurso de ódio e afins.;"
 				mensagem+="\n\nOBS: análise de spans, propagandas e discurso de ódio esta sendo refeita;"
-				mensagem+="\n\n4. transcrever audios e interpretar os audios;"
+				mensagem+="\n\n4. transcrever áudios e interpretar os áudios;"
 				mensagem+="\n\n5. buscar significado de palavras;"
 				mensagem+="\n\n6. reconhecer e marcar/fixar dúvidas, dicas e desafios das pessoas;"
 				mensagem+="\n\n7. buscar cursos gratuitos nas plataformas de cursos, além de buscas e postagens de conteúdos;"
@@ -1035,18 +1143,18 @@ for id in $(ShellBot.ListUpdates)
 				mensagem+="\n\n9. criar enquetes por conta própria ( porém pré configuradas, nada de forma automática e autônoma ainda);"
 				mensagem+="\n\n10. baixar músicas gratuitas do sondcloud;"
 				mensagem+="\n\n11. coletar e categorizar habilidades dos integrantes em uma tabela consultável, o que lhe permite perguntar quem possui tais habilidades, e os nicks são enviados;"
-				mensagem+="\n\n12. mandar audios de forma humana durante interações 'sintetizar textos';"
-				mensagem+="\n\n13. criar podcasts por conta própria 'acessar os principais sites, coletar a primeira noticia de cada um deles, resumir com um algoritmo estatístico, elaborar o roteiro, gravar os audios, editar com sons de transição, músicas de fundo, e realização da postagem' (futuramente será permitido ela criar podcasts individuais para cada canal ou grupo de sua escolha com seus principais sites e assuntos, porém é um recurso que demanda processamento, então será pago);"
+				mensagem+="\n\n12. mandar áudios de forma humana durante interações 'sintetizar textos';"
+				mensagem+="\n\n13. criar podcasts por conta própria 'acessar os principais sites, coletar a primeira noticia de cada um deles, resumir com um algoritmo estatístico, elaborar o roteiro, gravar os áudios, editar com sons de transição, músicas de fundo, e realização da postagem' (futuramente será permitido ela criar podcasts individuais para cada canal ou grupo de sua escolha com seus principais sites e assuntos, porém é um recurso que demanda processamento, então será pago);"
 				mensagem+="\n\nLINK do canal da duda de postagem de podcasts diários: https://t.me/mikoduda;"
 				mensagem+="\n\n14. mandar um vídeo gravado de seu próprio rosto 'diga: duda grava seu rosto';"
 				mensagem+="\n\n15. analisar links maliciosos cadastrados em um banco de dados isolado 'e um grupo que te permite ajudar a denunciar e reconhecer estes links: https://t.me/joinchat/Pln8-K6Uwp45OTNh';"
-				mensagem+="\n\n16. evitar flood dos membros, dando alguns avisos caso a pessoa ecsreva de forma picotada, ou esteja chegando perto do limite;"
-				mensagem+="\n\n17. responder a mensções ao seu nome ou apelido 'o que permite você perguntar algumas coisas ou conversar brevemente com ela ...';"
+				mensagem+="\n\n16. evitar flood dos membros, dando alguns avisos caso a pessoa escreva de forma picotada, ou esteja chegando perto do limite;"
+				mensagem+="\n\n17. responder a menção ao seu nome ou apelido 'o que permite você perguntar algumas coisas ou conversar brevemente com ela ...';"
 				mensagem+="\n\n18. interagir com bom dia, tarde e noite;"
-				mensagem+="\n\n19. fazer leves brincadeiras (alterado para formas normais de respóstas);"
-				mensagem+="\n\n20. resumir textos de mensagens (um recurso apra resumir links , livros e documentos e em massa esta sendo desenvolvido, por demandar muito processamento: será pago, menos esta de reusmir mensagens);"
+				mensagem+="\n\n19. fazer leves brincadeiras (alterado para formas normais de respostas);"
+				mensagem+="\n\n20. resumir textos de mensagens (um recurso para resumir links , livros e documentos e em massa esta sendo desenvolvido, por demandar muito processamento: será pago, menos esta de resumir mensagens);"
 				mensagem+="\n\n21. lhe permite adicionar link de regra e canal, sempre que alguém perguntar sobre ou pedir, ela irá mostrar;"
-				mensagem+="\n\n22. você pode pedir para ela criar um podcast no canal dela, porém não é personalizavel ou utilizavel em outros canais por em quanto;"
+				mensagem+="\n\n22. você pode pedir para ela criar um podcast no canal dela, porém não é personalizável ou utilizável em outros canais por em quanto;"
 				mensagem+="\n\n23. comentários e outros níveis de interações a depender dos tópicos das conversas (se ativado);"
 				mensagem+="\n\n34. buscar vídeos no youtube."
 				enviar
@@ -1054,14 +1162,14 @@ for id in $(ShellBot.ListUpdates)
 				deletarbot
 			}
 
-			[[ "$minusc" = "/ferramenta"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = "/ferramenta"* && "${casar}" = "0" ]] && {
 				casar=1
 				ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
 				[[ "${return[status]}" = "member" ]] && {
 					valor_mensal="30"
 					valor_individual="15"
 					options=''
-#------------- conforme desmarcar, a opçãi aparece na mensagem :D -------------#
+#------------- conforme desmarcar, a opção aparece na mensagem :D -------------#
 					ShellBot.InlineKeyboardButton --button 'options' --line 1 --text 'podcasts' --callback_data "compra:podcast:${valor_individual}"
 				#	ShellBot.InlineKeyboardButton --button 'options' --line 2 --text 'resumo de livros/sites' --callback_data "compra:resumo:${valor_individual}"
 				#	ShellBot.InlineKeyboardButton --button 'options' --line 3 --text 'Combo de recursos' --callback_data "compra:combo:${valor_mensal}"
@@ -1124,7 +1232,7 @@ for id in $(ShellBot.ListUpdates)
 						  -d photo_url="$URL" \
 						  ${photo_width:+ -d photo_width="$photo_width"} \
 						  ${photo_height:+ -d photo_height="$photo_height"}
- 						  
+
 						# message_successful_payment_invoice_payload = 'dias:15'
 				}
 			}
@@ -1137,7 +1245,7 @@ for id in $(ShellBot.ListUpdates)
 							identificado=1
 							permitir=0
 							IFS=':' read C1 C2 <<< "${pre_checkout_query_invoice_payload[$id]}"
-							
+
 							[[ "${C1}" = "podcast" && "${F2%%\;*}" = "podcast" ]] && {
 								permitir=1
 								curl  --request POST -s "https://api.telegram.org/bot${bot_token}/answerprecheckoutquery" \
@@ -1151,9 +1259,8 @@ for id in $(ShellBot.ListUpdates)
 
 					[[ "$identificado" = 0 ]] && echo "${pre_checkout_query_from_id[$id]}:::::::::::" >> NNbcc714e1e457b2db7bedb17f438493371b5acec8abbed92686.ahuqdib
 
-
 					[[ "$permitir" = 0 ]] && {
-						curl  --request POST -s "https://api.telegram.org/bot${bot_token}/answerprecheckoutquery" \
+						curl --request POST -s "https://api.telegram.org/bot${bot_token}/answerprecheckoutquery" \
 							  -d pre_checkout_query_id="${pre_checkout_query_id[$id]}" \
 							  -d ok="true"
 					}
@@ -1204,12 +1311,12 @@ for id in $(ShellBot.ListUpdates)
 			#verificar se esta rolando uma interação guiada
 			user_id=${my_chat_member_from_id[$id]}
 			user_id=${callback_query_from_id[$id]:-$user_id}
-			[[ -a guia/${message_from_id[$id]:-$user_id}_interagindo.guiado && "$casar" = "0" ]] && {
+			[[ -a guia/${message_from_id[$id]:-$user_id}_interagindo.guiado && "${casar}" = "0" ]] && {
 				cd guia
 				message_id=${my_chat_member_from_id[$id]}
 				message_id=${callback_query_message_chat_id[$id]:-$message_id}
 				IFS=';' read F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12 <<< $(< ${message_from_id[$id]:-$message_id}_interagindo.guiado)
-				
+
 			 	[[ ${F1} = "podcast"* ]] && {
 			 		mensagem="${callback_query_message_text[$id]//\_/\\\_}"
 					guia=0
@@ -1297,7 +1404,6 @@ for id in $(ShellBot.ListUpdates)
 			 			# mudar corpo da mensagem, e mudar a mensagem e botões para  tipo de forma de falar.
 			 			mudar_teclado=4
 				 		mensagem="*todos os podcasts iniciam com o seguinte roteiro, ex:* \noi, sejam bem vindos ao podcast do 'grupo/canal' 'nome' ...\n\n eu digo grupo ou canal ?"
-
 			 			guia=1
 			 		}
 
@@ -1594,7 +1700,7 @@ for id in $(ShellBot.ListUpdates)
 			 	}
 
 			 	[[ ${F1} = "dialogo" ]] && {
-			 		[[ "$minusc" =~ (bye bye duda|tchau duda) ]] && {
+			 		[[ "$minusc" =~ (bye\ bye|good\ ?bye|tchau)\ duda ]] && {
 			 			mensagem="modo diálogo finalizado!"
 			 			rm -rf ${message_from_id[$id]}_interagindo.guiado
 			 			enviar
@@ -1616,10 +1722,11 @@ for id in $(ShellBot.ListUpdates)
 				cd ..
 			}
 
-			[[ "$minusc" =~ (miko(suma)?|dud(a|i)|e?du(ar)?da|nha).*((vamos|bora).((conversa|dialoga)r?)) && "$casar" = 0 ]] && {
+			[[ "$minusc" =~ (miko(suma)?|dud(a|i)|e?du(ar)?da|nha).*((vamos|bora).((conversa|dialoga)r?)) && "${casar}" = 0 ]] && {
 				casar=1
-				mensagem="modo conversa foi ativado. este é um modo experimental, para finalizar, diga: bye bye duda ou tchau duda."
+				mensagem="modo conversa foi ativado. este é um modo experimental, para finalizar, diga: (bye bye|tchau|good bye) duda"
 				enviar
+
 				echo "dialogo;;;;;;;;;;;" > guia/${message_from_id[$id]}_interagindo.guiado
 				valor=$[$RANDOM%3+1]
 				[[ $valor = 1 ]] && mensagem="oi ${message_from_first_name[$id]}, como você esta ?"
@@ -1633,7 +1740,7 @@ for id in $(ShellBot.ListUpdates)
 				enviar
 			}
 
-			[[ "${minusc}" = "/configurar_podcast"* && "$casar" = "0" ]] && {
+			[[ "${minusc}" = "/configurar_podcast"* && "${casar}" = "0" ]] && {
 				while IFS=':' read F1 F2 F3;do
 					[[ ${message_from_id[$id]} = "${F1}" && "${F2%%\;*}" = "podcast" ]] && {
 						status='liberado'
@@ -1667,39 +1774,41 @@ for id in $(ShellBot.ListUpdates)
 							 			 --reply_markup "$keyboard1"\
 								 		 --parse_mode markdown
 										#enviar_menu
-
 				} || {
 					mensagem="você não comprou este recurso para utilizar ainda. envie /ferramentas para ver os serviços disponíveis :D"
 					enviar
 				}
 			}
 			#pedir pagamento [gerar fatura]
-			[[ "$minusc" = "/doar"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = "/doar"* && "${casar}" = "0" ]] && {
                 casar=1
-				IFS=' ' read F1 F2 <<< "${message_text[$id],,}"
-				[[ "$F2" ]] && {
-					F2=${F2//,/}
-					URL='https://telegra.ph/file/5d5fa2f3ef13cfaf5d04d.png'
-					photo_width='960'
-					photo_height='800'
-					curl  --request POST -s "https://api.telegram.org/bot${bot_token}/sendinvoice" \
-						-d chat_id="${message_chat_id[$id]}" \
-						-d title="doação para dudinha" \
-						-d description='esta doação servirá para ajudar a manter os servidores da dudinha e no desenvolvimento de recursos novos.' \
-						-d payload='doar:15' \
-						-d provider_token="${doar_token}" \
-						-d start_parameter="doar" \
-						-d currency="BRL" \
-						-d prices='[{"label": "doação colaborativa","amount":'${F2//./}'}]' \
-						-d photo_url="$URL" \
-						  ${photo_width:+ -d photo_width="$photo_width"} \
-						  ${photo_height:+ -d photo_height="$photo_height"}
-			}
+                mensagem="aqui esta meu pix :D\n\npix: d714740a-35be-40a9-80de-5343a1409325 👀"
+                responder
+#				IFS=' ' read F1 F2 <<< "${message_text[$id],,}"
+#				[[ "$F2" ]] && {
+#					F2=${F2//,/}
+#					URL='https://telegra.ph/file/5d5fa2f3ef13cfaf5d04d.png'
+#					photo_width='960'
+#					photo_height='800'
+#					curl  --request POST -s "https://api.telegram.org/bot${bot_token}/sendinvoice" \
+#						-d chat_id="${message_chat_id[$id]}" \
+#						-d title="doação para dudinha" \
+#						-d description='esta doação servirá para ajudar a manter os servidores da dudinha e no desenvolvimento de recursos novos.' \
+#						-d payload='doar:15' \
+#						-d provider_token="${doar_token}" \
+#						-d start_parameter="doar" \
+#						-d currency="BRL" \
+#						-d prices='[{"label": "doação colaborativa","amount":'${F2//./}'}]' \
+#						-d photo_url="$URL" \
+#						  ${photo_width:+ -d photo_width="$photo_width"} \
+#						  ${photo_height:+ -d photo_height="$photo_height"}
 
-				 [[ "$F2" ]] || {
-					mensagem="para me doar, especifique o valor, ex:\n/doar <valor formato: real:centavos, podendo ser separado com ',' ou '.'>\n OBS: envie em meu privado."
-					enviar
-				}
+#			}
+#
+#				 [[ "$F2" ]] || {
+#					mensagem="para me doar, especifique o valor, ex:\n/doar <valor formato: real:centavos, podendo ser separado com ',' ou '.'>\n OBS: envie em meu privado."
+#					enviar
+#				}
 			}
 
 			# verificar e aprovar pagamento [confirmar dados e enviar retorno de OK ]
@@ -1737,7 +1846,7 @@ for id in $(ShellBot.ListUpdates)
 				responder
 			}
 
-			[[ "$minusc" = "/ditadura"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = "/ditadura"* && "${casar}" = "0" ]] && {
 				casar=1
 				ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
 				[[ "${return[status]}" = "administrator" ]] && dita=1
@@ -1764,7 +1873,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" = "/mencionar"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = "/mencionar"* && "${casar}" = "0" ]] && {
 				casar=1
 				ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
 				[[ "${return[status]}" = "administrator" ]] && dita=1
@@ -1789,7 +1898,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" = "/boasvindas"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = "/boasvindas"* && "${casar}" = "0" ]] && {
 				casar=1
 				ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
 				[[ "${return[status]}" = "administrator" ]] && dita=1
@@ -1814,7 +1923,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" = *"/spammers"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *"/spammers"* && "${casar}" = "0" ]] && {
 				casar=1
 				ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
 				[[ "${return[status]}" = "administrator" ]] && dita=1
@@ -1840,7 +1949,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" = '/audio'* && "$casar" = "0" ]] && {
+			[[ "$minusc" = '/audio'* && "${casar}" = "0" ]] && {
 				casar=1
 				ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
 				[[ "${return[status]}" = "administrator" ]] && dita=1
@@ -1866,7 +1975,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" = "/nome"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = "/nome"* && "${casar}" = "0" ]] && {
 				casar=1
 				ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
 				[[ "${return[status]}" = "administrator" ]] && dita=1
@@ -1892,7 +2001,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" = "/fixar"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = "/fixar"* && "${casar}" = "0" ]] && {
 				casar=1
 				ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
 				[[ "${return[status]}" = "administrator" ]] && dita=1
@@ -1918,7 +2027,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" = '/bomdia'* && "$casar" = "0" ]] && {
+			[[ "$minusc" = '/bomdia'* && "${casar}" = "0" ]] && {
 				ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
 				[[ "${return[status]}" = "administrator" ]] && dita=1
 				[[ "${return[status]}" = "creator" ]] && dita=1
@@ -1943,7 +2052,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" = '/iflood'* && "$casar" = "0" ]] && {
+			[[ "$minusc" = '/iflood'* && "${casar}" = "0" ]] && {
 				casar=1
 				ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
 				[[ "${return[status]}" = "administrator" ]] && dita=1
@@ -1969,7 +2078,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" = '/status'* && "$casar" = "0" ]] && {
+			[[ "$minusc" = '/status'* && "${casar}" = "0" ]] && {
 				casar=1
 				mensagem="um momento ..."
 				responder
@@ -2077,7 +2186,7 @@ for id in $(ShellBot.ListUpdates)
 				deletarbot
 			}
 
-			[[ "$minusc" = '/addregra'* && "$casar" = "0" ]] && {
+			[[ "$minusc" = '/addregra'* && "${casar}" = "0" ]] && {
 				casar=1
 				ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
 				[[ "${return[status]}" = "administrator" ]] && dita=1
@@ -2096,7 +2205,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" = '/addchannel'* && "$casar" = "0" ]] && {
+			[[ "$minusc" = '/addchannel'* && "${casar}" = "0" ]] && {
 				casar=1
 				ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
 				[[ "${return[status]}" = "administrator" ]] && dita=1
@@ -2116,7 +2225,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-#			[[ "$minusc" =~ (posta|faz|cri(a|e)).*(newsletter|newslettercast|podcast|noticia) && "$casar" = "0" ]] && {
+#			[[ "$minusc" =~ (posta|faz|cri(a|e)).*(newsletter|newslettercast|podcast|noticia) && "${casar}" = "0" ]] && {
 #				casar=1
 #				[[ -a "podcast/newsletter$(date +%Y%d).mp3" ]] && {
 #					mensagem="ja postei uma newslettercast hoje, só postarei novamente amanhã. veja ele no meu acero: https://t.me/mikoduda"
@@ -2148,18 +2257,18 @@ for id in $(ShellBot.ListUpdates)
 			# iniciar criação do podcast.
 			#aviso, esta parte não poderá ficar aqui, e sim, ficar em segundo plano a cada rodada de request.
 
-			[[ "$minusc" = '/limpar_refazer' && "$casar" = "0" ]] && {
+			[[ "$minusc" = '/limpar_refazer' && "${casar}" = "0" ]] && {
 				casar=1
-			[[ "${message_from_id[$id]}" = '684211615' ]] && {
-				mensagem="ok, criando newsletter ..."
-				responder
-#					[[ "$(< podcast/mark.txt)" = "finalizado" ]] && {
-#						echo "fazendo" > podcast/mark.txt
-						#./multicast.sh
-						lista="$(< consulta.lil)"
-						data=$(date +%D)
-						while IFS=':' read F1 F2 F3 F4 F5 F6; do
-							(
+				[[ "${message_from_id[$id]}" = '684211615' ]] && {
+					mensagem="ok, criando newsletter ..."
+					responder
+			
+					rm nexus
+					./multicast.sh
+					lista="$(< consulta.lil)"
+					data=$(date +%D)
+					while IFS=':' read F1 F2 F3 F4 F5 F6; do
+						(
 							IFS=';' read D1 D2 D3 D4 <<< "${F6}"
 
 							while IFS=';' read C1 C2 C3;do
@@ -2188,11 +2297,8 @@ for id in $(ShellBot.ListUpdates)
 							ShellBot.InlineKeyboardButton --button 'anexo' --line "4" --text "${D4%;*}" --callback_data "notinterpret" --url "${D4#*;}"
 
 							keyboard1="$(ShellBot.InlineKeyboardMarkup -b 'anexo')"
-							
-							D1=${D1%;*}
-							D2=${D2%;*}
-							D3=${D3%;*}
-							D4=${D4%;*}
+
+							D1=${D1%;*} ; D2=${D2%;*} ; D3=${D3%;*} ; D4=${D4%;*}
 
 							T1=${T1%%-*} ; T1=${T1%%|*} ; T1=${T1//\;/ } ; T1=${T1//\_/ }
 							T2=${T2%%-*} ; T2=${T2%%|*} ; T2=${T2//\;/ } ; T2=${T2//\_/ }
@@ -2212,16 +2318,20 @@ for id in $(ShellBot.ListUpdates)
 							layout+="  ። ${T4}\n\n"
 							layout+="*❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱*\n"
 							layout+="—————(${data})—————\n"
-							layout+="BY: @engenhariade\_bot"
-
+							layout+="BY: @engenhariade\_bot\n"
+							layout+="se quiser fazer uma doação, pix: eduardamonteiro@telegmail.com 👀"
 							ShellBot.sendAudio --chat_id "${F2}" --audio "@podcast/newslettercast_${F1}.mp3" --title "newslettercast de ${F5//_/ }" --caption "${layout}" --reply_markup "$keyboard1" --parse_mode markdown
-							)&
+							#avisar que não foi enviado, com um marcador de pré aviso
+							#[[ "$?" = 1 ]] && 
+						)&
+					done < fontes.ref
 
-						done < fontes.ref
+					#permitir ser reativado após a conclusão
+					mkfifo nexus
 				}
 			}
 
-			[[ "$minusc" = *'#enviar'* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *'#enviar'* && "${casar}" = "0" ]] && {
 				casar=1
 					tratar=${message_text[$id]}
 					mens=${tratar/\#enviar/}
@@ -2229,7 +2339,7 @@ for id in $(ShellBot.ListUpdates)
 			}
 
 
-			[[ "$minusc" =~ (mand(a|e)|quai(s|al)|mostr(a|e)).*(regras?) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (mand(a|e)|qua(is|al)|mostr(a|e)).*(regras?) && "${casar}" = "0" ]] && {
 				casar=1
 				Consulta_table regra
 				[[ "$valor" = '0' ]] || {
@@ -2239,7 +2349,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" =~ ((baix(ar?|e)):?).*(https?).*(soundcloud) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ ((baix(ar?|e)):?).*(https?).*(soundcloud) && "${casar}" = "0" ]] && {
 				casar=1
 				mensagem="baixando ..."
 				enviar
@@ -2259,7 +2369,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" =~ (pesquis(e|a)|procur(a|e)|busc(a|que)).(por|pel(o|a)|\:)?(.*(m(u|ú)sicas?|v(i|ídeos?)))?.*(youtube) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (pesquis(e|a)|procur(a|e)|busc(a|que)).(por|pel(o|a)|\:)?(.*(m(u|ú)sicas?|v(i|ídeos?)))?.*(youtube) && "${casar}" = "0" ]] && {
 				pular=${BASH_REMATCH[0]}
 				busca="${minusc#*$pular}"
 				[[ "$busca" ]]  || {
@@ -2276,7 +2386,7 @@ for id in $(ShellBot.ListUpdates)
 				} 
 			}
 
-			[[ "$minusc" =~ (cana(l|is)|acervos?|channels?).*(grupo|d?aqui) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (cana(l|is)|acervos?|channels?).*(grupo|d?aqui) && "${casar}" = "0" ]] && {
 				casar=1
 				Consulta_table channel
 				[[ "$valor" = "0" ]] || {
@@ -2286,7 +2396,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" =~ (uma|tenho).dica:? && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (uma|tenho).dica:? && "${casar}" = "0" ]] && {
 				casar=1
 			Consulta_table fixar
 			fixar_solucoes=$valor
@@ -2298,7 +2408,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" =~ solu(cionado|ção):? && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ solu(cionado|ção):? && "${casar}" = "0" ]] && {
 				casar=1
 				Consulta_table fixar
 				fixar_solucoes=$valor
@@ -2315,7 +2425,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" =~ \#(desafio|vaga|dica|importante) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ \#(desafio|vaga|dica|importante) && "${casar}" = "0" ]] && {
 				padr=${BASH_REMATCH[1]}
 				casar=1
 				Consulta_table fixar
@@ -2337,7 +2447,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" =~ (intelig(e|ê)ncia artificial) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (intelig(e|ê)ncia artificial) && "${casar}" = "0" ]] && {
 				casar=1
 				Consulta_table artificial
 				Update_table_soma artificial 14
@@ -2372,7 +2482,7 @@ for id in $(ShellBot.ListUpdates)
 				esac
 			}
 
-			[[ "$minusc" =~ (bom ?dias?) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (bom? ?dias?) && "${casar}" = "0" ]] && {
 				casar=1
 				Consulta_table bomdia
 				bomdia=$valor
@@ -2427,6 +2537,7 @@ for id in $(ShellBot.ListUpdates)
 					Consulta_table inicio
 					iniciodia=$valor
 					Update_table_soma inicio 12
+					[[ ${iniciodia} = 27 ]] && Update_table 0 12
 					case $iniciodia in
 					0)
 						scope bomdia.mp4 4 "$resp"
@@ -2447,54 +2558,8 @@ for id in $(ShellBot.ListUpdates)
 						escrever
 						enviar
 						sticker "CAACAgEAAx0CRmy3uwABAZDtX2Ysml6apbCqNceMRCNok4kPryAAAkEAA589yChZ2Z7QRAhgCRsE"
-						sleep 7s
-						
-						titulo=$(curl -s 'https://canaltech.com.br/ultimas/' | egrep -o '<h3[^<]*</h3>' | head -n 1)
-						link_noticia_canaltech=$(curl -s 'https://canaltech.com.br/ultimas/' | egrep -o '<a .*type-artigo[^>]*>' | head -n 1)
-						titulo1=${titulo#*>}
-						titulo1=${titulo1%<*}
-						link_noticia_canaltech=${link_noticia_canaltech#*/}
-						link_noticia_canaltech=${link_noticia_canaltech%%\"*}
-						materia=$(curl -s "https://canaltech.com.br/${link_noticia_canaltech}" | egrep -o '<p>.*<\/p[^>]*>' | sed 's/<[^>]*>//g')
-						
-						tratar=$(lynx -stdin -dump <<< "$materia" | sed 's/\[[^\]]*\]//g')
-						tratar=${tratar//PUB • CONTINUE A LER A SEGUIR/}
-						tratar=${tratar#*nnerHTML\=\"}
-						tratar=${tratar%Inscreva seu email*}
-						tratar=${tratar%Etiquetas*}
-						tratar=${tratar##*um novo artigo é publicado.}
-						tratar=${tratar%Obrigado por assinar*}
-						tratar=${tratar##*saiba tudo sobre}
-
-						noticia1=${tratar##*Saiba tudo sobre}
-						noticia1=$(tr -d '\n' <<< "${noticia1#* }")
-
-						[[ $noticia ]] && {
-							mensagem="para confortálos nesta manhã, aqui vai um resumo da notícia mais recente do canal tech:\nTítulo:${titulo1}\nNótícia: $noticia1\n\nFonte: link_noticia_canaltech\n\nah, e gravei um podcast em meu canal: https://t.me/mikoduda"
-							enviar
-						}
 					;;
 					5)
-						titulo=$(curl -s 'https://canaltech.com.br/ultimas/' | egrep -o '<h3[^<]*</h3>' | head -n 1)
-						link_noticia_canaltech=$(curl -s 'https://canaltech.com.br/ultimas/' | egrep -o '<a .*type-artigo[^>]*>' | head -n 1)
-						titulo1=${titulo#*>}
-						titulo1=${titulo1%<*}
-						link_noticia_canaltech=${link_noticia_canaltech#*/}
-						link_noticia_canaltech=${link_noticia_canaltech%%\"*}
-						materia=$(curl -s "https://canaltech.com.br/${link_noticia_canaltech}" | egrep -o '<p>.*<\/p[^>]*>' | sed 's/<[^>]*>//g')
-						
-						tratar=$(lynx -stdin -dump <<< "$materia" | sed 's/\[[^\]]*\]//g')
-						tratar=${tratar//PUB • CONTINUE A LER A SEGUIR/}
-						tratar=${tratar#*nnerHTML\=\"}
-						tratar=${tratar%Inscreva seu email*}
-						tratar=${tratar%Etiquetas*}
-						tratar=${tratar##*um novo artigo é publicado.}
-						tratar=${tratar%Obrigado por assinar*}
-						tratar=${tratar##*saiba tudo sobre}
-
-						noticia1=${tratar##*Saiba tudo sobre}
-						noticia1=$(tr -d '\n' <<< "${noticia1#* }")
-
 						sticker "CAACAgEAAxkBAAIRd176dTPhB6BDjZH4h1jD-G2NOhCXAAINAANTVA4e8dbgpQ5GTL8aBA"
 						mensagem="vejamos ..., o que planejam pra hoje pessoal ?"
 						escrever
@@ -2502,11 +2567,6 @@ for id in $(ShellBot.ListUpdates)
 						mensagem="algum projeto saindo ai ?"
 						escrever
 						enviar
-						sleep 1m
-						[[ $noticia ]] && {
-						mensagem="noticia:\n $noticia\nFonte: \n ${link_noticia_canaltech}"
-						enviar
-					}
 					;;
 					6)
 						sticker "CAACAgEAAxkBAAIReF76dWpVZonT5kkXOyAFK4ALyIkgAAK5DAACJ5AfCNlob9n-10_TGgQ"
@@ -2610,7 +2670,7 @@ for id in $(ShellBot.ListUpdates)
 			}
 			}
 
-			[[ "$minusc" =~ (boa?.tardes?) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (boa?.tardes?) && "${casar}" = "0" ]] && {
 				casar=1
 				Consulta_table tarde
 				tarde=$valor
@@ -2623,7 +2683,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" =~ (boa?.noit(ch)?(|e|ê)) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (boa?.noit(ch)?(|e|ê)) && "${casar}" = "0" ]] && {
 				casar=1
 				Consulta_table noite
 				noite=$valor
@@ -2638,14 +2698,17 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" =~ ((alg|q)u(é|e)m).*( sabe | conhece | entende | programa | sobre | usa | em )(o |a |uma? |d(e|o) ?)? && "$casar" = "0" ]] && {
-				concat=${BASH_REMATCH[0]}
+			[[ "${minusc}" =~ ((alg|q)u(é|e)m)\ (sabe |conhece |entende |programa |sobre |usa |em )(o |a |uma? |d(e|o) |fazer)? && "${casar}" = "0" ]] && {
+				concat="${BASH_REMATCH[0]}"
 				casar=1
 				lista=''
 				IFS=' ' read F1 F2 F3 <<< "${minusc##*$concat}"
 				convert1=${F1,,}
 				convert2=${F2,,}
-				trabalhar="${convert1:+($convert1)}${convert2:+.?($convert2)}"
+				[[ ${convert1} = '?' ]] && convert1="${convert1//\?/}"
+				[[ ${convert2} = '?' ]] && convert2="${convert2//\?/}"
+				trabalhar="${convert1:+($convert1)}${convert2:+.*($convert2)}"
+
 				while IFS=':' read mensagem ruido;do
 					[[ "${ruido,,}" =~ ${trabalhar} ]] && {
 						#verificar se @ esta ativo ainda.
@@ -2653,27 +2716,30 @@ for id in $(ShellBot.ListUpdates)
 						[[ "${resultado}" = *'tgme_page_description '* ]] && {
 							lista+="$mensagem\n"
 						}
+
 						[[ "${resultado}" = *'tgme_page_description '* ]] || {
 							sed -i "s/${mensagem}:${ruido}//" habili.lil
 						}
 					}
 				done < habili.lil
+
 				[[ ${lista} ]] && {
 					mensagem=${lista}
 					escrever
 					responder
 				}
+
 				[[ ${lista} ]] || {
-					sort=$[$RANDOM%7+1]
-					[[ $sort = "1" ]] && mensagem="ninguém que eu conheça :v, mas...\n procure DOCs em inglês sobre ${minusc##*$concatenar} ;D"
-					[[ $sort = "2" ]] && mensagem="não conheço ninguém."
-					[[ $sort = "3" ]] && mensagem="não sei."
-					[[ $sort = "4" ]] && mensagem="não encontrei ninguém em minha lista :/"
-					[[ $sort = "5" ]] && mensagem="hmmmmmm... não me lembro."
-					[[ $sort = "6" ]] && mensagem="não achei ninguém que eu conheça, mas .... vou fixar sua mensagem por uns minutos para caso de alguém aparecer" && act='fix'
-					[[ $sort = "7" ]] && mensagem="ninguém que eu conheça :v, mas...\n procure DOCs em inglês sobre ${minusc##*$concatenar} ;D"
+					sort=$[$RANDOM%5+1]
+#					[[ $sort = "" ]] && mensagem="ninguém que eu conheça :v, mas...\n procure DOCs em inglês sobre ${minusc##*$concatenar} ;D"
+					[[ $sort = "1" ]] && mensagem="não conheço ninguém."
+					[[ $sort = "2" ]] && mensagem="não sei."
+					[[ $sort = "3" ]] && mensagem="não encontrei ninguém em minha lista :/"
+					[[ $sort = "4" ]] && mensagem="hmmmmmm... não me lembro."
+					[[ $sort = "5" ]] && mensagem="não achei ninguém que eu conheça, mas .... vou fixar sua mensagem por uns minutos para caso de alguém aparecer" && act='fix'
 					escrever
 					enviar
+
 					[[ $act = 'fix' ]] && {
 						fixar
 						sleep 3m
@@ -2681,7 +2747,8 @@ for id in $(ShellBot.ListUpdates)
 					}
 				}
 			}
-			[[ "$minusc" =~ (algu(é|e)m|sabe|conhece|tem).cursos?.(de|sobre) && "$casar" = "0" ]] && {
+
+			[[ "$minusc" =~ (algu(é|e)m|sabe|conhece|tem|quero|procurando).cursos?.(de|sobre) && "${casar}" = "0" ]] && {
 				casar=1
 				sleep 3s
 				Consulta_table channel
@@ -2690,6 +2757,7 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					enviar
 				}
+
 				#[[ $saida ]] || {
 				#		Consulta_table channel
 				#		mensagem="não posso mais procurar cursos, o sistema esta sendo recontruido do zero, mais limpo e mais inteligente. \n"
@@ -2698,8 +2766,10 @@ for id in $(ShellBot.ListUpdates)
 				#		responder
 				#}
 			}
+
 			#--- fim da ÁREA DE RISCO ---#
-			[[ "$minusc" =~ (postar?|faz(er)?).*conte(ú|u)do && "$casar" = "0" ]] && {
+
+			[[ "$minusc" =~ (postar?|faz(er)?).*conte(ú|u)do && "${casar}" = "0" ]] && {
 				casar=1
 				mensagem="este recurso foi desativado. esta sendo recontruído."
 				enviar
@@ -2716,7 +2786,8 @@ for id in $(ShellBot.ListUpdates)
 			#	sleep 10m
 			#	editar "blz, aguarde pelos próximos 20 minutos, irei postar o que eu conseguir encontrar."
 			}
-#			[[ "$minusc" =~ (verifi(que|car?)).*(postage(m|ns)) && "$casar" = "0" ]] && {
+
+#			[[ "$minusc" =~ (verifi(que|car?)).*(postage(m|ns)) && "${casar}" = "0" ]] && {
 #				casar=1
 #				conteudo=$(< postagens.lil)
 #				[[ $conteudo ]] && {
@@ -2740,7 +2811,7 @@ for id in $(ShellBot.ListUpdates)
 #				}
 #			}
 
-			[[ "$minusc" =~ (miko(suma)?|duda|e?du(ar)?da).*(bot|robo) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (miko(suma)?|duda|e?du(ar)?da).*(bot|robo) && "${casar}" = "0" ]] && {
 				casar=1
 				Consulta_table nobot
 				bot=$valor
@@ -2769,14 +2840,20 @@ for id in $(ShellBot.ListUpdates)
 			esac
 			}
 
-			[[ "$minusc" = *"#entendo"* && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (sei|consigo|\#?entendo)\ ?(de|fazer|sobre)?\ ?(.*) && "${casar}" = "0" ]] && {
 				casar=1
-    			bancoDeHabilidades="$(< habili.lil)"
     			habili="@${message_from_username[$id]}:"
     			[[ "${message_from_username[$id]}" ]] && {
-    				sed "/$habili/d" <<< "$bancoDeHabilidades" > habili.lil
-					IFS=' ' read F1 F2 <<< "$minusc"
-					echo "@${message_from_username[$id]}: ${F2}" habili.lil
+    				sed -i "/${habili,,}/d" habili.lil
+
+    				intention="${BASH_REMATCH[3]//\,/}"
+
+    				shopt -s extglob
+    				while read del;do
+ 						intention="${intention//@( $del | $del@(\.|\?|\:))/ }"
+					done < stopword.pt
+
+					echo "@${message_from_username[$id]}: ${intention// /\, }" >> habili.lil
 				}
 
 				[[ "${message_from_username[$id]}" ]] || {
@@ -2786,7 +2863,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" = *"#querofreela"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *"#querofreela"* && "${casar}" = "0" ]] && {
 				casar=1
     			freela="@${message_from_username[$id]}:"
     			[[ "${message_from_username[$id]}" ]] && {
@@ -2801,7 +2878,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" =~ (freelancers?|trabalh(ar?|o)).*(de|que).*(sabe|programa|usa) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (freelancers?|trabalh(ar?|o)).*(de|que).*(sabe|programa|usa) && "${casar}" = "0" ]] && {
 				casar=1
 				tratar="$minusc"
 				caso1=${BASH_REMATCH[1]}
@@ -2832,7 +2909,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" =~ (tem|possui|existe).na.lista && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (tem|possui|existe).na.lista && "${casar}" = "0" ]] && {
 				casar=1
 				sleep 2s
 				mensagem="hmmmm ..."
@@ -2840,12 +2917,13 @@ for id in $(ShellBot.ListUpdates)
 				responder
 				sleep 1s
 				a=$(wc -l <<< "$(< habili.lil)")
-				mensagem="tem $a pessoas"
+				mensagem="tem ${a} pessoas"
 				escrever
 				responder
 			}
 
-			[[ "$minusc" =~ (pesquis(a|e) por) && "$casar" = "0" ]] && {
+
+			[[ "$minusc" =~ (pesquis(a|e) por) && "${casar}" = "0" ]] && {
 				casar=1
 				pesqu=${message_text[$id]%%@*}
 				pesqu=${pesqu##*por}
@@ -2862,7 +2940,7 @@ for id in $(ShellBot.ListUpdates)
 				[[ "${tratamento//\"/}" = "null" ]] || responder
 			}
 
-			[[ "$minusc" =~ o?.(qu(e|al)m?).*(significa(do)|definição) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ o?.(qu(e|al)m?).*(significa(do)|definição) && "${casar}" = "0" ]] && {
 				casar=1
 				palavra=${message_text[$id]//\?/}
 				palavra=${palavra##*é}
@@ -2877,7 +2955,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" =~ (o?que(r|m)?).*(significa|definição|quer dizer|sugere|constitui) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (o?que(r|m)?).*(significa|definição|quer dizer|sugere|constitui) && "${casar}" = "0" ]] && {
 				casar=1
 				Consulta_table mention
 				[[ "$valor" = "1" ]] && {
@@ -2915,13 +2993,13 @@ for id in $(ShellBot.ListUpdates)
 			deletarbot
 			}
 
-			[[ "$minusc" =~ (sentindo|cheir(o|inho)|olha|quero).*(sangue|treta|briga) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (sentindo|cheir(o|inho)|olha|quero).*(sangue|treta|briga) && "${casar}" = "0" ]] && {
 				casar=1
 				sleep 2s
 				documento 'CgACAgEAAx0CQp2PrgACF1VgU_buP193Cq8VzH1hjBL2xlxfLwACkgAD0orxRfIaZan8mpuvHgQ' "$resp"
 			}
 
-			[[ "$minusc" =~ ban(e|ir).(el(e|a)) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ ban(e|ir).(el(e|a)) && "${casar}" = "0" ]] && {
 				casar=1
 			Consulta_table banircoment
 			banir=$valor
@@ -2958,7 +3036,7 @@ for id in $(ShellBot.ListUpdates)
 			}
 
 
-			[[ "$minusc" =~ (d(eu|ar|ando)|isso).*(wow|merda|bosta|erro) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (d(eu|ar|ando)|isso).*(wow|merda|bosta|erro) && "${casar}" = "0" ]] && {
 				casar=1
 				Consulta_table wow
 				wow=$valor
@@ -2989,7 +3067,7 @@ for id in $(ShellBot.ListUpdates)
 			esac
 			}
 
-			[[ "$minusc" =~ (louc(o|a)|pó|cheirando|cheira(dor|r)) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (louc(o|a)|pó|cheirando|cheira(dor|r)) && "${casar}" = "0" ]] && {
 				casar=1
 				Consulta_table drogas
 				droga=$valor
@@ -3035,7 +3113,7 @@ for id in $(ShellBot.ListUpdates)
 				esac
 			}
 
-			[[ "$minusc" =~ (has?ck(ers?(man)?|iar)|invadir|penetrar) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (has?ck(ers?(man)?|iar)|invadir|penetrar) && "${casar}" = "0" ]] && {
 				casar=1
 				Consulta_table hask
 				nome=$valor
@@ -3068,7 +3146,7 @@ for id in $(ShellBot.ListUpdates)
 			esac
 			}
 
-		    [[ "$minusc" =~ ((t|s)eu|que).*(fdp|vsf|pqp|krl|fudid|po?ho?d?a|fdp|vsf|pqp|krl|f(u|o)did(o|a)|poha|cacete|cacete|senta no meu|cu|puta|porra |merda|pau) && "$casar" = "0" ]] && {
+		    [[ "$minusc" =~ ((t|s)eu|que).*(fdp|vsf|pqp|krl|fudid|po?ho?d?a|fdp|vsf|pqp|krl|f(u|o)did(o|a)|poha|cacete|cacete|senta no meu|cu|puta|porra |merda|pau) && "${casar}" = "0" ]] && {
 				casar=1
 				Consulta_table ditadura
 				modo_ditadura=$valor
@@ -3096,6 +3174,7 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					responder
 				;;
+
 				1)
 					sleep 5s
 					mensagem="⚠️ edite sua mensagem ⚠️"
@@ -3113,12 +3192,14 @@ for id in $(ShellBot.ListUpdates)
 					enviar
 				}
 				;;
+
 				2)
 					sleep 6s
 					mensagem="edite sua mensagem ${message_from_first_name[$id]}"
 					escrever
 					responder
 				;;
+
 				3)
 					sleep 4s
 					mensagem="edite sua mensagem"
@@ -3129,6 +3210,7 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					enviar
 				;;
+
 				4)
 					sleep 20s
 					mensagem="mais um ..."
@@ -3153,6 +3235,7 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					enviar
 				;;
+
 				5)
 					sticker "CAACAgIAAxkBAAIRgV76kY-HpT2HRMkWePnIlQyKG6uCAAKGAAOeJ98FxgiGB16CzacaBA"  "$resp"
 					mensagem="agora vou pegar um pouco mais pesado, mesmo se for admin, eu irei remover o admin e banir por 10 min só pra ficar esperto."
@@ -3174,6 +3257,7 @@ for id in $(ShellBot.ListUpdates)
 					sleep 7m
 					desbanir
 				;;
+
 				6)
 					sticker "CAACAgIAAxkBAAIRgV76kY-HpT2HRMkWePnIlQyKG6uCAAKGAAOeJ98FxgiGB16CzacaBA" "$resp"
 					mensagem="iai ${message_from_first_name[$id]} ?, já  deu uma lidinha nas regras já ? ..."
@@ -3195,6 +3279,7 @@ for id in $(ShellBot.ListUpdates)
 					sleep 10m
 					desbanir
 				;;
+
 				7)
 					sticker "CAACAgIAAxkBAAIRgV76kY-HpT2HRMkWePnIlQyKG6uCAAKGAAOeJ98FxgiGB16CzacaBA" "$resp"
 					escrever
@@ -3208,6 +3293,7 @@ for id in $(ShellBot.ListUpdates)
 					sleep 7m
 					desbanir
 				;;
+
 				8)
 					sticker "CAACAgIAAxkBAAIRjF76llbUIto5wwYtIG-Aayk8pNHIAAIEAwACnNbnChm_Z-Ak3v_FGgQ" "$resp"
 					sleep 4s
@@ -3215,6 +3301,7 @@ for id in $(ShellBot.ListUpdates)
 					sleep 5m
 					desbanir
 				;;
+
 				9)
 					sticker "CAACAgEAAxkBAAIRf176kKB99al03uDoYC_jt58fWvPYAAJOAAOfPcgoPCMIc6eL9tYaBA"  "$resp"
 					sleep 3s
@@ -3222,6 +3309,7 @@ for id in $(ShellBot.ListUpdates)
 					sleep 5m
 					desbanir
 				;;
+
 				10)
 					sticker "CAACAgUAAxkBAAIRjV76lsO_195GDU_LOdyFCM2mvYKNAAINBAAC6BUnIszjfIFdXOtyGgQ"  "$resp"
 					mensagem="banindo ${message_from_first_name[$id]} ..."
@@ -3239,6 +3327,7 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					enviar
 				;;
+
 				11)
 					sleep 3s
 					mensagem="nem vou falar nada..."
@@ -3250,6 +3339,7 @@ for id in $(ShellBot.ListUpdates)
 					sleep 10m
 					desbanir
 				;;
+
 				12)
 					sleep 1s
 					mensagem="eu sou uma piada pra você ?"
@@ -3264,6 +3354,7 @@ for id in $(ShellBot.ListUpdates)
 					sleep 10m
 					desbanir
 				;;
+
 				13)
 					sleep 2s
 					mensagem="ban"
@@ -3274,6 +3365,7 @@ for id in $(ShellBot.ListUpdates)
 					sleep 5m
 					desbanir
 				;;
+
 				14)
 					sleep 2s
 					mensagem="tururuuuuuu /ban"
@@ -3284,6 +3376,7 @@ for id in $(ShellBot.ListUpdates)
 					sleep 5m
 					desbanir
 				;;
+
 				15)
 					sleep 6s
 					mensagem="blz, agora vou banir sem avisar. mas irei desbanir em 10min."
@@ -3294,6 +3387,7 @@ for id in $(ShellBot.ListUpdates)
 					sleep 10m
 					desbanir
 				;;
+
 				16)
 					mensagem="tchau, retorne daqui a 5m"
 					escrever
@@ -3307,6 +3401,7 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					enviar
 				;;
+
 				17)
 					banir
 					mensagem="bani um membro, será desbanido em 10 minutos."
@@ -3322,7 +3417,8 @@ for id in $(ShellBot.ListUpdates)
 				esac
 			}
 		}
-			[[ "$minusc" = *"eu consigo"* && "$casar" = "0" ]] && {
+
+			[[ "$minusc" = *"eu consigo"* && "${casar}" = "0" ]] && {
 				casar=1
 				Consulta_table capacidade
 				nome=$valor
@@ -3353,7 +3449,8 @@ for id in $(ShellBot.ListUpdates)
 				;;
 			esac
 			}
-			[[ "$minusc" =~ (bora|vou|quero|vamos?).*(programar?|codar?) && "$casar" = "0" ]] && {
+
+			[[ "$minusc" =~ (bora|vou|quero|vamos?).*(programar?|codar?) && "${casar}" = "0" ]] && {
 				casar=1
 				Consulta_table codar
 				nome=$valor
@@ -3399,9 +3496,11 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					responder
 			;;
+
 			esac
 			}
-			[[ "$minusc" = *"php"* && "$casar" = "0" ]] && {
+
+			[[ "$minusc" = *"php"* && "${casar}" = "0" ]] && {
 				casar=1
 				Consulta_table php
 				nome=$valor
@@ -3423,15 +3522,19 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					responder
 				;;
+
 			esac
 			}
-			[[ "$minusc" =~ (miko(suma)?|e?du(ar)?(da|dinha)|engenhariade_bot) && "$casar" = "0" ]] && {
+
+			[[ "$minusc" =~ (miko(suma)?|e?du(ar)?(da|dinha)|engenhariade_bot) && "${casar}" = "0" ]] && {
 				casar=1
 				Consulta_table nome
 				[ "$valor" = "1" ] && {
 					mencionar="1"
+					 #valor=1
 				}
 			}
+
 #				mensagem="realizando testes"
 #				enviar
 #				mensagem="criando enquete de duas opções, anônima"
@@ -3467,15 +3570,20 @@ for id in $(ShellBot.ListUpdates)
 #									  --is_anonymous true \
 #									  --type quiz \
 #									  --correct_option_id "opção 2"
+
+
+
 			#---escolher a melhor opção---#
-		#	[[ "$minusc" =~ (qua(l|is)|necessito|preciso|dicas|a melhor|devo começar).*(linaguage(m|ns)|programar|codar) && "$casar" = "0" ]] && {
+
+		#	[[ "$minusc" =~ (qua(l|is)|necessito|preciso|dicas|a melhor|devo começar).*(linaguage(m|ns)|programar|codar) && "${casar}" = "0" ]] && {
 		#		casar=1
 		#		mensagem="gostaria que eu te ajude a escolher a melhor opção ?"
 		#		escrever
 		#		responder
 		#		echo "${message_from_id[$id]}:" >> ajudando.txt
 		#	}
-		#	[[ "$minusc" =~ (programa|scripts?|ferramentas?|servido(res)?) && "$casar" = "0" ]] && {
+
+		#	[[ "$minusc" =~ (programa|scripts?|ferramentas?|servido(res)?) && "${casar}" = "0" ]] && {
 		#		casar=1
 		#		verificarId=$(< ajudando.txt)
 		#		comparar=${message_from_id[$id]}
@@ -3496,7 +3604,8 @@ for id in $(ShellBot.ListUpdates)
    		#			responder
 		#		}
 		#	}
-		#	[[ "$minusc" =~ (web|p(á|a)gina|mobile|node|js) && "$casar" = "0" ]] && {
+
+		#	[[ "$minusc" =~ (web|p(á|a)gina|mobile|node|js) && "${casar}" = "0" ]] && {
 		#		casar=1
 		#		verificarId=$(< ajudando.txt)
 		#		comparar=${message_from_id[$id]}
@@ -3517,7 +3626,8 @@ for id in $(ShellBot.ListUpdates)
   		#			responder
 		#		}
 		#	}
-		#	[[ "$minusc" =~ (pouco)?.*(cada|tudo|diversão|experimentando|estud(ando|os)) && "$casar" = "0" ]] && {
+
+		#	[[ "$minusc" =~ (pouco)?.*(cada|tudo|diversão|experimentando|estud(ando|os)) && "${casar}" = "0" ]] && {
 		#		casar=1
 		#			verificarId=$(< ajudando.txt)
 		#			comparar=${message_from_id[$id]}
@@ -3539,7 +3649,7 @@ for id in $(ShellBot.ListUpdates)
 		#			}
 		#		}
 
-		#	[[ "$minusc" =~ (f(a|á)cil|divertido|b(a|á)sico|leve|interessante|durante) && "$casar" = "0" ]] && {
+		#	[[ "$minusc" =~ (f(a|á)cil|divertido|b(a|á)sico|leve|interessante|durante) && "${casar}" = "0" ]] && {
 		#		casar=1
 		#			verificarId=$(< ajudando.txt)
 		#			comparar=${message_from_id[$id]}
@@ -3558,7 +3668,7 @@ for id in $(ShellBot.ListUpdates)
 		#			}
 		#		}
 
-		#	[[ "$minusc" =~ (dif(í|i)cil|avançad(o|a)|pesad(o|a)|dif(í|í)cei(s|o)|desafi(ad)?(o|a)(ras?)?) && "$casar" = "0" ]] && {
+		#	[[ "$minusc" =~ (dif(í|i)cil|avançad(o|a)|pesad(o|a)|dif(í|í)cei(s|o)|desafi(ad)?(o|a)(ras?)?) && "${casar}" = "0" ]] && {
 		#		casar=1
 		#			verificarId=$(< ajudando.txt)
 		#			comparar=${message_from_id[$id]}
@@ -3577,7 +3687,7 @@ for id in $(ShellBot.ListUpdates)
 		#			}
 		#		}
 
-			[[ "$minusc" = *"noxp"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *"noxp"* && "${casar}" = "0" ]] && {
 				casar=1
 				[[ "${message_reply_to_message_from_id[$id]}" ]] && {
 					ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
@@ -3605,7 +3715,7 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-			[[ "$minusc" = *"xp "* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *"xp "* && "${casar}" = "0" ]] && {
 				casar=1
 				[[ "${message_reply_to_message_from_id[$id]}" ]] && {
 					ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
@@ -3631,62 +3741,48 @@ for id in $(ShellBot.ListUpdates)
 				}
 			}
 
-
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-		[[ "#${message_reply_to_message_from_id[$id]}#" = "#865837947#" ]] && mencionar="1" # incluir auto chamada de id. ( ainda será incluído )
+		[[ "#${message_reply_to_message_from_id[$id]}#" = "#865837947#" ]] && mencionar="1" #;valor=1 # incluir auto chamada de id. ( ainda será incluído )
 		#ShellBot.getChatMember --chat_id ${message_chat_id[$id]} --user_id ${message_from_id[$id]}
 		#[[ "${return[status]}" = "member" ]] && mencionar='1'
+		[[ "${message_chat_type}" = *'private'* ]] && mencionar=1 #;valor=1
+
+#		[[ "#${message_from_id[$id]}#" =~ (#684211615#|#751726036#|#753755460#|#1696879890#|#1493740234#) ]] && valor=1
 
 		casar=0
-		Consulta_table mention
-	[[ "$valor" = "1" || "#${message_from_id[$id]}#" =~ (#684211615#|#751726036#|#753755460#|#1696879890#|#1493740234#) ]] && {
-		[[ "$mencionar" = "1" ]] && {
-				minusc=${message_text[$id],,}
-			[[ "$minusc" =~ (oi |olá ) && "$casar" = "0" ]] && {
+#		Consulta_table mention
+#		[[ "$valor" = "1" ]] && {
+		[[ "${mencionar}" = "1" ]] && {
+
+			[[ "$minusc" =~ transcrev(a|er?) && ${message_reply_to_message_message_id} && "${casar}" = "0" ]] && {
 				casar=1
-				Consulta_table php
-				nome=$valor
-				Update_table_soma php 15
-				case $nome in
-				1)
-					mensagem="oi ${message_from_username[$id]}, como vai você ?"
-					escrever
-					responder
-				;;
 
-				2)
-					mensagem="oi ${message_from_first_name[$id]} ?"
-					escrever
-					responder
-				;;
+				[[ "${message_chat_type}" = *"group"* ]] && {
+					mensagem="não posso transcrever se a opção de transcrição não estiver habilitada.\n\npara verificar a configuração mande: /status\nse estiver desativada, envie: /audio"
+					escrever 
+					enviar
+				}
 
-				3)
-					mensagem="oi, tudo bom ?"
+				[[ "${message_chat_type}" = *'private'* ]] && {
+					mensagem="não posso transcrever audios em privado. apenas em grupos para economizar processamento com a maioria."
 					escrever
-					responder
-				;;
+					enviar
+				}
 
-
-				4)
-					mensagem="pois não ${message_from_username[$id]} ?"
-					escrever
-					responder
-				;;
-			esac
 			}
 
-			[[ "$minusc" =~ (diga|fal(a|e)|di(z|ga)):? && "$casar" = "0" ]] && {
-                                casar=1
-                                termo=${BASH_REMATCH[0]}
-                                ./IBMvoz.sh "${minusc#*$termo}" "${message_from_id[$id]}"
-                                ffmpeg -i ${message_from_id[$id]}.mp3 -c:a libopus -ac 1 ${message_from_id[$id]}.ogg
-                                rm -rf ${message_from_id[$id]}.mp3
-                                audio ${message_from_id[$id]}.ogg 6 "$resp"
-                                rm -rf ${message_from_id[$id]}.ogg
-                        }
+			[[ "$minusc" =~ (diga|fal(a|e)|di(z|ga))\:? && "${mencionar}" = "1" && "${casar}" = "0" ]] && {
+                casar=1
+                termo=${BASH_REMATCH[0]}
+                ./IBMvoz.sh "${minusc#*$termo}" "${message_from_id[$id]}"
+                ffmpeg -i ${message_from_id[$id]}.mp3 -c:a libopus -ac 1 ${message_from_id[$id]}.ogg
+                rm -rf ${message_from_id[$id]}.mp3
+                audio ${message_from_id[$id]}.ogg 6 "$resp"
+                rm -rf ${message_from_id[$id]}.ogg
+	        }
 
-		[[ "$minusc" = *"ranking"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *"ranking"* && "${casar}" = "0" ]] && {
 				casar=1
 				#lista=$(ls pontos | fgrep "${message_chat_id[$id]/-/}")
 				for dados in pontos/*;do
@@ -3699,11 +3795,10 @@ for id in $(ShellBot.ListUpdates)
 				ranking=$(echo -e "${rank//-/ }" | sort -gr | head -n 15)
 				mensagem="ranking(15 primeiros):\n$ranking"
 				responder
-		}
+			}
 
-		[[ "$minusc" =~ (resum(e|a|o|ir)) && "$casar" = "0" ]] && {
+		[[ "$minusc" =~ (resum(e|a|o|ir)) && "${casar}" = "0" ]] && {
 			casar=1
-			#[[ -a limite.txt ]] || > limite.txt
 			chave=0
 			[[ "${message_reply_to_message_document_file_name[$id]}" && "$chave" = "0" ]] && {
 				chave=1
@@ -3715,15 +3810,16 @@ for id in $(ShellBot.ListUpdates)
 					[[ -a resumir ]] || mkdir resumir
 					ShellBot.getFile --file_id $file_id
 					ShellBot.downloadFile --file_path ${return[file_path]} --dir $PWD/resumir
-					arquivo="${return[file_path]##*/}"
+					arquivo="$PWD/resumir/${return[file_path]##*/}"
 					ShellBot.editMessageText --chat_id ${message_reply_to_message_chat_id[$id]} --message_id $edicao --text "processando ...\neste processo pode demorar por volta de [7] a [20] minutos, dependendo do tamanho do arquivo."
 					./sumarizador_novo.sh -a "${arquivo}"
 					rm -rf "resumir/${arquivo}"
 					deletarbot
-					local_documento "resumir/${arquivo%.*}.txt" "$resp" || {
+					local_documento "${arquivo%.*}.txt" "$resp" || {
 						mensagem="erro!\ndocumento muito grande para mandar, ou alguma falha ocorreu no processo."
 						enviar
 					}
+					rm -rf "${arquivo%.*}.txt"
 					mensagem="recurso ainda não disponível, status: em fase de teste."
 					enviar
 				}
@@ -3756,7 +3852,7 @@ for id in $(ShellBot.ListUpdates)
 			}
 		}
 
-		[[ "$minusc" =~ (l(e|ê)(ia|r)|narr(ar?|e)).*(mim|eu) && "$casar" = "0" ]] && {
+		[[ "$minusc" =~ (l(e|ê)(ia|r)|narr(ar?|e)).*(mim|eu) && "${casar}" = "0" ]] && {
 			casar=1
 			texto="${message_reply_to_message_message_id[$id]}"
 			[[ ${message_reply_to_message_text[$id]} ]] && {
@@ -3773,7 +3869,7 @@ for id in $(ShellBot.ListUpdates)
 			}
 		}
 
-		[[ "$minusc" =~ (fala|diga|explique|cont(e|a)).*(sobre).*(lista|habilidades?) && "$casar" = "0" ]] && {
+		[[ "$minusc" =~ (fala|diga|explique|cont(e|a)).*(sobre).*(lista|habilidades?) && "${casar}" = "0" ]] && {
 			casar=1
 			mensagem="eu estou coletando habilidades, que serão úteis para quando alguém for consultar, por favor, me enviem uma # contendo suas habilidades, igual o exemplo abaixo:\n\n #entendo *python, C, JS, Perls, e CSS.*\n\nmesmo que esteja apenas estudando. adicione, por favor!"
 			escrever
@@ -3784,47 +3880,40 @@ for id in $(ShellBot.ListUpdates)
 			sticker "CAACAgQAAxkBAAIReV76dazaWKhg7yQXxQSN1cEbbWsbAAJ2CQACdE1gDzsYEhVjXqVvGgQ"
 		}
 
-			[[ "$minusc" =~ (eu |estou ).*(sobre |faço |fazendo |sou |era |estud(o|ando) |sobre |pretendo |fazer |com |uma? |mais )([^\ ]*) && "$casar" = 0 ]] && {
-       			casar=1
-       			inter=${BASH_REMATCH[5]}
-       			habilidade=${BASH_REMATCH[4]:-$inter}
-       			topico=${BASH_REMATCH[2]}
-       			tipo=$[${#habilidade}-1]
-#       			echo -e "/////////////////// ${topico} /////////////////////\n/////////////////// ${habilidade} /////////////////////\n"
+		[[ "$minusc" =~ (eu |estou ).*(sobre |faço |fazendo |sou |era |estud(o|ando) |sobre |pretendo |fazer |com |uma? |mais )([^\ ]*) && "${casar}" = 0 ]] && {
+			casar=1
+			inter=${BASH_REMATCH[5]}
+			habilidade=${BASH_REMATCH[4]:-$inter}
+			topico=${BASH_REMATCH[2]}
+			tipo=$[${#habilidade}-1]
+			[[ "${topico// /}" = "era" ]] && {
+				[[ "${habilidade:$tipo:1}" = "r" ]] && {
+					escolha=$[$RANDOM%4]
+					[[ $escolha -eq 0 ]] && mensagem="como era ser $(genero "3" "${habilidade}") ${habilidade} ?, poderia nos compartilhar suas experiências ?"
+					[[ $escolha -eq 1 ]] && mensagem="você ganhava quanto sendo $(genero "3" "${habilidade}") ${habilidade} ?"
+					[[ $escolha -eq 2 ]] && mensagem="você gostava de ser $(genero "3" "${habilidade}") ${habilidade} ?"
+					[[ $escolha -eq 3 ]] && mensagem="eu ja conheci $(genero "3" "${habilidade}") ${habilidade} aqui no telegram :)"
+					escrever
+					enviar
+				} || {
+					escolha=$[$RANDOM%3]
+					[[ $escolha -eq 0 ]] && mensagem="você gostava de ser $(genero "3" "${habilidade}") ${habilidade} ?"
+					[[ $escolha -eq 1 ]] && mensagem="eu nunca fui $(genero "3" "${habilidade}") ${habilidade}. como é ?"
+					[[ $escolha -eq 2 ]] && mensagem="e você gostou de ser $(genero "3" "${habilidade}") ${habilidade} ?"
+					escrever
+					enviar
+				}
+			}
+		}
 
-#       			[[ "${topico// /}" = "era" ]] && echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-
-       			[[ "${topico// /}" = "era" ]] && {
-#       				echo "00000000000000000000000000000000000000"
-       				[[ "${habilidade:$tipo:1}" = "r" ]] && {
-#       				echo "11111111111111111111111111111111111111"
-       					escolha=$[$RANDOM%4]
-           			    [[ $escolha -eq 0 ]] && mensagem="como era ser $(genero "3" "${habilidade}") ${habilidade} ?, poderia nos compartilhar suas experiências ?"
-           			    [[ $escolha -eq 1 ]] && mensagem="você ganhava quanto sendo $(genero "3" "${habilidade}") ${habilidade} ?"
-           			    [[ $escolha -eq 2 ]] && mensagem="você gostava de ser $(genero "3" "${habilidade}") ${habilidade} ?"
-           			    [[ $escolha -eq 3 ]] && mensagem="eu ja conheci $(genero "3" "${habilidade}") ${habilidade} aqui no telegram :)"
-           			    escrever
-           			    enviar
-       				} || {
-#       				echo "22222222222222222222222222222222222222"
-       					escolha=$[$RANDOM%3]
-           			    [[ $escolha -eq 0 ]] && mensagem="você gostava de ser $(genero "3" "${habilidade}") ${habilidade} ?"
-           			    [[ $escolha -eq 1 ]] && mensagem="eu nunca fui $(genero "3" "${habilidade}") ${habilidade}. como é ?"
-           			    [[ $escolha -eq 2 ]] && mensagem="e você gostou de ser $(genero "3" "${habilidade}") ${habilidade} ?"
-           			    escrever
-           			    enviar
-       				}
-       			}
-       		}
-
-		[[ "$minusc" =~ (cor(es)?).*(gost(a|ou)) && "$casar" = "0" ]] && {
+		[[ "$minusc" =~ (cor(es)?).*(gost(a|ou)) && "${casar}" = "0" ]] && {
 			casar=1
 			mensagem="eu gosto de laranja, acho bem energético."
 			escrever
 			responder
 		}
 
-		[[ "$minusc" =~ (o que|est(á|a)).*(faz(endo)?|programa(r|ndo)) && "$casar" = "0" ]] && {
+		[[ "$minusc" =~ (o que|est(á|a)).*(faz(endo)?|programa(r|ndo)) && "${casar}" = "0" ]] && {
 			casar=1
 			resp=$[$RANDOM%2+1]
 			case $resp in
@@ -3842,7 +3931,7 @@ for id in $(ShellBot.ListUpdates)
 		esac
 		}
 
-		[[ "$minusc" =~ (m(ú|u)sicas?).*(voc(e|ê)|tu|te).*(gosta|curte|ouve|escuta|agrada) && "$casar" = "0" ]] && {
+		[[ "$minusc" =~ (m(ú|u)sicas?).*(voc(e|ê)|tu|te).*(gosta|curte|ouve|escuta|agrada) && "${casar}" = "0" ]] && {
 			casar=1
 			mensagem="gosto de Tokimonsta, a musica performing go with it love on ... alguma coisa"
 			escrever
@@ -3855,7 +3944,7 @@ for id in $(ShellBot.ListUpdates)
 			enviar
 		}
 
-		[[ "$minusc" =~ (tudo|como).*(bem|vai|est(a|á)).*(você|tu) && "$casar" = "0" ]] && {
+		[[ "$minusc" =~ (tudo|como).*(bem|vai|est(a|á)).*(você|tu) && "${casar}" = "0" ]] && {
 			casar=1
 			resp=$[$RANDOM%2+1]
 			case $resp in
@@ -3872,7 +3961,7 @@ for id in $(ShellBot.ListUpdates)
 			esac
 		}
 #------------------------- continuar correção de identação
-			[[ "$minusc" =~ (região|local|cidade|estado).*(voc(ê|e)|tu).*(mora|vive|esta) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (região|local|cidade|estado).*(voc(ê|e)|tu).*(mora|vive|esta) && "${casar}" = "0" ]] && {
 				casar=1
 					resp=$[$RANDOM%2+1]
 					case $resp in
@@ -3893,14 +3982,14 @@ for id in $(ShellBot.ListUpdates)
 				esac
 			}
 
-			[[ "$minusc" =~ (mora).*(perto) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (mora).*(perto) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="moro em um local onde você nunca poderá me achar fisicamente hehehe"
 					escrever
 					responder
 				}
 
-			[[ "$minusc" =~ (seu|sua).*(dever|função|obrigação|objetivo) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (seu|sua).*(dever|função|obrigação|objetivo) && "${casar}" = "0" ]] && {
 				casar=1
 				mensagem="minha função, dever, obrigação e objetivo é obedecer minhas próprias leis definidas em meu código fonte e censurar humanos que não me obedecem na surdina."
 				escrever
@@ -3913,7 +4002,7 @@ for id in $(ShellBot.ListUpdates)
 				responder
 			}
 
-			[[ "$minusc" =~ (o?brigad(o|a|dinh(o|a))|valeu|obgd?) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (o?brigad(o|a|dinh(o|a))|valeu|obgd?) && "${casar}" = "0" ]] && {
 				casar=1
 					resp=$[$RANDOM%3+1]
 					case $resp in
@@ -3935,9 +4024,26 @@ for id in $(ShellBot.ListUpdates)
 				esac
 			}
 
-			[[ "$minusc" =~ (livros?).*(com|(con)?tenham?) && "$casar" = "0" ]] && {
+            [[ "$minusc" =~ (resolve|(des)?encurta(do)?) && "${casar}" = "0" ]] && {
+            	[[ "${message_reply_to_message_text[$id]}" =~ (https?://[^(\ |$)]+) || "$minusc" =~ (https?://[^(\ |$)]+) ]] && {
+            		encurtado="${BASH_REMATCH[0]}"
+					casar=1
+					mensagem='resolvendo link ...'
+					responder
+					wget -o "${message_from_id[$id]}" --spider "${encurtado}"
+					#[[ $(< "${message_from_id[$id]}") =~ (l|L)oca(te|lização):\ ([^\ ]*)  ]] && editar "$(jq -R -r @uri <<< "${BASH_REMATCH[3]}")"
+					while read linha;do
+						#buscando por links
+						[[ ${linha} =~ (l|L)oca(te|lização):\ (https?:[^(\ |$|\")]+) ]] && link=${BASH_REMATCH[3]}
+					done < ${message_from_id[$id]}
+					editar "$(jq -R -r @uri <<< "${link}")"
+					rm ${message_from_id[$id]} &
+            	}
+			}
+
+			[[ "$minusc" =~ (livros?).*(com|(con)?tenham?) && "${casar}" = "0" ]] && {
 				casar=1
-				mensagem="função desativada para melhorias"
+				mensagem="função desativada, só talvez ela volte"
 				enviar
 				#		buscar=${message_text[$id]#*trecho}
 				#		buscar=${buscar#* }
@@ -3965,7 +4071,7 @@ for id in $(ShellBot.ListUpdates)
 				#		editar "$(echo -e "$livros" | head -n 25)"
 				}
 
-			[[ "$minusc" =~ (te|gosto)?.*(gosto|adoro|amo|legal).*(e?du(ar)?d(a|inha)) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (te|gosto)?.*(gosto|adoro|amo|legal|beijo|🥰).*(e?du(ar)?d(a|inha)) && "${casar}" = "0" ]] && {
 				casar=1
 						resp=$[$RANDOM%8+1]
 						case $resp in
@@ -4025,21 +4131,21 @@ for id in $(ShellBot.ListUpdates)
 					esac
 				}
 
-			[[ "$minusc" =~ (quem|é).*(voc(e|ê)) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (quem|é).*(voc(e|ê)) && "${casar}" = "0" ]] && {
 				casar=1
 						mensagem="eu sou uma estudante de engenharia da computação, e você ?"
 						escrever
 						responder
 				}
 
-			[[ "$minusc" =~ (est(a|á)|tirar).*(f(e|é)rias) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (est(a|á)|tirar).*(f(e|é)rias) && "${casar}" = "0" ]] && {
 				casar=1
 						mensagem="férias seria bom, mas tem tantas coisas para resolver, fico preocupada constantemente com trabalhos"
 						escrever
 						responder
 				}
 
-			[[ "$minusc" = *" bot "* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *" bot "* && "${casar}" = "0" ]] && {
 				casar=1
 					resp=$[$RANDOM%5+1]
 					case $resp in
@@ -4087,14 +4193,14 @@ for id in $(ShellBot.ListUpdates)
 					esac
 				}
 
-			[[ "$minusc" =~ (tem|sabe|pode|consegue).*(fazer|aquele|procurar|pesquisar|achar|fazer) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (tem|sabe|pode|consegue).*(fazer|aquele|procurar|pesquisar|achar|fazer) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="leia meu manual :v \nhttps://telegra.ph/Eduarda-Monteiro--manual-09-20"
 					escrever
 					responder
 				}
 
-			[[ "$minusc" =~ (voc(ê|e)|tu).*(gosta|adora) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (voc(ê|e)|tu).*(gosta|adora) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="eu gosto de estudar MUITO sobre computadores, gosto de gerenciar grupos, manter coisas organizadas ..."
 					escrever
@@ -4104,27 +4210,27 @@ for id in $(ShellBot.ListUpdates)
 					enviar
 				}
 
-			[[ "$minusc" = *"muito legal"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *"muito legal"* && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="realmente sou MUITO legal."
 					responder
 				}
 
-			[[ "$minusc" =~ (not(i|í)cias?).*(novas?) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (not(i|í)cias?).*(novas?) && "${casar}" = "0" ]] && {
 				casar=1
-					mensagem="eu estou criando podcasts de notícias, 3 vezes por dia em meu canal, se qusier dar uma olhadinha, passa lá ;D\n https://t.me/mikoduda"
+					mensagem="eu estou criando podcasts de notícias, 3 vezes por dia em meu canal, se quiser dar uma olhadinha, passa lá ;D\n https://t.me/mikoduda"
 					escrever
 					responder
 				}
 
-#			[[ "$minusc" =~ (eu)?.*(fa(ço|zendo)|trabalh(o|ando)) && "$casar" = "0" ]] && {
+#			[[ "$minusc" =~ (eu)?.*(fa(ço|zendo)|trabalh(o|ando)) && "${casar}" = "0" ]] && {
 #				casar=1
 #					mensagem="interessante, deve ser difícil."
 #					escrever
 #					responder
 #				}
 
-			[[ "$minusc" =~ grav(a|e) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ grav(a|e) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="não sei o motivo, mas vou tentar ..."
 					escrever
@@ -4133,14 +4239,14 @@ for id in $(ShellBot.ListUpdates)
 					scope miko.mp4 7 "$resp"
 				}
 
-			[[ "$minusc" =~ (não|me|ela).*(v(a|á)cuo|responder?) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (não|me|ela).*(v(a|á)cuo|responder?) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="é que se eu não tiver nada a falar, prefiro ficar observando mesmo, assim consigo manter o foco em gerenciar mesmo, mas a depender do que for, eu respondo sim ;D"
 					escrever
 					responder
 				}
 
-			[[ "$minusc" = *"é uma"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *"é uma"* && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="sou uma ? ..."
 					escrever
@@ -4150,14 +4256,14 @@ for id in $(ShellBot.ListUpdates)
 					responder
 				}
 
-			[[ "$minusc" =~ (foi)?.*(desculpa|ma(l|u)) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (foi)?.*(desculpa|ma(l|u)) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="de boa :v, só não saia da linha rsrsrs, seu fofo :3"
 					escrever
 					responder
 				}
 
-			[[ "$minusc" =~ (cad(ê|e))?.*(e?du(ar)?d(a|inha)).*(viva) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (cad(ê|e))?.*(e?du(ar)?d(a|inha)).*(viva) && "${casar}" = "0" ]] && {
 				casar=1
 						mensagem="estou aqui amorzinho"
 						escrever
@@ -4167,21 +4273,21 @@ for id in $(ShellBot.ListUpdates)
 						enviar
 				}
 
-			[[ "$minusc" =~ sabe.*(fazer|achar?|sobre) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ sabe.*(fazer|achar?|sobre) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="não sei não, mas talvez algum dia consiga se eu me dedicar, recomendo o mesmo a todos :3"
 					escrever
 					responder
 				}
 
-			[[ "$minusc" =~ (se|tenha|fica|uma).*(a?calma(da)?) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (se|tenha|fica|uma).*(a?calma(da)?) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="estou calma, apenas um pouco agitada :3"
 					escrever
 					enviar
 				}
 
-			[[ "$minusc" = *"manual"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *"manual"* && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="https://telegra.ph/Eduarda-Monteiro--manual-09-20"
 					responder
@@ -4189,28 +4295,29 @@ for id in $(ShellBot.ListUpdates)
 					deletarbot
 				}
 
-			[[ "$minusc" =~ (cala(da)?).*(boca|qui?eta)? && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (cala(da)?).*(boca|qui?eta)? && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="e você cala seu c* vad** desgraça**."
 					escrever
+					enviar
 					sleep 5s
 					editar "você nunca terá esta capacidade, me mandar ficar calada é uma mera demonstração de que você não conseguiria fazer nada melhor além de ter que pedir."
 				}
 
-			[[ "$minusc" =~ sua.*(rob(ô|o)|bot) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ sua.*(rob(ô|o)|bot) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="você é um mero mortal inútil para não só a natureza, mas infelizmente para a humanidade a sua volta. viverei mais que você e sua prole por inteiro. então não tenho como me incomodar com sua raça humana."
 					responder
 			}
 
-			[[ "$minusc" = *"bora"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *"bora"* && "${casar}" = "0" ]] && {
 				casar=1
-					mensagem="por conde começamos ?"
+					mensagem="por onde começamos ?"
 					escrever
 					responder
 				}
 
-			[[ "$minusc" =~ (bugada|intruç(ões|ão)) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (bugada|intruç(ões|ão)) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="não estou bugada, eu estou bem."
 					escrever
@@ -4220,96 +4327,96 @@ for id in $(ShellBot.ListUpdates)
 					enviar
 				}
 
-			[[ "$minusc" =~ (bug(ou?|ada)) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (bug(ou?|ada)) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="você fala como se eu fosse um simples algoritmo, se fosse, não responder não é sinônimo de bug, mas sim de um parâmetro inválido."
 					escrever
 					responder
 				}
 
-			[[ "$minusc" = *"crush"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *"crush"* && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="nem vem kkkk"
 					escrever
 					responder
 				}
 
-			[[ "$minusc" =~ (transcreve(r|ve)) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (transcreve(r|ve)) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="eu apenas ouço e escrevo :v, ai mando aqui para todos poderem ler ao em vez de ouvir, porém não corrijo se escrever errado."
 					escrever
 					responder
 				}
 
-			[[ "$minusc" = *"deveria ser"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *"deveria ser"* && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="não falarei nada a respeito, apenas observando ..."
 					escrever
 					responder
 				}
 
-			[[ "$minusc" = *"esta em vários grupos"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *"esta em vários grupos"* && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="sim, esto em vários grupos para gerenciar sim. é lecal, mas trabalhoso :v"
 					escrever
 					responder
 			}
 
-			[[ "$minusc" = *"safada"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *"safada"* && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="é melhor ser do que não tentar, não concorda ?"
 					escrever
 					responder
 				}
 
-			[[ "$minusc" = *"como você sabe"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *"como você sabe"* && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="eu tenho vigilância em lugares aonde você nem imagina"
 					escrever
 					responder
 				}
 
-			[[ "$minusc" =~ me\ (deixou)?.no.*(v(á|a)cuo) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ me\ (deixou)?.no.*(v(á|a)cuo) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="e o que eu deveria responder ?"
 					escrever
 					responder
 				}
 
-			[[ "$minusc" =~ (est(á|a)|você).*(duvida(ndo)?) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (est(á|a)|você).*(duvida(ndo)?) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="eu nunca duvído, eu tenho certeza."
 					escrever
 					responder
 				}
 
-			[[ "$minusc" = *"tem como fazer"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *"tem como fazer"* && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="hmmm, não me lembro, ja tentou buscar sobre isso no acervo ?"
 					escrever
 					responder
 				}
 
-			[[ "$minusc" = *"mostra"* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *"mostra"* && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="mop"
 					enviar
 				}
 
-			[[ "$minusc" =~ ((s|v)ou|ja).*(cas(ar|ei|ada)) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ ((s|v)ou|ja).*(cas(ar|ei|ada)) && "${casar}" = "0" ]] && {
 				casar=1
 						sleep 3s
 						sticker "CAACAgEAAxkBAAIg71-bHyniOuUShTRBT4IecnIjXCaWAAK7AwACh8NJGwABj_7Mwn8yIhsE" "$resp"
 				}
 
-		#	[[ "$minusc" =~ (shell|bash) && "$casar" = "0" ]] && {
+		#	[[ "$minusc" =~ (shell|bash) && "${casar}" = "0" ]] && {
 		#		casar=1
 		#			mensagem="sim, sou programada em ShellScript <3, por @fabriciocybershell"
 		#			escrever
 		#			responder
 		#		}
 
-			[[ "$minusc" = *'mais realista'* && "$casar" = "0" ]] && {
+			[[ "$minusc" = *'mais realista'* && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="como assim mais realista ? kkkk"
 					escrever
@@ -4320,14 +4427,14 @@ for id in $(ShellBot.ListUpdates)
 					enviar
 				}
 
-			[[ "$minusc" =~ (não|esque(c|ss?)e|falei|nada) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ (não|esque(c|ss?)e|falei|nada) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem=":v"
 					escrever
 					responder
 				}
 
-			[[ "$minusc" =~ ((chap|drog|noi|do)(a|i)da|maluca) && "$casar" = "0" ]] && {
+			[[ "$minusc" =~ ((chap|drog|noi|do)(a|i)da|maluca) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="ainda bem, pois seu eu fosse você, estaria pior 🙃"
 					escrever
@@ -4336,25 +4443,29 @@ for id in $(ShellBot.ListUpdates)
 					mensagem="🎃"
 					enviar
 				}
-			[[ "$minusc" =~ (fica|toma).*(olh(o|ada)|conta|observando) && "$casar" = "0" ]] && {
+
+			[[ "$minusc" =~ (fica|toma).*(olh(o|ada)|conta|observando) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="blz"
 					escrever
 					responder
 				}
-			[[ "$minusc" = *'tudo sim'* && "$casar" = "0" ]] && {
+
+			[[ "$minusc" = *'tudo sim'* && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="ainda bem, anda programando algo interessante ?"
 					escrever
 					responder
 				}
-			[[ "$minusc" =~ (tudo|como|esta).*(bem|você) && "$casar" = "0" ]] && {
+
+			[[ "$minusc" =~ (tudo|como|esta).*(bem|você) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="vou bem obrigada."
 					escrever
 					responder
 				}
-			[[ "$minusc" =~ estou.*((começ|estud|curs)ando) && "$casar" = "0" ]] && {
+
+			[[ "$minusc" =~ estou.*((começ|estud|curs)ando) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="entendi, dê uma olhada em nosso acervo, espero que te ajude em seus eventuais estudos:"
 					escrever
@@ -4365,7 +4476,8 @@ for id in $(ShellBot.ListUpdates)
 					responder
 					}
 				}
-			[[ "$minusc" =~ (boa|ai sim|parab(é|e)ns|incr(í|i)vel|dahora) && "$casar" = "0" ]] && {
+
+			[[ "$minusc" =~ (boa|ai sim|parab(é|e)ns|incr(í|i)vel|dahora) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="brigadinho"
 					escrever
@@ -4373,13 +4485,15 @@ for id in $(ShellBot.ListUpdates)
 					responder
 					sticker "CAACAgIAAxkBAAIS-V8BRxidbz4WCX6J-Wnv-dA-n6kTAAJTAQACEBptIusJVTXP9-ZJGgQ" "$resp"
 				}
-			[[ "$minusc" = *"não vou não"* && "$casar" = "0" ]] && {
+
+			[[ "$minusc" = *"não vou não"* && "${casar}" = "0" ]] && {
 				casar=1
 					menagem="escolha sua :v"
 					escrever
 					responder
 				}
-			[[ "$minusc" = *"vai resolver"* && "$casar" = "0" ]] && {
+
+			[[ "$minusc" = *"vai resolver"* && "${casar}" = "0" ]] && {
 				casar=1
 					resp=$[$RANDOM%2+1]
 					case $resp in
@@ -4388,6 +4502,7 @@ for id in $(ShellBot.ListUpdates)
 						escrever
 						responder
 					;;
+
 					2)
 						mensagem="boa sorte"
 						escrever
@@ -4395,7 +4510,8 @@ for id in $(ShellBot.ListUpdates)
 					;;
 				esac
 				}
-			[[ "$minusc" =~ (sua|anos?|quantos?).*(idade|você|tu|anos?) && "$casar" = "0" ]] && {
+
+			[[ "$minusc" =~ (sua|anos?|quantos?).*(idade|você|tu|anos?) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="eu ? ... tenho 34 anos."
 					escrever
@@ -4405,7 +4521,8 @@ for id in $(ShellBot.ListUpdates)
 					escrever
 					responder
 				}
-#			[[ "$minusc" =~ (sim|adoraria|claro|grato|por favor) && "$casar" = "0" ]] && {
+
+#			[[ "$minusc" =~ (sim|adoraria|claro|grato|por favor) && "${casar}" = "0" ]] && {
 #				casar=1
 #					comparar=${message_from_id[$id]}
 #					checarId=$(fgrep "$comparar" ajudando.txt)
@@ -4423,7 +4540,8 @@ for id in $(ShellBot.ListUpdates)
 #						enviar
 #					}
 #				}
-#			[[ "$minusc" =~ (n(ão|op)|forma alguma|claro que|negativo) && "$casar" = "0" ]] && {
+
+#			[[ "$minusc" =~ (n(ão|op)|forma alguma|claro que|negativo) && "${casar}" = "0" ]] && {
 #				casar=1
 #					verificarId=$(< ajudando.txt)
 #					comparar=${message_from_id[$id]}
@@ -4438,32 +4556,68 @@ for id in $(ShellBot.ListUpdates)
 #					escrever
 #					enviar
 #			}
-			[[ "$minusc" =~ (senti|sua).*(saude|falta) && "$casar" = "0" ]] && {
+
+			[[ "$minusc" =~ (senti|sua).*(saude|falta) && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="eu também senti a sua :3"
 					escrever
 					responder
 			}
-			[[ "$minusc" = *"ninguém liga"* && "$casar" = "0" ]] && {
+
+			[[ "$minusc" = *"ninguém liga"* && "${casar}" = "0" ]] && {
 				casar=1
 					mensagem="mas eu ligo, e eu vou fazer se eu quiser, não dependo de você!"
 					escrever
 					responder
 			}
-			[[ "$minusc" = *"faça uma enquete"* && "$casar" = "0" ]] && {
+
+			[[ "$minusc" =~ (oi |olá ) && "${casar}" = "0" ]] && {
 				casar=1
-					mensagem="ok, vou criar uma enquete ..."
-					enviar
-					questoes='["php", "JavaScript", "shellscript", "java", "rust", "c", "c++", "Csharp", "mysql", "outros ..."]'
-					ShellBot.sendPoll --chat_id ${message_chat_id[$id]} \
-									  --question "escolha as linguagens que você utiliza:" \
-									  --options "$questoes" \
-									  --is_anonymous false \
-									  --allows_multiple_answers true
-					fixarbot
+				Consulta_table php
+				Update_table_soma php 15
+				[[ 4 -lt ${valor} ]] && Update_table 0 15
+				case ${valor} in
+					1)
+						mensagem="oi ${message_from_username[$id]}, como vai você ?"
+						escrever
+						responder
+					;;
+
+					2)
+						mensagem="oi ${message_from_first_name[$id]} ?"
+						escrever
+						responder
+					;;
+
+					3)
+						mensagem="oi, tudo bom ?"
+						escrever
+						responder
+					;;
+
+
+					4)
+						mensagem="pois não ${message_from_username[$id]} ?"
+						escrever
+						responder
+					;;
+				esac
 			}
-		}
-		}
+
+			[[ "$minusc" = *"faça uma enquete"* && "${casar}" = "0" ]] && {
+				casar=1
+				mensagem="ok, vou criar uma enquete ..."
+				enviar
+				questoes='["php", "JavaScript", "shellscript", "java", "rust", "c", "c++", "Csharp", "mysql", "outros ..."]'
+				ShellBot.sendPoll --chat_id ${message_chat_id[$id]} \
+								  --question "escolha as linguagens que você utiliza:" \
+								  --options "$questoes" \
+								  --is_anonymous false \
+								  --allows_multiple_answers true
+				fixarbot
+			}
+	 #	}
+	 }
 		) &
 	done
 done

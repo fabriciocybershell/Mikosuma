@@ -1,29 +1,28 @@
 #! /bin/bash
 
 cort(){
+	#identificar índices de conteúdos
 	[[ "${1,,}" =~ (pref(á|a)cio|ap(e|ê)ndice|about) ]] && cort=$(tr -d '\n' <<< "${1#*${BASH_REMATCH[0]}}") || cort=$(tr -d '\n' <<< "$1")
 }
 
-quebra_edit(){
-	cort=${cort//\./\.\\n}
-	cort=${cort//\?/\?\\n}
-	cort=${cort//\!/\!\\n}
-	sent=$(echo -e "$cort") # criar quebra de linha nos textos da variável.
-	arquivo=${1%.*}
-}
-
 [[ "$1" = "-a" ]] && {
-
+	#converter formatos de arquivos em um só
 	[[ "$2" = *".txt"* ||  "$2" = *".md"* ]] && {
 		cort "$(< $2)"
-		quebra_edit
+		cort=${cort//\./\.\\n}
+		cort=${cort//\?/\?\\n}
+		cort=${cort//\!/\!\\n}
+		sent=$(echo -e "$cort")
 		rm ${2}
 	}
 
 	[[ "$2" = *".pdf"* ]] && {
 		pdf2txt "$2" -o "${2%.*}.txt"
 		cort "$(< ${2%.*}.txt)"
-		quebra_edit
+		cort=${cort//\./\.\\n}
+		cort=${cort//\?/\?\\n}
+		cort=${cort//\!/\!\\n}
+		sent=$(echo -e "$cort")	
 	}
 
 	[[ "${2,,}" =~ https? ]] && {
@@ -31,7 +30,10 @@ quebra_edit(){
 		avaliar1=$(egrep -o '<p(.*)??>(.*)(</p>)?' <<< "$site")
 		[[ "${avaliar1}" =~ (\{|\}| class\=) ]] && avaliar1=$(egrep -o '<p(.*)??>(.*)</p>' <<< "$site")
 		cort "$(sed 's/<[^>]*>//g' <<< "${avaliar1}" | html2text -utf8 -nometa)"
-		quebra_edit
+		cort=${cort//\./\.\\n}
+		cort=${cort//\?/\?\\n}
+		cort=${cort//\!/\!\\n}
+		sent=$(echo -e "$cort") # criar quebra de linha nos textos da variável.
 	}
 
 	[[ "$2" = *".doc"* ]] && { # ou docx
@@ -39,12 +41,19 @@ quebra_edit(){
 		rm "$2"
 		cort "$(< ${2%.*}.txt)"
 		rm "${2%.*}.txt"
-		quebra_edit
+		cort=${cort//\./\.\\n}
+		cort=${cort//\?/\?\\n}
+		cort=${cort//\!/\!\\n}
+		sent=$(echo -e "$cort")
 	}
 	arquivo=${2%.*}
 } || {
 	cort "$1"
-	quebra_edit
+	cort=${cort//\./\.\\n}
+	cort=${cort//\?/\?\\n}
+	cort=${cort//\!/\!\\n}
+	sent=$(echo -e "$cort")
+	arquivo=${1%.*}
 }
 
 #echo "fase:1"
