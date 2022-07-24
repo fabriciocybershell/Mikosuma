@@ -1,6 +1,7 @@
 <img src="https://img.shields.io/liberapay/gives/fabriciocybershell.svg?logo=liberapay">
 
 [<img src="https://img.shields.io/github/languages/code-size/fabriciocaetano/mikosuma">](https://img.shields.io/github/languages/code-size/fabriciocaetano/mikosuma)
+![Package Version](https://img.shields.io/badge/version-0.3.2-green.svg?cacheSeconds=2592000) ![Package Version](https://img.shields.io/badge/linguagem-ShellScript-blue.svg?cacheSeconds=2592000)
 # eduarda monteiro
 
 **eduarda** é um projeto de bot para telegram, capaz de gerenciar um grupo completo por linguagem natural e poucos comandos, agindo como uma humana comum, capaz de realizar as seguntes ações:
