@@ -7,7 +7,7 @@ suprimidos pela plataforma telegram, seguida de filtros internos no código segu
 alguns métodos e práticas inteligentes.
 os programas utilizados que possam vir a ter alguma falha são: curl, jq, sox e pdf2text.
 
-as atualizações saem de forma não definida, pois ela pe desenvolvida na medida que eu vou
+as atualizações saem de forma não definida, pois ela é desenvolvida na medida que eu vou
 encontrando brechas de tempo no meu dia a dia. isso sem falar em outros projetos pessoais
 que andam ocorrendo ao mesmo tempo, sendo a duda uma delas, porém ela é atualizada bem aos
 poucos, em off no meu sistema, e sendo atualizada em tempo real em um servidor remoto onde
