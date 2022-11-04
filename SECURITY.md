@@ -3,7 +3,7 @@
 ## Supported Versions
 atualmente, nenhuma falha foi encontrada até o momento, os programas utilizados
 como bibliotecas e afins, que possam conter algum tipo de vulneraildiade, são
-suprimidos pela plaatforma telegram, seguida de filtros internos no código seguindo
+suprimidos pela plataforma telegram, seguida de filtros internos no código seguindo
 alguns métodos e práticas inteligentes.
 os programas utilizados que possam vir a ter alguma falha são: curl, jq, sox e pdf2text.
 
