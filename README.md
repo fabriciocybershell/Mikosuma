@@ -55,13 +55,13 @@ ela é autônoma, o que significa que muitos erros e problemas que ocorrerem ela
 
 # dependências
 
-## aqui estão listadas as dependências necessárias, as seguintes são para recursos ainda em desenvolvimento.
+ aqui estão listadas as dependências necessárias, as seguintes são para recursos ainda em desenvolvimento.
 
 ```
 curl, jq, ffmpeg, sox, html2text.
 ```
 
-## estes são os não necessários, pois os recursos estão desativados no código.
+estes são os não necessários, pois os recursos estão desativados no código.
 ```
 pdf2txt/pdftotxt, catdoc.
 
