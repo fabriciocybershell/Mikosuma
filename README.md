@@ -69,7 +69,7 @@ pdf2txt/pdftotxt, catdoc.
 
 ## comando direto para instalação de dependências:
 ```
-sudo apt install curl ffmpeg html2text sox && sudo snap install jq || sudo apt install jq
+sudo apt update ; sudo apt -y install curl ffmpeg html2text sox jq
 ```
 
 ## como rodar:
@@ -77,7 +77,7 @@ dê as permissões necessárias para o arquivo ser executado dentro da pasta:
 ```
 chmod +x miko.sh
 ```
-e rodando com:
+e rodando com: (não se esqueça de adicionar as credenciais do botfhater no código)
 ```
 ./miko.sh
 ```
