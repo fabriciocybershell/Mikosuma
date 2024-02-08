@@ -5,6 +5,8 @@
 
 **Eduarda** é um projeto de bot para telegram, capaz de ajudar e facilitar o gerenciamento automático de grupos quase por completo, utilizando linguagem natural e poucos comandos para permitir melhor interação dela com os membros do grupo, agindo similar a uma humana comum. 
 
+**OBSERVAÇÕES:** ela foi construída a muito tempo antes de sequer lançar os modelos GPT, a Duda não possui motor de linguagem GPT, atualmente existe uma parte que ela faz uso do GPT para apenas uma única tarefa: criar temas de enquetes, onde a mesma instrui o que deve ser gerado, e como devem ser os dados de retorno, ela quem determina a forma da enquet ser feita, e cria a estrutura do mesmo. gosto de manter o mínimo de intervenções externas o possível, a ponto desta ser a única, e mesmo assim, sendo apenas um fragmento complementar.
+
 este bot é capaz de realizar as seguntes ações:
 
 1. atender novos integrandes;"
@@ -46,11 +48,9 @@ o desempenho é ABSURDO, e entre outras coisas, todos os códigos foram refatora
 todo o código foi refatorado do absoluto 0, cada método foi refeito e reprojetado, funções mais inteligentes e algoritmos muito poderosos foram reconstruidos do zero, e outros construidos novos com técnicas mais atuais.
 
 ## obs:
-use a duda por sua conta e rísco, fique sempre de olho no algoritmo em execussão, pois ela mesmo não necessariamente aprendendo com os dados como uma IA, porém os algoritmos são avançados o suficiente para já conseguirem mudar algumas das respóstas e comportamentos em diversas situações, algumas delas não programadas.
+"use a duda por sua conta e rísco" costumo dizer isso pois ela faz diversas interações, o risco real é a maioria das pessoas realmente não perceberem que ela é um bot depois de um loongo tempo. fique sempre de olho no algoritmo em execussão, pois ela mesmo não necessariamente aprendendo com os dados como uma IA, porém os algoritmos são avançados o suficiente para já conseguirem mudar algumas das respóstas e comportamentos em diversas situações, algumas delas não programadas.
 
 ela é autônoma, o que significa que muitos erros e problemas que ocorrerem ela esta programada para tentar lidar com eles por conta própria em alguns casos, porém em casos de parada, é recomendável verificar seu funcionamento online com o comando /vida, e se não houver respóstas, force a parada do algoritmo imediatamente se possível. boa sorte :D
-
-<a href="https://liberapay.com/fabriciocybershell/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a> Pix: eduardamonteiro@telegmail.com
 
 # dependências
 
