@@ -35,7 +35,7 @@ LINK do canal da duda de postagem de podcasts diários: https://t.me/mikoduda;"
 21. lhe permite adicionar link de regra e canal, sempre que alguém perguntar sobre ou pedir, ela irá mostrar;"
 22. comentários e outros níveis de interações a depender dos tópicos das conversas (se ativado);"
 23. buscar vídeos no youtube."
-
+... e diversas outras, ainda restamm partes para serem catalogadas.
 ## manual parcial disponível aqui:
 [Manual Eduarda](https://telegra.ph/Eduarda-Monteiro--manual-09-20)
 
