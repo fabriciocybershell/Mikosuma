@@ -75,6 +75,30 @@ sudo apt update ; sudo apt -y install curl ffmpeg html2text sox jq
 ```
 
 ## como rodar:
+modifique as variáveis globais internas no topo do código:
+```
+# CONFIGURAÇÕES E TOKENS DA EDUARDA MONTEIRO (DUDA/BOT):
+#--------------------------------------------------------------------------------------------------------------
+#chave/token da duda/bot
+bot_token='<SUA_CHAVE_PRINCIPAL>' #duda principal
+#bot_token='<sua_chave_teste>' # duda teste
+#---------------------------
+
+# token de pagamentos stripe:
+token_pay='<TOKEN_VÁLIDA>' #real
+#token_pay='<token teste>' #teste
+
+#---------------------------
+#token da deepai.org para detecção de porn e imagens extremistas
+token_porn='<TOKEN_DEEPAI>' # ficará defasado após futuras atualizações
+#---------------------------
+
+# ID do dono, VOCÊ
+ID_DONO="<SEU_USER_ID>"
+
+#--------------------------------------------------------------------------------------------------------------
+
+```
 dê as permissões necessárias para o arquivo ser executado dentro da pasta:
 ```
 chmod +x miko.sh
@@ -83,4 +107,4 @@ e rodando com: (não se esqueça de adicionar as credenciais do botfhater no có
 ```
 ./miko.sh
 ```
-se aparecer um "dane-se" na tela, é porque esta tudo ok :D
+se aparecer "sistema de banco de dados ativado com suicesso!" na tela, é porque esta tudo ok :D
