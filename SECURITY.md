@@ -1,11 +1,11 @@
 # Security Policy
 
 ## Supported Versions
-atualmente, nenhuma falha foi encontrada até o momento, os programas utilizados
-como bibliotecas e afins, que possam conter algum tipo de vulneraildiade, são
-suprimidos pela plataforma telegram, seguida de filtros internos no código seguindo
-alguns métodos e práticas inteligentes.
-os programas utilizados que possam vir a ter alguma falha são: curl, jq, sox e pdf2text.
+falhas de segurança encontradas que estão a ser investigadas: falta de proteções em algumas strings, e expansão de parâmetros
+que podem possibilitar interpretação direta de strings na linha de comando aberta, as falhas foram relatadas, e ainda serão
+investigadas.
+
+os programas utilizados que possam vir a ter alguma falha são externas ao código da duda: curl, jq, sox e pdf2text.
 
 as atualizações saem de forma não definida, pois ela é desenvolvida na medida que eu vou
 encontrando brechas de tempo no meu dia a dia. isso sem falar em outros projetos pessoais
