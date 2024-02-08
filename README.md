@@ -36,6 +36,9 @@ LINK do canal da duda de postagem de podcasts diários: https://t.me/mikoduda;"
 22. comentários e outros níveis de interações a depender dos tópicos das conversas (se ativado);"
 23. buscar vídeos no youtube."
 
+## manual parcial disponível aqui:
+[Manual Eduarda](https://telegra.ph/Eduarda-Monteiro--manual-09-20)
+
 ## API utilizada para 90% da comunicação com o telegram:
 
 [ShellBot](https://github.com/shellscriptx/ShellBot)
